@@ -1,0 +1,107 @@
+\author{Beniamino Green}
+\title{Pre-Registration for Undergrad Dissertation}
+
+\documentclass{article}
+
+\usepackage{fancyhdr}
+\usepackage{tcolorbox}
+\usepackage{mathtools}
+\usepackage{float}
+\usepackage{threeparttable}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{listings}
+\usepackage{graphicx}
+\usepackage{setspace}
+\usepackage{verbatim}
+\usepackage{amssymb}
+\usepackage[backend=biber, style=authoryear-icomp,doi=false,isbn=false,url=false]{biblatex}
+\addbibresource{$BIB}
+
+\addtolength{\oddsidemargin}{-.5in}
+\addtolength{\evensidemargin}{-.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1in}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{Beniamino Green}
+\lhead{Pre-Registration for Undergrad Dissertation}
+\rfoot{\thepage}
+\begin{document}
+\maketitle{}
+\textit{This paper uses Google search terms containing offensive language as a proxy measure for racial animus. Following the practice of similar works \parencites{Stephens_Davidowitz_2014}{Chae_2015}{Chae_2018}{Isoya_2021}, I use coded language to refer to these terms. The words themselves can be found in Table \ref{coded}}
+
+\section{Introduction}
+
+Previous research has demonstrated that Sinclair acquisition of a network is associated with a sharp rightwards shift in its coverage \parencite[][]{Martin_2019}.
+However, a quantitative analysis of the effect of Sinclair ownership on coverage of racial issues has not been conducted.
+
+There is significant evidence to suggest that Sinclair ownership does push stations to run more racially conservative stories than they otherwise would.
+This year, the Sinclair corporation drew ire for a series of ``must-run'' segments on police violence following the murder of George Floyd pushing the ``black-on-black violence'' canard and advocating for a military response to the protests.
+
+Sinclair additionally has a history of hiring disgraced Fox News hosts
+
+\section{Methodology}
+
+Following \cite{Stephens_Davidowitz_2014}, I use Google trends data as a proxy measure for racial animus.
+
+Google trends data provide a sample of the searches made by Google users over a certain time frame in a region.
+The popularity of a search in a region at a certain time is expressed as a search score, calculated as the following:
+
+\[
+\text{Search Score}_{ijk} = [\frac{\text{number of searches for } i \text{ during time } j \text{ in region } k }{\text{maximum number of searches for } i \text{ over any month } \text{ in region } k }] \times 100
+\]
+
+
+This poses a problem for a difference-in-difference approach, as the maximum number of searches for a word in any time period changes between areas.
+As the maximum monthly searches for a term differs between regions, A score of 50 in one region might correspond to 500 searches, while the same score might correspond to 5000 searches in another area.
+
+Similarly
+
+\begin{table}[!htb]
+    \caption{Example Raw Data From Google Trends}
+    \begin{minipage}{.6\linewidth}
+        \centering
+        \begin{tabular}{|c|c|c|c|c|c|}
+            \hline
+            DMA Code           & shoe & fruit & horse & cup & smart \\ \hline
+            803   & 23          & 100     & 5           & 10            & 27         \\ \hline
+            616   & 26          & 86      & 3           & 15            & 45         \\ \hline
+            617         & 32          & 94      & 6           & 24            & 31 \\ \hline
+        \end{tabular}
+        \caption{Search trends data for words 1-5}
+    \end{minipage}%
+    \begin{minipage}{.6\linewidth}
+        \centering
+        \begin{tabular}{|c|c|c|c|c|c|}
+            \hline
+            DMA Code           & smart & pen & waltz & gnome & boots \\ \hline
+            803   & 14         & 32    & 5       & 3       & 100     \\ \hline
+            616   & 22         & 54    & 13      & 2       & 88      \\ \hline
+            617         & 16         & 50    & 12      & 1       & 96      \\ \hline
+        \end{tabular}
+        \caption{Search trends data for words 5-9}
+    \end{minipage}
+\end{table}
+
+
+
+\printbibliography{}
+\appendix
+\section{Codings for Offensive Words}
+\begin{centering}
+\begin{table}[]
+    \begin{tabular}{|l|l|} \\ \hline
+    Code & Word \\ \hline
+         &      \\ \hline
+         &      \\ \hline
+\end{tabular}
+\end{table}
+\end{centering}
+
+
+\end{document}
+
