@@ -5,6 +5,7 @@
 
 \usepackage{fancyhdr}
 \usepackage{tcolorbox}
+\usepackage{caption}
 \usepackage{mathtools}
 \usepackage{float}
 \usepackage{threeparttable}
@@ -24,6 +25,9 @@
 \addtolength{\textwidth}{1in}
 \addtolength{\topmargin}{-.5in}
 \addtolength{\textheight}{1in}
+\newcommand{\wone}{[Word 1] }
+\newcommand{\wones}{[Word 1]'s }
+\newcommand{\woneps}{[Word 1](s) }
 
 \pagestyle{fancy}
 \fancyhf{}
@@ -31,37 +35,103 @@
 \lhead{Pre-Registration for Undergrad Dissertation}
 \rfoot{\thepage}
 \begin{document}
+
 \maketitle{}
-\textit{This paper uses Google search terms containing offensive language as a proxy measure for racial animus. Following the practice of similar works \parencites{Stephens_Davidowitz_2014}{Chae_2015}{Chae_2018}{Isoya_2021}, I use coded language to refer to these terms. The words themselves can be found in Table \ref{coded}}
+\textit{This paper uses Google search terms containing offensive language as a proxy measure for racial animus. Following the practice of similar works \parencites{Stephens_Davidowitz_2014}{Chae_2015}{Chae_2018}{Isoya_2021}, I use coded language to refer to these terms. The words themselves can be found in Table \ref{words}}
 
 \section{Introduction}
 
+Can media coverage influence racial resentment?
+Empirical studies suggest that when white Americans understand welfare policies to threaten their privileged status in the U.S. Social hierarchy, their resentment of minorities increases and their support for welfare decreases \parencites[][]{Willer_2016}{Wetts_2018}.
+This tendency seems to be weaponed by conservative media institutions and politicians, who seem to encourage racial animus to erode support for social programs, as in the infamous example of the ``Welfare Queen" narrative, a racial stereotype employed to undercut support for the Aid to Families with Dependent Children (AFDC).
+However, the link between traditional media coverage and racial resentment has not been extensively studied.
+
+I propose a study exploiting the expansion of the Sinclair Media Network from 2004-2021 to understand how conservative media messaging impacts racial resentment in a media market.
+The expansion of Sinclair Media during this period provides the basis for a difference-in-differences analysis estimating the effect of Sinclair Media purchasing a station on racial animus in an area.
+I propose using data from Google search trends in an area as a proxy for racial resentment, a strategy that has already been used to measure racial resentment in the context of public health \parencites{Chae_2018}{Chae_2015} and elections research \parencite{Stephens_Davidowitz_2014}.
+
+
+\section{Background}
+\subsection{Sinclair Broadcast Group}
+
+In this paper, I suggest exploiting the expansion of Sinclair Network over the period of 2004-2021.
+During this, the Sinclair Broadcast Group sold or purchased stations in 67 media markets.
+I use the same strategy to track the expansion of Sinclair Media outlets employed by \cite{Miho_2018}, namely, by extracting a record of the stations Sinclair Owns at the end of each financial year from their SEC form 10-K filings.
+These filings have an advantage over the typical sets data used to track network expansion maintained by the Nielsen Corporation as they are publicly available, so the findings can be easily reproduced.
+
 Previous research has demonstrated that Sinclair acquisition of a network is associated with a sharp rightwards shift in its coverage \parencite[][]{Martin_2019}.
 However, a quantitative analysis of the effect of Sinclair ownership on coverage of racial issues has not been conducted.
-
 There is significant evidence to suggest that Sinclair ownership does push stations to run more racially conservative stories than they otherwise would.
-This year, the Sinclair corporation drew ire for a series of ``must-run'' segments on police violence following the murder of George Floyd pushing the ``black-on-black violence'' canard and advocating for a military response to the protests.
+This year, the Sinclair corporation drew ire for a series of ``must-run'' segments on police violence following the murder of George Floyd pushing the ``black-on-black violence'' canard and advocating for a military response to the protests \parencites{Pleat_2020_b}{Pleat_2020_a}.
 
-Sinclair additionally has a history of hiring disgraced Fox News hosts
+In analyzing the effects of news coverage on racial animus, it might be natural to examine the expansion of Fox News, which occupies a position in the public consciousness as among the most conservative stations on racial issues, and is the most trusted media outlet among Republican and Republican-leaning respondents in many polls \parencite[][]{Jurkowitz_2020}.
+However, I choose to use Sinclair over Fox News Stations for two reasons.
+First, Fox News' expansion strategy has involved purchasing a larger stations.
+As television companies in the US can only expand until they broadcast to 39\% of U.S. households \parencite[][]{Scherer_2018}, Fox News has been able to buy fewer stations than Sinclair, which entails a smaller sample size of stations that changed ownership.
+Second, Fox News' expansion primarily happened before 2004, the first year for which Google Trends data is available, which further limits the sample size of stations which changed ownership for which there is data on racial animus.
 
-\section{Methodology}
+\subsection{Google Trends Data}
 
 Following \cite{Stephens_Davidowitz_2014}, I use Google trends data as a proxy measure for racial animus.
+Specifically, I use trend data for the searches for the terms ``\wone'' and ``\wones''.
+
+This measurement approach has an advantage over traditional survey-based measures of racial animus in that it is less subject to a social desirability bias;
+``Google searchers are online and likely alone, both of which make it easier to express socially taboo thoughts (Kreuter et al., 2009)" \parencite[][26]{Stephens_Davidowitz_2014}.
+Further, it provides a high-resolution set of data that would be prohibitively expensive to collect from a traditional survey, especially given that the difference-in-differences approach requires a repeated survey comparable across multiple time periods.
+
+A pressing concern is that Google searches for ``\woneps'' may not actually capture the extent of racial bias in an area, but simply reflect users learning about the term.
+In fact, ``definition of \wone'' and ``what does \wone mean" are both among the top 5 search queries related to the ``\wone".
+These queries suggest that many who search for the term are searching out of curiosity to investigate the term.
+
+This is not to suggest that searches for the term do not capture any variation in racial animus: among the top 10 most searched related queries to the term \wones are ``I don't like \wones,"  ``fuck the \wones," and ``ship those \wones back."
+
+The concern that Google Searches for racial slurs may largely reflect curiosity about the term is valid.
+Subject to data availability, I suggest controlling for the frequency of searches for the definitions of these terms in each area, to try and isolate the effect of Sinclair media entering a market on searches expressing ``hardcore" racial animus rather than curiosity.
+
+
+\section{Methodology}
+\subsection{Scaling Google Trends Data}
+\subsubsection{Between Regions}
+
 
 Google trends data provide a sample of the searches made by Google users over a certain time frame in a region.
 The popularity of a search in a region at a certain time is expressed as a search score, calculated as the following:
 
+
 \[
-\text{Search Score}_{ijk} = [\frac{\text{number of searches for } i \text{ during time } j \text{ in region } k }{\text{maximum number of searches for } i \text{ over any month } \text{ in region } k }] \times 100
+\text{Search Score}_{ijk} = [\frac{\text{number of searches for } i \text{ during time } j \text{ in region } k }{\text{maximum number of searches for } i \text{ over any month in region } k }] \times 100
 \]
 
+Where
+\begin{itemize}
+    \itemsep0em
+    \item $i$ is the search term in question
+    \item $j$ is the time period analyzed (a given year)
+    \item $k$ is the region surveyed
+\end{itemize}
 
 This poses a problem for a difference-in-difference approach, as the maximum number of searches for a word in any time period changes between areas.
-As the maximum monthly searches for a term differs between regions, A score of 50 in one region might correspond to 500 searches, while the same score might correspond to 5000 searches in another area.
+As the maximum monthly searches for a term differs between regions, A score of 50 in one region might correspond to 500 searches per capita, while the same score might correspond to 5000 searches per capita in another area.
 
-Similarly
+Accordingly, I scale searches between regions to make them directly comparable by multiplying the search score in a given area for a term by the average frequency with which that term is searched in that region when compared to other regions, a separate set of data also available from Google Trends. This has the effect of standardizing the search scores, so that any given score always corresponds to the same number of searches per capita.
 
-\begin{table}[!htb]
+\[
+    \text{Scaled Search Score}_{ijk} = \text{Search Score}_{ijk} \times \text{average frequency of searches for } i \text{ in region } k
+\]
+
+\subsubsection{Between Search Terms}
+Past studies have only used search data for one or two searches \parencite[][26]{Stephens_Davidowitz_2014}, primarily ``\woneps''.
+This approach makes for easily interpretable results, but leaves open the possibility that the findings simply reflect idiosyncratic changes in searches these terms rather than changes in racial animus as a whole.
+I suggest, subject to data availability, using a larger pool of search terms (registered before running tests) to try and understand whether findings are consistent across a larger set of searches that express racial animus.
+
+Currently, Google Trends only allows for the direct comparison of up to five searches at once.
+When these queries are performed, the search score for each search is expressed as a percent of the frequency of searches in the most popular region.
+I solve this problem by using several linked sets of comparisons.
+By running several sets of 5 queries with a shared term (in this case, ``smart"), I can scale the searches so they are directly comparable.
+In the example below, this entails multiplying the score of words 5-9 by 2, so that the scores are on the same scale - a percent of the frequency of searches for "fruit" in DMA 803 (the term / region combination searched most frequently).
+This makes the scores directly comparable.
+
+\begin{table}[H]
     \caption{Example Raw Data From Google Trends}
     \begin{minipage}{.6\linewidth}
         \centering
@@ -70,9 +140,9 @@ Similarly
             DMA Code           & shoe & fruit & horse & cup & smart \\ \hline
             803   & 23          & 100     & 5           & 10            & 27         \\ \hline
             616   & 26          & 86      & 3           & 15            & 45         \\ \hline
-            617         & 32          & 94      & 6           & 24            & 31 \\ \hline
+            617    & 32          & 94      & 6           & 24            & 31 \\ \hline
         \end{tabular}
-        \caption{Search trends data for words 1-5}
+        \caption*{Search trends data for words 1-5}
     \end{minipage}%
     \begin{minipage}{.6\linewidth}
         \centering
@@ -83,21 +153,35 @@ Similarly
             616   & 22         & 54    & 13      & 2       & 88      \\ \hline
             617         & 16         & 50    & 12      & 1       & 96      \\ \hline
         \end{tabular}
-        \caption{Search trends data for words 5-9}
+        \caption*{Search trends data for words 5-9}
     \end{minipage}
 \end{table}
 
+\subsection{Difference in Differences Analysis}
+
+To estimate the difference-in-difference models, I will use the following model:
+
+\[
+    \text{Racially Charged Search Rate}= \beta_{1}(\text{ Sinclair Present }) + \beta_{2}(\text{ DMA fixed effects }) + \beta_{3}(\text{ year fixed effects }) +
+\]
+
+I will also estimate the effect using a Poisson / negative binomial regression if the counts of searches for the terms used are over-dispersed, as performed in \cite{Chae_2015}.
+
+\[
+    \log{(\text{Racially Charged Search Rate})}= \beta_{1}(\text{ Sinclair Present }) + \beta_{2}(\text{ DMA fixed effects }) + \beta_{3}(\text{ year fixed effects }) +
+\]
 
 
 \printbibliography{}
 \appendix
 \section{Codings for Offensive Words}
 \begin{centering}
-\begin{table}[]
-    \begin{tabular}{|l|l|} \\ \hline
+\begin{table}[H]
+\label{words}
+\begin{tabular}{|l|l|}
+      \hline
     Code & Word \\ \hline
-         &      \\ \hline
-         &      \\ \hline
+    Word 1  & nigger   \\ \hline
 \end{tabular}
 \end{table}
 \end{centering}

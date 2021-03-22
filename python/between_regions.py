@@ -6,30 +6,13 @@ import csv
 
 pytrends = TrendReq(hl='en-US', tz=360)
 
-queries = [
-    "hat",
-    "shoes",
-    "water",
-    "cart",
-    "throat",
-    "oranges",
-    "wax",
-    "voice",
-    "muscle",
-    "underwear",
-    "knowledge",
-    "airport",
-    "secretary",
-]
-
-
 def between_region(query):
     pytrends.build_payload(query, cat=0, timeframe='all', geo='US', gprop='')
-    df = pytrends.interest_by_region(resolution='REGION',
+    df = pytrends.interest_by_region(resolution='DMA',
                                      inc_low_vol=True,
                                      inc_geo_code=True)
     df = df.set_index("geoCode")
-    df.index.name = 'geocode'
+    df.index.name = 'code'
     return (df)
 
 
@@ -46,7 +29,6 @@ def between_reigion_many(iterable):
         mean1 = df1[shared].mean()
         mean2 = df2[shared].mean()
         normaliation_factor = mean1 / mean2
-        print(shared)
         print((mean1, mean2))
 
         df2 = df2 * normaliation_factor
@@ -68,16 +50,18 @@ def get_region_trend(query, region):
     if not df.empty:
         df.columns = ["n", "ispartial"]
         df['geocode'] = geo_code
+        df['term'] = query
         df.index.name = 'date'
         df.reset_index(inplace=True)
         return df
 
 
 if __name__ == "__main__":
-    with open("search_words/abortion_keywords.csv") as csvfile:
+    with open("keywords.csv") as csvfile:
         reader = csv.reader(csvfile)
         queries = [row[0] for row in reader]
 
     with open("between.csv", "w") as f:
         df = between_reigion_many(itr_split_overlap(queries, 5, 1))
         df.to_csv(f, header=True)
+

@@ -7,7 +7,7 @@ import tqdm
 from pytrends.request import TrendReq
 
 pytrends = TrendReq(hl='en-US', tz=360)
-with open("queries.csv") as csvfile:
+with open("keywords.csv") as csvfile:
     reader = csv.reader(csvfile)
     queries = [row[0] for row in reader]
 
@@ -72,7 +72,6 @@ def get_state_trend(query, state):
             df.reset_index(inplace=True)
             df["query"] = query
             df["state"] = state
-            print(df)
             return df
     except:
         print(f"Rate error: {query} in {state}")
@@ -94,13 +93,11 @@ def between_region(query):
     return (df)
 
 
-with open("between.csv", "w") as f:
-    df = between_region("economist")
-    df.to_csv(f, header=True)
-
-with open("searches.csv", "w") as f:
-    for query in tqdm.tqdm(queries):
-        for state in abbreviations:
-            df = get_state_trend(query, state)
-            if df is not None:
-                df.to_csv(f, header=False)
+if __name__ == "__main__":
+    with open("searches.csv", "w") as f:
+        f.write("row,date,score,ispartial,term,code\n")
+        for query in tqdm.tqdm(queries):
+            for state in abbreviations:
+                df = get_state_trend(query, state)
+                if df is not None:
+                    df.to_csv(f, header=False)
