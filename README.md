@@ -3,7 +3,7 @@ This is a Git repo to manage my dissertation work.
 
 ## Todo List:
 
-- [ ] Re-do directory structure
+- [x] Re-do directory structure
 - [ ] Ensure scaling works for multiple keywords
 - [ ] Add code to estimate placebo cutoff effects
 - [x] Find expanded list of keywords
