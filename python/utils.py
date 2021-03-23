@@ -1,8 +1,20 @@
 import itertools as it
+import urllib.request
 
 
+# Tests if computer is connected to internet (used in tests)
+def connected():
+    try:
+        urllib.request.urlopen('http://google.com')
+        return True
+    except:
+        return False
+
+
+# Censors strings so that senstive words aren't uploaded to github / used in scripts
 def censor_string(string):
-    return(string[0] + "_"*(len(string)-2) + string[-1] )
+    return (string[0] + "_" * (len(string) - 2) + string[-1])
+
 
 # credit to Ilja Everilä for this implimentation
 # https://stackoverflow.com/questions/48381870/a-better-way-to-split-a-sequence-in-chunks-with-overlaps

@@ -1,0 +1,33 @@
+\documentclass{article}
+
+\usepackage{setspace}
+\usepackage[backend=biber, style=authoryear-icomp,doi=false,isbn=false,url=false]{biblatex}
+\addbibresource{$BIB}
+
+\doublespacing{}
+\addtolength{\oddsidemargin}{-.5in}
+\addtolength{\evensidemargin}{-.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1in}
+
+\renewcommand\maketitle{}
+\begin{document}
+
+\maketitle{}
+\textit{This paper uses Google search terms containing offensive language as a proxy measure for racial animus. Following the practice of similar works \parencites{Stephens_Davidowitz_2014}{Chae_2015}{Chae_2018}{Isoya_2021}, I use coded language to refer to these terms. The words themselves can be found in Table \ref{words}}
+
+\section{Introduction}
+
+\section{Methods}
+
+Large-scale reproducibility surveys of major social science journals often reveal that many, if not most papers contain results that can not be replicated
+
+that the original results can't be replicated \parencites[][]{Nuijten_2015}{Eubank_2016}.
+
+This paper was written using Sweave and Kintr \parencite[][]{knitr}. The analysis routines were tested using the \textit{testthat} package in R \parencite[][]{testthat} and the \textit{unittest} module in Python \parencite[][]{Python}.
+
+
+
+\printbibliography{}
+\end{document}

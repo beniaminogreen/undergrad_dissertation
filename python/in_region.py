@@ -5,8 +5,10 @@ import pandas as pd
 import time
 import tqdm
 from pytrends.request import TrendReq
+from utils import censor_string
 
 pytrends = TrendReq(hl='en-US', tz=360)
+
 with open("keywords.csv") as csvfile:
     reader = csv.reader(csvfile)
     queries = [row[0] for row in reader]
@@ -70,27 +72,13 @@ def get_state_trend(query, state):
             df.columns = ["n", "ispartial"]
             df.index.name = 'date'
             df.reset_index(inplace=True)
-            df["query"] = query
+            df["query"] = censor_string(query)
             df["state"] = state
             return df
     except:
         print(f"Rate error: {query} in {state}")
         time.sleep(60)
         get_state_trend(query, state)
-
-
-def between_region(query):
-    pytrends.build_payload([query], cat=0, timeframe='all', geo='US', gprop='')
-    df = pytrends.interest_by_region(resolution='DMA',
-                                     inc_low_vol=True,
-                                     inc_geo_code=True)
-    df.index.name = 'geoname'
-    df.reset_index(inplace=True)
-    df = df.assign(
-        state=df['geoname'].map(lambda x: re.findall("[A-Z]*$", x)[0]))
-    df = df.assign(code="US-" + df["state"] + "-" + df["geoCode"])
-    df = df.sort_values(by=['code'])
-    return (df)
 
 
 if __name__ == "__main__":
