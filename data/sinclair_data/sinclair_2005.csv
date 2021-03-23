@@ -1,0 +1,37 @@
+Market,MarketRank (a),Stations,Status (b),Channel (c),Affiliation,Expiration Date of Affiliation Agreement,Number of Commercial Stations in the Market (d),Station Rank (e),Expiration Date of FCC License
+"Tampa, Florida",12,WTTA,LMA (f),38 / 57,WB (v),01/15/08 (g),8,6,02/01/05 (h)
+"Minneapolis/St. Paul, Minnesota",15,KMWB,O&O,23 / 22,WB,01/15/08 (g),7,6,04/01/06 (h)
+"St. Louis, Missouri",21,KDNL,O&O,30 / 31,ABC,12/31/09,8,4,02/01/06 (h)
+"Pittsburgh, Pennsylvania",22,WPGHWCWB,O&OO&O,53 / 4322 / 42,FOXWB (v),06/30/05 (i)1/15/08 (g),9,46,08/01/0708/01/07
+"Baltimore, Maryland",24,WBFFWNUV,O&OLMA (k),45 / 4654 / 40,FOXWB,06/30/05 (i)01/15/08 (g),6,45,10/01/04 (j)10/01/04 (l)
+"Raleigh/Durham, North Carolina",29,WRDCWLFL,O&OO&O,28 / 2722 / 57,UPN (v)WB,07/31/07 (g)01/15/08 (g),7,56,12/01/04 (j)12/01/04 (j)
+"Nashville, Tennessee",30,WZTVWUXPWNAB,O&OO&OOSA (m),17 / 1530 / 2158 / 23,FOXUPN (v)WB,06/30/05 (i)07/31/07 (g)01/15/08 (g),8,456,08/01/05 (h)08/01/05 (h)08/01/05 (n)
+"Columbus, Ohio",32,WSYXWTTE,O&OLMA (k),6 / 1328 / 36,ABCFOX,12/31/0906/30/05 (i),6,34,10/01/05 (h)10/01/05 (l)
+"Milwaukee, Wisconsin",33,WCGVWVTV,O&OO&O,24 / 2518 / 61,UPN (v)WB,07/31/07 (g)01/15/08 (g),9,56,12/01/05 (j)12/01/05 (j)
+"Cincinnati, Ohio",34,WSTR,O&O,64 / 33,WB (v),01/15/08 (g),6,5,10/01/05 (h)
+"Asheville, North Carolina/Greenville/Spartanburg/Anderson, South Carolina",35,WLOSWBSC,O&OLMA (k),13 / 5640 / 14,ABCWB (v),12/31/0901/15/08 (g),7,35,12/01/04 (j)12/01/04 (o)
+"San Antonio, Texas",37,KABBKRRT,O&OO&O,29 / 3035 / 32,FOXWB (v),06/30/05 (i)01/15/08 (g),7,45,08/01/0608/01/06
+"Birmingham, Alabama",40,WTTOWABMWDBB,O&OO&OLMA,21 / 2868 / 3617 / 18,WBUPN (v)WB,01/15/08 (g)07/31/07 (g)01/15/08 (g),8,565 (p),04/01/05 (h)04/01/05 (h)04/01/05 (n)
+"Norfolk, Virginia",42,WTVZ,O&O,33 / 38,WB (v),01/15/08 (g),7,6,10/01/04 (h)
+"Oklahoma City, Oklahoma",45,KOKHKOCB,O&OO&O,25 / 2434 / 33,FOXWB,06/30/05 (i)01/15/08 (g),9,45,06/01/06 (h)06/01/06 (h)
+"Greensboro/Winston-Salem/ Highpoint, North Carolina",47,WXLVWUPN,O&OO&O,45 / 2948 / 33,ABCUPN (v),12/31/0907/31/07 (g),7,46,12/01/04 (j)12/01/04 (j)
+"Las Vegas, Nevada",48,KVWBKFBT,O&OO&O,21 / 2233 / 29,WB (v)IND (q),01/15/08 (g)n/a,7,57,10/01/0610/01/06
+"Buffalo, New York",49,WUTVWNYO,O&OO&O,29 / 1449 / 34,FOXWB (v),06/30/05 (i)01/15/08 (g)(r),8,45,06/01/0706/01/07
+"Dayton, Ohio",59,WKEFWRGT,O&OLMA (k),22 / 5145 / 30,ABCFOX,12/31/0906/30/05 (i),8,34,10/01/05 (h)10/01/05 (l)
+"Richmond, Virginia",60,WRLH,O&O,35 / 26,FOX,06/30/05 (i),5,4,10/01/04 (h)
+"Mobile, Alabama and Pensacola, Florida",62,WEARWFGX,O&OO&O,3 / 1735 / 50,ABCIND (q) (v),12/31/09n/a,8,2not rated,02/01/05 (h)02/01/13
+"Lexington, Kentucky",63,WDKY,O&O,56 / 4,FOX,06/30/05 (i),6,4,08/01/05 (h)
+"Charleston and Huntington, West Virginia",64,WCHSWVAH,O&OLMA (k),8 / 4111 / 19,ABCFOX,12/31/0906/30/05 (i),6,34,10/01/1210/01/04 (l)
+"Flint/Saginaw/Bay City, Michigan",65,WSMH,O&O,66 / 16,FOX,06/30/05 (i),6,4,10/01/05 (h)
+"Des Moines, Iowa",73,KDSM,O&O,17 / 16,FOX,06/30/05 (i),5,4,02/01/06 (h)
+"Portland, Maine",74,WGME,O&O,13 / 38,CBS,12/31/07,6,2,04/01/07
+"Syracuse, New York",76,WSYTWNYS,O&OLMA,68 / 1943 / 44,FOXWB (v),06/30/05 (i)06/30/06 (g),6,45,06/01/0706/01/07
+"Rochester, New York",79,WUHF,O&O (s),31 / 28,FOX,06/30/05 (i),6,4,06/01/07
+"Cape Girardeau, Missouri/ Paducah, Kentucky",80,KBSIWDKA,O&OLMA,23 / 2249 / 50,FOXWB (v),06/30/05 (i)06/15/07 (g),7,45,02/01/0608/01/05 (n)
+"Springfield/Champaign, Illinois",82,WICSWICD,O&OO&O,20 / 4215 / 41,ABCABC,12/31/0912/31/09,6,33 (t),12/01/05 (j)12/01/05 (j)
+"Madison, Wisconsin",85,WMSN,O&O,47 / 11,FOX,06/30/05 (i),6,4,12/01/05 (h)
+"Cedar Rapids, Iowa",88,KGAN,O&O (s),2 / 51,CBS,12/31/07,6,3,02/01/06 (j)
+"Charleston, South Carolina",101,WMMPWTAT,O&OLMA (k),36 / 3524 / 40,UPN (v)FOX,07/31/07 (g)06/30/05 (i),6,54,12/01/04 (j)12/01/04 (o)
+"Springfield, Massachusetts",108,WGGB,O&O,40 / 55,ABC,12/31/09,4,2,04/01/07
+"Tallahassee, Florida",109,WTWC,O&O,40 / 2,NBC,01/01/07 (u),6,3,02/01/05 (h)
+"Peoria/Bloomington, Illinois",117,WYZZ,O&O (s),43 / 28,FOX,06/30/05 (i),6,4,12/01/05 (h)

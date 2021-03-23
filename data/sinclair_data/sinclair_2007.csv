@@ -1,0 +1,36 @@
+Market,Market Rank (a),Stations,Status (b),Affiliation (c),Station Rank in Market (d),Expiration Date of FCC License
+"Tampa, Florida",13,WTTA,LMA,MNT,6 of 8,02/01/13
+"Minneapolis/St. Paul, Minnesota",15,WUCW,O&O,CW,7 of 7,04/01/06
+"St. Louis, Missouri",21,KDNL,O&O,ABC,4 of 8,02/01/14
+"Pittsburgh, Pennsylvania",22,WPGH WPMY,O&O O&O,FOXMNT,4 of 8 6 of 8,08/01/15 08/01/07
+"Baltimore, Maryland",24,WBFF WNUV,O&OLMA,FOXCW,4 of 6 5 of 6,10/01/04  10/01/12
+"Raleigh/Durham, North Carolina",28,WLFL WRDC,O&OO&O,CW MNT,5 of 6 6 of 6,12/01/04  12/01/04
+"Nashville, Tennessee",30,WZTV WUXP WNAB,O&OO&OOSA,FOX MNT CW,4 of 85 of 86 of 8,08/01/13 08/01/05  08/01/05
+"Columbus, Ohio",32,WSYX WTTE,O&OLMA,ABCFOX,3 of 64 of 6,10/01/13 10/01/05
+"Cincinnati, Ohio",33,WSTR,O&O,MNT,5 of 7,10/01/05
+"Milwaukee, Wisconsin",34,WCGV WVTV,O&OO&O,MNT CW,5 of 96 of 9,12/01/05 12/01/05
+"Asheville, North Carolina/ Greenville/Spartanburg/ Anderson, South Carolina",36,WLOS WMYA,O&OLMA,ABC MNT,3 of 76 of 7,12/01/04  12/01/04
+"San Antonio, Texas",37,KABB KMYS,O&O O&O,FOXMNT,4 of 75 of 7,08/01/14 08/01/14
+"Birmingham, Alabama",40,WTTO WABM WDBB,O&O O&OLMA,CWMNT CW,5 of 9 6 of 95 of 9,04/01/05   04/01/13 04/01/13
+"Norfolk, Virginia",42,WTVZ,O&O,MNT,6 of 8,10/01/12
+"Las Vegas, Nevada",43,KVMY KVCW,O&OO&O,MNT CW,5 of 76 of 7,10/01/14 10/01/14
+"Oklahoma City, Oklahoma",45,KOKH KOCB,O&O O&O,FOX CW,4 of 95 of 9,06/01/14 06/01/14
+"Greensboro/Winston-Salem/ Highpoint, North Carolina",46,WXLV WMYV,O&OO&O,ABCMNT,4 of 76 of 7,12/01/04 12/01/04
+"Buffalo, New York",50,WUTV WNYO,O&OO&O,FOXMNT,4 of 8 6 of 8,06/01/07 06/01/15
+"Richmond, Virginia",59,WRLH,O&O,FOX,4 of 6,10/01/12
+"Mobile, Alabama/Pensacola, Florida",61,WEAR WFGX,O&O O&O,ABCMNT,2 of 8 not rated,02/01/13 02/01/13
+"Dayton, Ohio",62,WKEF WRGT,O&OLMA,ABCFOX,2 of 64 of 6,10/01/13 10/01/05
+"Lexington, Kentucky",64,WDKY,O&O,FOX,4 of 6,08/01/13
+"Charleston/Huntington, West Virginia",65,WCHS WVAH,O&O LMA,ABC FOX,2 of 74 of 7,10/01/12 10/01/04
+"Flint/Saginaw/Bay City, Michigan",66,WSMH,O&O,FOX,3 of 7,10/01/13
+"Des Moines, Iowa",71,KDSM,O&O,FOX,4 of 5,02/01/14
+"Portland, Maine",76,WGME,O&O,CBS,2 of 6,04/01/07
+"Rochester, New York",78,WUHF,O&O,FOX,4 of 6,06/01/07
+"Cape Girardeau, Missouri/ Paducah, Kentucky",79,KBSIWDKA,O&OLMA,FOXMNT,4 of 75 of 7,02/01/14 08/01/13
+"Syracuse, New York",80,WSYT WNYS,O&O LMA,FOX MNT,4 of 65 of 6,06/01/07 06/01/15
+"Springfield/Champaign, Illinois",84,WICSWICD,O&OO&O,ABC ABC,2 of 62 of 6,12/01/05 12/01/05
+"Madison, Wisconsin",85,WMSN,O&O,FOX,3 of 6,12/01/05
+"Cedar Rapids, Iowa",87,KGAN KFXA,O&OOSA,CBS FOX,3 of 6 4 of 6,02/01/06 02/01/06
+"Charleston, South Carolina",100,WTAT WMMP,LMA O&O,FOX MNT,4 of 65 of 6,12/01/04 12/01/04
+"Tallahassee, Florida",108,WTWC,O&O,NBC,3 of 6,02/01/13
+"Peoria/Bloomington, Illinois",117,WYZZ,O&O,FOX,4 of 6,12/01/05

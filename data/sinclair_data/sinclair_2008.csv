@@ -1,0 +1,36 @@
+Market,MarketRank (a),Stations,Status (b),Affiliation (c),StationRank inMarket (d)
+"Tampa, Florida",13,WTTA,LMA,MNT,6 of 8
+"Minneapolis/St. Paul, Minnesota",15,WUCW,O&O,CW,6 of 7
+"St. Louis, Missouri",21,KDNL,O&O,ABC,4 of 8
+"Pittsburgh, Pennsylvania",23,WPGHWPMY,O&OO&O,FOXMNT,4 of 96 of 9
+"Baltimore, Maryland",26,WBFFWNUV,O&OLMA,FOXCW,4 of 65 of 6
+"Raleigh/Durham,North Carolina",27,WLFLWRDC,O&OO&O,CWMNT,5 of 76 of 7
+"Nashville, Tennessee",29,WZTVWUXPWNAB,O&OO&OOSA,FOXMNTCW,4 of 85 of 86 of 8
+"Columbus, Ohio",32,WSYXWTTE,O&OLMA,ABCFOX,3 of 74 of 7
+"Cincinnati, Ohio",34,WSTR,O&O,MNT,5 of 7
+"Milwaukee, Wisconsin",35,WCGVWVTV,O&OO&O,MNTCW,5 of 106 of 10
+"Asheville, North Carolina/Greenville/Spartanburg/Anderson, South Carolina",36,WLOSWMYA,O&OLMA,ABCMNT,3 of 75 of 7
+"San Antonio, Texas",37,KABBKMYS,O&OO&O,FOXMNT,3 of 75 of 7
+"Birmingham, Alabama",40,WTTOWABMWDBB,O&OO&OLMA,CWMNTCW,5 of 86 of 85 of 8
+"Las Vegas, Nevada",42,KVMYKVCW,O&OO&O,MNTCW,5 of 76 of 7
+"Norfolk, Virginia",43,WTVZ,O&O,MNT,6 of 7
+"Oklahoma City, Oklahoma",45,KOKHKOCB,O&OO&O,FOXCW,4 of 85 of 8
+"Greensboro/Winston-Salem/Highpoint, North Carolina",46,WXLVWMYV,O&OO&O,ABCMNT,4 of 75 of 7
+"Buffalo, New York",51,WUTVWNYO,O&OO&O,FOXMNT,4 of 85 of 8
+"Richmond, Virginia",58,WRLH,O&O,FOX,4 of 6
+"Mobile, Alabama/Pensacola,Florida",60,WEARWFGX,O&OO&O,ABCMNT,2 of 9not rated
+"Lexington, Kentucky",63,WDKY,O&O,FOX,4 of 6
+"Dayton, Ohio",64,WKEFWRGT,O&OLMA,ABCFOX,2 of 74 of 7
+"Charleston/Huntington, West Virginia",65,WCHSWVAH,O&OLMA,ABCFOX,2 of 64 of 6
+"Flint/Saginaw/Bay City, Michigan",66,WSMH,O&O,FOX,4 of 7
+"Des Moines, Iowa",71,KDSM,O&O,FOX,4 of 6
+"Portland, Maine",77,WGME,O&O,CBS,2 of 6
+"Cape Girardeau, Missouri/Paducah, Kentucky",78,KBSIWDKA,O&OLMA,FOXMNT,4 of 65 of 6
+"Rochester, New York",80,WUHF,O&O,FOX,4 of 6
+"Syracuse, New York",81,WSYTWNYS,O&OLMA,FOXMNT,4 of 65 of 6
+"Springfield/Champaign, Illinois",83,WICSWICD,O&OO&O,ABCABC,2 of 62 of 6
+"Madison, Wisconsin",85,WMSN,O&O,FOX,4 of 6
+"Cedar Rapids, Iowa",88,KGANKFXA,O&OOSA,CBSFOX,3 of 64 of 6
+"Charleston, South Carolina",99,WTATWMMP,LMAO&O,FOXMNT,4 of 65 of 6
+"Tallahassee, Florida",105,WTWC,O&O,NBC,3 of 6
+"Peoria/Bloomington, Illinois",116,WYZZ,O&O,FOX,4 of 6

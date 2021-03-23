@@ -1,0 +1,535 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.1 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{nyt/global//global/global}
+    \entry{Chae_2015}{article}{}
+      \name{author}{9}{ul=3}{%
+        {{un=0,uniquepart=base,hash=622eb9ab8ddd21c0454d77d5b9675f24}{%
+           family={Chae},
+           familyi={C\bibinitperiod},
+           given={David\bibnamedelima H.},
+           giveni={D\bibinitperiod\bibinitdelim H\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=028efbd4c4f1e4213f9037c3b87411c9}{%
+           family={Clouston},
+           familyi={C\bibinitperiod},
+           given={Sean},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=6a38393ac249af337c348e5ab1646090}{%
+           family={Hatzenbuehler},
+           familyi={H\bibinitperiod},
+           given={Mark\bibnamedelima L.},
+           giveni={M\bibinitperiod\bibinitdelim L\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=c7e4bce6810aea1d982303fcb135141d}{%
+           family={Kramer},
+           familyi={K\bibinitperiod},
+           given={Michael\bibnamedelima R.},
+           giveni={M\bibinitperiod\bibinitdelim R\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=6910dd4087b0caa284c6e6427b86c243}{%
+           family={Cooper},
+           familyi={C\bibinitperiod},
+           given={Hannah\bibnamedelimb L.\bibnamedelimi F.},
+           giveni={H\bibinitperiod\bibinitdelim L\bibinitperiod\bibinitdelim F\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=cd9e3bfc5ef78b93b33a9d7591f7770c}{%
+           family={Wilson},
+           familyi={W\bibinitperiod},
+           given={Sacoby\bibnamedelima M.},
+           giveni={S\bibinitperiod\bibinitdelim M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=e0eb23d7fe4f49a6ec432cc6ccc00689}{%
+           family={Stephens-Davidowitz},
+           familyi={S\bibinithyphendelim D\bibinitperiod},
+           given={Seth\bibnamedelima I.},
+           giveni={S\bibinitperiod\bibinitdelim I\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=d003e72a0178cc0db9b1a8158784431a}{%
+           family={Gold},
+           familyi={G\bibinitperiod},
+           given={Robert\bibnamedelima S.},
+           giveni={R\bibinitperiod\bibinitdelim S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=16315938ea53779e3f2ef70a482d17f2}{%
+           family={Link},
+           familyi={L\bibinitperiod},
+           given={Bruce\bibnamedelima G.},
+           giveni={B\bibinitperiod\bibinitdelim G\bibinitperiod},
+           givenun=0}}%
+      }
+      \name{editor}{1}{}{%
+        {{hash=cfa9eea7e8f97382bac89a8e4740185d}{%
+           family={Zeeb},
+           familyi={Z\bibinitperiod},
+           given={Hajo},
+           giveni={H\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Public Library of Science ({PLoS})}%
+      }
+      \strng{namehash}{a9758ca9b0f39884cfc50b5ebd1c14de}
+      \strng{fullhash}{fa66ef37fa3a931be01376b73248e5ca}
+      \strng{bibnamehash}{a9758ca9b0f39884cfc50b5ebd1c14de}
+      \strng{authorbibnamehash}{a9758ca9b0f39884cfc50b5ebd1c14de}
+      \strng{authornamehash}{a9758ca9b0f39884cfc50b5ebd1c14de}
+      \strng{authorfullhash}{fa66ef37fa3a931be01376b73248e5ca}
+      \strng{editorbibnamehash}{cfa9eea7e8f97382bac89a8e4740185d}
+      \strng{editornamehash}{cfa9eea7e8f97382bac89a8e4740185d}
+      \strng{editorfullhash}{cfa9eea7e8f97382bac89a8e4740185d}
+      \field{sortinit}{C}
+      \field{sortinithash}{4c244ceae61406cdc0cc2ce1cb1ff703}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{{PLOS} {ONE}}
+      \field{month}{4}
+      \field{number}{4}
+      \field{title}{Association between an Internet-Based Measure of Area Racism and Black Mortality}
+      \field{volume}{10}
+      \field{year}{2015}
+      \field{pages}{e0122963}
+      \range{pages}{-1}
+      \verb{doi}
+      \verb 10.1371/journal.pone.0122963
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1371%2Fjournal.pone.0122963
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1371%2Fjournal.pone.0122963
+      \endverb
+    \endentry
+    \entry{Chae_2018}{article}{}
+      \name{author}{8}{ul=3}{%
+        {{un=0,uniquepart=base,hash=622eb9ab8ddd21c0454d77d5b9675f24}{%
+           family={Chae},
+           familyi={C\bibinitperiod},
+           given={David\bibnamedelima H.},
+           giveni={D\bibinitperiod\bibinitdelim H\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=028efbd4c4f1e4213f9037c3b87411c9}{%
+           family={Clouston},
+           familyi={C\bibinitperiod},
+           given={Sean},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=faa9870108b5736af4c35a8549d6c4be}{%
+           family={Martz},
+           familyi={M\bibinitperiod},
+           given={Connor\bibnamedelima D.},
+           giveni={C\bibinitperiod\bibinitdelim D\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=6a38393ac249af337c348e5ab1646090}{%
+           family={Hatzenbuehler},
+           familyi={H\bibinitperiod},
+           given={Mark\bibnamedelima L.},
+           giveni={M\bibinitperiod\bibinitdelim L\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=6910dd4087b0caa284c6e6427b86c243}{%
+           family={Cooper},
+           familyi={C\bibinitperiod},
+           given={Hannah\bibnamedelima L.F.},
+           giveni={H\bibinitperiod\bibinitdelim L\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=f25eaef39438caedcf2ae506968cfe32}{%
+           family={Turpin},
+           familyi={T\bibinitperiod},
+           given={Rodman},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=834e339995dc63b046518a60d7535899}{%
+           family={Stephens-Davidowitz},
+           familyi={S\bibinithyphendelim D\bibinitperiod},
+           given={Seth},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=c7e4bce6810aea1d982303fcb135141d}{%
+           family={Kramer},
+           familyi={K\bibinitperiod},
+           given={Michael\bibnamedelima R.},
+           giveni={M\bibinitperiod\bibinitdelim R\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier {BV}}%
+      }
+      \strng{namehash}{65c01b541fc4859a2f6bef3396432c67}
+      \strng{fullhash}{76ac275832043a84131b4fe36adb5044}
+      \strng{bibnamehash}{65c01b541fc4859a2f6bef3396432c67}
+      \strng{authorbibnamehash}{65c01b541fc4859a2f6bef3396432c67}
+      \strng{authornamehash}{65c01b541fc4859a2f6bef3396432c67}
+      \strng{authorfullhash}{76ac275832043a84131b4fe36adb5044}
+      \field{sortinit}{C}
+      \field{sortinithash}{4c244ceae61406cdc0cc2ce1cb1ff703}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Social Science {\&} Medicine}
+      \field{month}{2}
+      \field{title}{Area racism and birth outcomes among Blacks in the United States}
+      \field{volume}{199}
+      \field{year}{2018}
+      \field{pages}{49\bibrangedash 55}
+      \range{pages}{7}
+      \verb{doi}
+      \verb 10.1016/j.socscimed.2017.04.019
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1016%2Fj.socscimed.2017.04.019
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1016%2Fj.socscimed.2017.04.019
+      \endverb
+    \endentry
+    \entry{Eubank_2016}{article}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=c563457962527e57ec3bee61d2755c20}{%
+           family={Eubank},
+           familyi={E\bibinitperiod},
+           given={Nicholas},
+           giveni={N\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Cambridge University Press ({CUP})}%
+      }
+      \strng{namehash}{c563457962527e57ec3bee61d2755c20}
+      \strng{fullhash}{c563457962527e57ec3bee61d2755c20}
+      \strng{bibnamehash}{c563457962527e57ec3bee61d2755c20}
+      \strng{authorbibnamehash}{c563457962527e57ec3bee61d2755c20}
+      \strng{authornamehash}{c563457962527e57ec3bee61d2755c20}
+      \strng{authorfullhash}{c563457962527e57ec3bee61d2755c20}
+      \field{sortinit}{E}
+      \field{sortinithash}{c554bd1a0b76ea92b9f105fe36d9c7b0}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{{PS}: Political Science {\&} Politics}
+      \field{month}{4}
+      \field{number}{02}
+      \field{title}{Lessons from a Decade of Replications at the Quarterly Journal of Political Science}
+      \field{volume}{49}
+      \field{year}{2016}
+      \field{pages}{273\bibrangedash 276}
+      \range{pages}{4}
+      \verb{doi}
+      \verb 10.1017/s1049096516000196
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1017%2Fs1049096516000196
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1017%2Fs1049096516000196
+      \endverb
+    \endentry
+    \entry{Isoya_2021}{article}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=80128a996976bdc5b38f05eae3f1318d}{%
+           family={Isoya},
+           familyi={I\bibinitperiod},
+           given={Hidehito},
+           giveni={H\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=7365f618f2acddebc78f8de9bb356493}{%
+           family={Yamada},
+           familyi={Y\bibinitperiod},
+           given={Hiroyuki},
+           giveni={H\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier {BV}}%
+      }
+      \strng{namehash}{99b03271532b1aa0f1ca4e3f1e2c1971}
+      \strng{fullhash}{99b03271532b1aa0f1ca4e3f1e2c1971}
+      \strng{bibnamehash}{99b03271532b1aa0f1ca4e3f1e2c1971}
+      \strng{authorbibnamehash}{99b03271532b1aa0f1ca4e3f1e2c1971}
+      \strng{authornamehash}{99b03271532b1aa0f1ca4e3f1e2c1971}
+      \strng{authorfullhash}{99b03271532b1aa0f1ca4e3f1e2c1971}
+      \field{sortinit}{I}
+      \field{sortinithash}{9417e9a1288a9371e2691d999083ed39}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Social Science {\&} Medicine}
+      \field{month}{3}
+      \field{title}{Hidden internet-based measure of discrimination and mental health of Black people}
+      \field{volume}{273}
+      \field{year}{2021}
+      \field{pages}{113776}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1016/j.socscimed.2021.113776
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1016%2Fj.socscimed.2021.113776
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1016%2Fj.socscimed.2021.113776
+      \endverb
+    \endentry
+    \entry{Nuijten_2015}{article}{}
+      \name{author}{5}{}{%
+        {{un=0,uniquepart=base,hash=fcd909bd06e2477c4fc1705da3bb2af4}{%
+           family={Nuijten},
+           familyi={N\bibinitperiod},
+           given={Michèle\bibnamedelima B.},
+           giveni={M\bibinitperiod\bibinitdelim B\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=2d100e236c4f85c6d3f19e790e373d4b}{%
+           family={Hartgerink},
+           familyi={H\bibinitperiod},
+           given={Chris\bibnamedelimb H.\bibnamedelimi J.},
+           giveni={C\bibinitperiod\bibinitdelim H\bibinitperiod\bibinitdelim J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=ebdc57b84c8c3ee8181af29d3a687a54}{%
+           family={Assen},
+           familyi={A\bibinitperiod},
+           given={Marcel\bibnamedelimb A.\bibnamedelimi L.\bibnamedelimi M.},
+           giveni={M\bibinitperiod\bibinitdelim A\bibinitperiod\bibinitdelim L\bibinitperiod\bibinitdelim M\bibinitperiod},
+           givenun=0,
+           prefix={van},
+           prefixi={v\bibinitperiod},
+           prefixun=0}}%
+        {{un=0,uniquepart=base,hash=66600a0658e8a46b993b0f97e042c84b}{%
+           family={Epskamp},
+           familyi={E\bibinitperiod},
+           given={Sacha},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=30dff31d79150ffe8fc6c105d00e402f}{%
+           family={Wicherts},
+           familyi={W\bibinitperiod},
+           given={Jelte\bibnamedelima M.},
+           giveni={J\bibinitperiod\bibinitdelim M\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{2}{%
+        {Springer Science}%
+        {Business Media {LLC}}%
+      }
+      \strng{namehash}{3758920b7e249face9bd7ceb1745c724}
+      \strng{fullhash}{4ee2e991cc92f983862f5fc80d42312e}
+      \strng{bibnamehash}{3758920b7e249face9bd7ceb1745c724}
+      \strng{authorbibnamehash}{3758920b7e249face9bd7ceb1745c724}
+      \strng{authornamehash}{3758920b7e249face9bd7ceb1745c724}
+      \strng{authorfullhash}{4ee2e991cc92f983862f5fc80d42312e}
+      \field{sortinit}{N}
+      \field{sortinithash}{98cf339a479c0454fe09153a08675a15}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Behavior Research Methods}
+      \field{month}{10}
+      \field{number}{4}
+      \field{title}{The prevalence of statistical reporting errors in psychology (1985{–}2013)}
+      \field{volume}{48}
+      \field{year}{2015}
+      \field{pages}{1205\bibrangedash 1226}
+      \range{pages}{22}
+      \verb{doi}
+      \verb 10.3758/s13428-015-0664-2
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.3758%2Fs13428-015-0664-2
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.3758%2Fs13428-015-0664-2
+      \endverb
+    \endentry
+    \entry{Stephens_Davidowitz_2014}{article}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=834e339995dc63b046518a60d7535899}{%
+           family={Stephens-Davidowitz},
+           familyi={S\bibinithyphendelim D\bibinitperiod},
+           given={Seth},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier {BV}}%
+      }
+      \strng{namehash}{834e339995dc63b046518a60d7535899}
+      \strng{fullhash}{834e339995dc63b046518a60d7535899}
+      \strng{bibnamehash}{834e339995dc63b046518a60d7535899}
+      \strng{authorbibnamehash}{834e339995dc63b046518a60d7535899}
+      \strng{authornamehash}{834e339995dc63b046518a60d7535899}
+      \strng{authorfullhash}{834e339995dc63b046518a60d7535899}
+      \field{sortinit}{S}
+      \field{sortinithash}{c319cff79d99c853d775f88277d4e45f}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of Public Economics}
+      \field{month}{10}
+      \field{title}{The cost of racial animus on a black candidate: Evidence using Google search data}
+      \field{volume}{118}
+      \field{year}{2014}
+      \field{pages}{26\bibrangedash 40}
+      \range{pages}{15}
+      \verb{doi}
+      \verb 10.1016/j.jpubeco.2014.04.010
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1016%2Fj.jpubeco.2014.04.010
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1016%2Fj.jpubeco.2014.04.010
+      \endverb
+    \endentry
+    \entry{Python}{book}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=e504145eff12cd8803c227c919ccfacd}{%
+           family={Van\bibnamedelima Rossum},
+           familyi={V\bibinitperiod\bibinitdelim R\bibinitperiod},
+           given={Guido},
+           giveni={G\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=0b735fb6ad359aa95b3bac4d5567af6f}{%
+           family={Drake},
+           familyi={D\bibinitperiod},
+           given={Fred\bibnamedelima L.},
+           giveni={F\bibinitperiod\bibinitdelim L\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{location}{1}{%
+        {Scotts Valley, CA}%
+      }
+      \list{publisher}{1}{%
+        {CreateSpace}%
+      }
+      \strng{namehash}{190e2e6e0d73bf5671d8927d221674e7}
+      \strng{fullhash}{190e2e6e0d73bf5671d8927d221674e7}
+      \strng{bibnamehash}{190e2e6e0d73bf5671d8927d221674e7}
+      \strng{authorbibnamehash}{190e2e6e0d73bf5671d8927d221674e7}
+      \strng{authornamehash}{190e2e6e0d73bf5671d8927d221674e7}
+      \strng{authorfullhash}{190e2e6e0d73bf5671d8927d221674e7}
+      \field{sortinit}{V}
+      \field{sortinithash}{02432525618c08e2b03cac47c19764af}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{1441412697}
+      \field{title}{Python 3 Reference Manual}
+      \field{year}{2009}
+    \endentry
+    \entry{testthat}{article}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=1d0f6977ce2d043e298a59a1cd75b7ef}{%
+           family={Wickham},
+           familyi={W\bibinitperiod},
+           given={Hadley},
+           giveni={H\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{1d0f6977ce2d043e298a59a1cd75b7ef}
+      \strng{fullhash}{1d0f6977ce2d043e298a59a1cd75b7ef}
+      \strng{bibnamehash}{1d0f6977ce2d043e298a59a1cd75b7ef}
+      \strng{authorbibnamehash}{1d0f6977ce2d043e298a59a1cd75b7ef}
+      \strng{authornamehash}{1d0f6977ce2d043e298a59a1cd75b7ef}
+      \strng{authorfullhash}{1d0f6977ce2d043e298a59a1cd75b7ef}
+      \field{sortinit}{W}
+      \field{sortinithash}{1af34bd8c148ffb32de1494636b49713}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{The R Journal}
+      \field{title}{testthat: Get Started with Testing}
+      \field{volume}{3}
+      \field{year}{2011}
+      \field{pages}{5\bibrangedash 10}
+      \range{pages}{6}
+      \verb{urlraw}
+      \verb https://journal.r-project.org/archive/2011-1/RJournal_2011-1_Wickham.pdf
+      \endverb
+      \verb{url}
+      \verb https://journal.r-project.org/archive/2011-1/RJournal_2011-1_Wickham.pdf
+      \endverb
+    \endentry
+    \entry{knitr}{incollection}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=25ce25b9d444076e0963bcf9fa3a6f92}{%
+           family={Xie},
+           familyi={X\bibinitperiod},
+           given={Yihui},
+           giveni={Y\bibinitperiod},
+           givenun=0}}%
+      }
+      \name{editor}{3}{}{%
+        {{hash=2f18fc23a917fe1f0c74958b593f4e71}{%
+           family={Stodden},
+           familyi={S\bibinitperiod},
+           given={Victoria},
+           giveni={V\bibinitperiod}}}%
+        {{hash=206bc8e5c879d4926dffd8eed005bcc7}{%
+           family={Leisch},
+           familyi={L\bibinitperiod},
+           given={Friedrich},
+           giveni={F\bibinitperiod}}}%
+        {{hash=4c07f81b520ea14b34f1539e6f29d185}{%
+           family={Peng},
+           familyi={P\bibinitperiod},
+           given={Roger\bibnamedelima D.},
+           giveni={R\bibinitperiod\bibinitdelim D\bibinitperiod}}}%
+      }
+      \list{publisher}{2}{%
+        {Chapman}%
+        {Hall/CRC}%
+      }
+      \strng{namehash}{25ce25b9d444076e0963bcf9fa3a6f92}
+      \strng{fullhash}{25ce25b9d444076e0963bcf9fa3a6f92}
+      \strng{bibnamehash}{25ce25b9d444076e0963bcf9fa3a6f92}
+      \strng{authorbibnamehash}{25ce25b9d444076e0963bcf9fa3a6f92}
+      \strng{authornamehash}{25ce25b9d444076e0963bcf9fa3a6f92}
+      \strng{authorfullhash}{25ce25b9d444076e0963bcf9fa3a6f92}
+      \strng{editorbibnamehash}{b6e8a5c4e64fad910d44b979bf945555}
+      \strng{editornamehash}{b6e8a5c4e64fad910d44b979bf945555}
+      \strng{editorfullhash}{b6e8a5c4e64fad910d44b979bf945555}
+      \field{sortinit}{X}
+      \field{sortinithash}{e90038f30fa4b9ce59606fc8347e3cc7}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Implementing Reproducible Computational Research}
+      \field{note}{ISBN 978-1466561595}
+      \field{title}{knitr: A Comprehensive Tool for Reproducible Research in {R}}
+      \field{year}{2014}
+      \verb{urlraw}
+      \verb http://www.crcpress.com/product/isbn/9781466561595
+      \endverb
+      \verb{url}
+      \verb http://www.crcpress.com/product/isbn/9781466561595
+      \endverb
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+

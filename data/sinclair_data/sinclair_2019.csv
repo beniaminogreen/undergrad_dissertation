@@ -1,0 +1,90 @@
+Market,Market Rank (a),Number of Channels,Stations,NetworkAffiliation (b)
+"Washington, DC",7,4,WJLA,ABC
+"Seattle / Tacoma, WA",13,6,"KOMO, KUNS",ABC
+"Minneapolis / St. Paul, MN",15,4,WUCW,CW
+"Portland, OR",22,10,"KATU, KUNP, KUNP-LD",ABC
+"St. Louis, MO",23,4,KDNL,ABC
+"Pittsburgh, PA",24,7,"WPGH, WPNT","FOX, MNT"
+"Baltimore, MD",26,8,"WBFF, WNUV(c), WUTB(d)","FOX, CW, MNT"
+"Raleigh / Durham, NC",27,7,"WLFL, WRDC","CW, MNT"
+"Nashville, TN",28,10,"WZTV, WNAB(d), WUXP","FOX, CW, MNT"
+"Salt Lake City, UT",30,10,"KUTV, KMYU, KENV(d), KJZZ","CBS, MNT, IND"
+"San Antonio, TX",31,9,"KABB, KMYS(d), WOAI","FOX, NBC, CW"
+"Columbus, OH",34,9,"WSYX, WTTE(c), WWHO(d)","ABC, FOX, CW, MNT"
+"Milwaukee, WI",35,3,WVTV,"CW, MNT"
+"West Palm Beach / Fort Pierce, FL",36,13,"WPEC, WTVX, WTCN-CA, WWHB-CA","CBS, CW, MNT"
+"Cincinnati, OH",37,8,"WKRC, WSTR(d)","CBS, CW, MNT"
+"Asheville, NC / Greenville, SC",38,9,"WLOS, WMYA(c)","ABC, MNT"
+"Las Vegas, NV",39,8,"KSNV, KVCW","NBC, CW, MNT"
+"Austin, TX",40,2,KEYE,CBS
+"Norfolk, VA",42,4,WTVZ,MNT
+"Oklahoma City, OK",43,7,"KOKH, KOCB","FOX, CW"
+"Birmingham / Tuscaloosa, AL",44,15,"WBMA-LD, WDBB(c), WTTO, WABM","ABC, CW, MNT"
+"Grand Rapids / Kalamazoo / Battle Creek, MI",45,3,WWMT,"CBS, CW"
+"Harrisburg / Lancaster / Lebanon / York, PA",47,3,WHP,"CBS, CW, MNT"
+"Greensboro / High Point / Winston Salem, NC",49,7,"WXLV, WMYV","ABC, MNT"
+"Buffalo, NY",52,7,"WUTV, WNYO","FOX, MNT"
+"Richmond, VA",54,5,WRLH,"FOX, MNT"
+"Fresno / Visalia, CA",55,12,"KMPH, KMPH-CD, KFRE","FOX, CW"
+"Providence, RI / New Bedford, MA",56,4,WJAR,NBC
+"Mobile, AL / Pensacola, FL",57,12,"WEAR, WPMI(d), WFGX, WJTC(d)","ABC, NBC, MNT, IND"
+"Tulsa, OK",58,4,KTUL,ABC
+"Albany, NY",59,7,"WRGB, WCWN","CBS, CW"
+"Wilkes Barre / Scranton, PA",60,10,"WOLF(c), WSWB(d), WQMY(c)","FOX, CW, MNT"
+"Little Rock / Pine Bluff, AR",62,4,KATV,ABC
+"Dayton, OH",63,8,"WKEF, WRGT(d)","ABC, FOX, MNT"
+"Lexington, KY (f)",64,4,WDKY,FOX
+"Green Bay / Appleton, WI",67,8,"WLUK, WCWF","FOX, CW"
+"Des Moines, IA",68,4,KDSM,FOX
+"Roanoke / Lynchburg, VA",69,4,WSET,ABC
+"Spokane, WA",70,3,KLEW,CBS
+"Omaha, NE",71,7,"KPTM, KXVO(c)","FOX, CW, MNT"
+"Wichita, KS",72,19,"KSAS, KOCW, KAAS, KAAS-LP, KSAS-LP, KMTW(c)","FOX, MNT"
+"Charleston / Huntington, WV",74,7,"WCHS, WVAH(d)","ABC, FOX"
+"Columbia, SC",75,4,WACH,FOX
+"Rochester, NY",76,7,"WHAM(d), WUHF","ABC, FOX, CW"
+"Flint / Saginaw / Bay City, MI",77,11,"WSMH, WEYI(d), WBSF(d)","FOX, NBC, CW"
+"Portland, ME",79,7,"WGME, WPFO(d)","CBS, FOX"
+"Toledo, OH",80,4,WNWO,NBC
+"Madison, WI",81,4,WMSN,FOX
+"Harlingen / Weslaco / Brownsville / McAllen, TX (f)",83,3,KGBT,CBS
+"Paducah, KY/ Cape Girardeau, MO",84,8,"KBSI, WDKA","FOX, MNT"
+"Syracuse, NY",87,7,"WTVH(d), WSTM, WSTQ-LP","CBS, NBC, CW"
+"Champaign / Springfield / Decatur, IL",88,17,"WICS, WICD, WCCU(d), WRSP(d), WBUI(d)","ABC, FOX, CW"
+"Savannah, GA",89,4,WTGS,FOX
+"Cedar Rapids, IA",90,8,"KGAN, KFXA(d)","CBS, FOX"
+"Charleston, SC",91,3,WCIV,"ABC, MNT"
+"Chattanooga, TN",92,7,"WTVC, WFLI(d)","ABC, FOX, CW, MNT"
+"El Paso, TX",93,8,"KDBC, KFOX","CBS, FOX, MNT"
+"Myrtle Beach / Florence, SC",97,9,"WPDE, WWMB(c)","ABC, CW"
+"South Bend-Elkhart, IN",98,2,WSBT,"CBS, FOX"
+"Tri-Cities, TN-VA",99,7,"WEMT(d), WCYB","FOX, NBC, CW"
+"Greenville / New Bern / Washington, NC",100,8,"WCTI, WYDO(d)","ABC, FOX"
+"Boise, ID",102,8,"KBOI, KYUU-LD","CBS, CW Plus"
+"Reno, NV",104,9,"KRXI, KRNV(d), KNSN (c)","FOX, NBC, MNT"
+"Johnstown / Altoona, PA",106,4,WJAC,"NBC, CW Plus"
+"Lincoln and Hasting-Kearney, NE",107,11,"KHGI, KHGI-CD, KWNB, KWNB-LD, KFXL, KHGI-LD","ABC, FOX"
+"Tallahassee, FL",109,8,"WTWC, WTLF(d)","NBC, FOX, CW Plus"
+"Eugene, OR",117,18,"KVAL, KCBY, KPIC(e), KMTR(d), KMCB(d), KTCW(d)","CBS, NBC, CW Plus"
+"Yakima / Pasco / Richland / Kennewick, WA",118,18,"KIMA, KEPR, KORX, KUNW-CD, KVVK-CD","CBS, CW Plus"
+"Macon, GA",119,3,WGXA,"ABC, FOX"
+"Peoria / Bloomington, IL",120,1,WHOI,Comet
+"Traverse City / Cadillac, MI",121,11,"WGTU(d), WGTQ(d), WPBN, WTOM,","ABC, NBC"
+"Bakersfield, CA",125,8,"KBAK, KBFX-CD","CBS, FOX"
+"Corpus Christi, TX",128,3,"KSCC, KTOV-LP, KXPX-LP",FOX
+"Chico-Redding, CA",131,14,"KRCR, KCVU(d), KRVU-LD, KUCO-LP, KKTF-LD","ABC, FOX, MNT"
+"Amarillo, TX",132,8,"KVII, KVIH","ABC, CW Plus"
+"Medford / Klamath Falls, OR",135,4,KTVL,"CBS, CW Plus"
+"Columbia / Jefferson City, MO",137,4,KRCG,CBS
+"Beaumont / Port Arthur / Orange, TX",143,8,"KFDM, KBTV(d)","CBS, FOX, MNT, CW Plus"
+"Sioux City, IA",148,15,"KMEG(d), KPTH, KBVK-LP, KPTP-LD","CBS, FOX, MNT"
+"Albany, GA",154,4,WFXL,FOX
+"Gainesville, FL",156,8,"WGFL(c),WNBW(c),WYME-CD(c)","CBS, NBC, MNT"
+"Wheeling, WV / Steubenville, OH",157,3,WTOV,"NBC, FOX"
+"Missoula, MT",163,6,"KECI, KCFW",NBC
+"Abilene / Sweetwater, TX",164,4,"KTXS, KTES-LD","ABC, CW Plus"
+"Quincy, IL / Hannibal, MO / Keokuk, IA",174,3,KHQA,"ABC, CBS"
+"Butte / Bozeman, MT",186,3,KTVM,NBC
+"San Angelo, TX",195,3,KTXE-LD,"ABC, CW"
+"Eureka, CA",197,10,"KAEF, KBVU(d), KECA-LD, KEUV-LP","ABC, FOX, CW, MNT"
+"Ottumwa, IA / Kirksville, MO",201,3,KTVO,"ABC, CBS"
