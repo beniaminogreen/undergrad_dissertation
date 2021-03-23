@@ -54,4 +54,3 @@ full_data <- search_data %>% right_join(sinclair_data) %>%
 
 lm(overall_score ~ as.factor(year) + as.factor(code) + sinclair_present + year:as.factor(code), data = full_data) %>%
     summary()
-

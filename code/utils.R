@@ -25,5 +25,3 @@ years_before <- function(bool) {
 
   return(out)
 }
-
-censor_string("hey")

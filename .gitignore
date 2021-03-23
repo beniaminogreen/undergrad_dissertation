@@ -1,1 +1,7 @@
 __pycache__/
+env/
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.log
