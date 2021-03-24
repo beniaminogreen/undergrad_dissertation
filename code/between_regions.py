@@ -5,7 +5,7 @@ import re
 import csv
 
 
-def between_region(query, **kwargs):
+def between_region(query, censor, **kwargs):
     pytrends = TrendReq(hl='en-US', tz=360)
     pytrends.build_payload(query, cat=0, **kwargs)
     df = pytrends.interest_by_region(resolution='DMA',
@@ -13,19 +13,22 @@ def between_region(query, **kwargs):
                                      inc_geo_code=True)
     df = df.set_index("geoCode")
     df.index.name = 'code'
-    df = df.rename(censor_string, axis="columns")
+    if censor:
+        df = df.rename(censor_string, axis="columns")
     return (df)
 
 
-def between_reigion_many(iterable, **kwargs):
+def between_reigion_many(iterable, censor, **kwargs):
     iterable = iter(iterable)
     chunk1 = next(iterable)
-    df1 = between_region(chunk1, **kwargs)
+    df1 = between_region(chunk1, censor, **kwargs)
 
     for chunk in iterable:
         chunk2 = chunk
-        shared = censor_string(list(set(chunk1) & set(chunk2))[0])
-        df2 = between_region(chunk2)
+        shared = list(set(chunk1) & set(chunk2))[0]
+        if censor:
+            shared = censor_string(shared)
+        df2 = between_region(chunk2, censor, **kwargs)
 
         mean1 = df1[shared].mean()
         mean2 = df2[shared].mean()
@@ -40,30 +43,14 @@ def between_reigion_many(iterable, **kwargs):
 
     return (df1)
 
-
-def get_region_trend(query, region):
-    pytrends = TrendReq(hl='en-US', tz=360)
-    geo_code = re.findall("[0-9]+", region)[0]
-
-    pytrends.build_payload(kw_list=[query], geo=region, timeframe="all")
-    df = pytrends.interest_over_time()
-
-    if not df.empty:
-        df.columns = ["n", "ispartial"]
-        df['geocode'] = geo_code
-        df['term'] = censor_string(query)
-        df.index.name = 'date'
-        df.reset_index(inplace=True)
-        return df
-
-
 if __name__ == "__main__":
-    with open("keywords.csv") as csvfile:
+    with open("random_keywords.csv") as csvfile:
         reader = csv.reader(csvfile)
         queries = [row[0] for row in reader]
 
-    with open("../../data/between.csv", "w") as f:
+    with open("../data/random_between.csv", "w") as f:
         df = between_reigion_many(itr_split_overlap(queries, 5, 1),
+                                  censor=False,
                                   timeframe="all",
                                   geo="US",
                                   gprop="")

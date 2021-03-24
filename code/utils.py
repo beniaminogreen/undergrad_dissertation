@@ -1,14 +1,29 @@
 import itertools as it
-import urllib.request
+import requests
+import random
+
+
+# Returns list of N random words from MIT dictionary
+def random_words(n):
+    word_site = "https://www.mit.edu/~ecprice/wordlist.10000"
+
+    response = requests.get(word_site)
+    words = response.text.splitlines()
+
+    keywords = random.sample(words, n)
+
+    return (keywords)
 
 
 # Tests if computer is connected to internet (used in tests)
 def connected():
+    url = "http://google.com"
+    timeout = 5
     try:
-        urllib.request.urlopen('http://google.com')
-        return True
-    except:
-        return False
+        requests.get(url, timeout=timeout)
+        return (True)
+    except (requests.ConnectionError, requests.Timeout):
+        return (False)
 
 
 # Censors strings so that senstive words aren't uploaded to github / used in scripts
@@ -42,5 +57,3 @@ def itr_split_overlap(iterable, size, overlap):
 
         if overlap:
             prev = next_[-overlap:]
-
-print(not connected())

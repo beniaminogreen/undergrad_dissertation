@@ -17,8 +17,8 @@ class TestBetweenRegion(unittest.TestCase):
                                   geo="US",
                                   gprop="")
 
-        expected_1 = pd.read_parquet("test_data/between_region_1.parquet")
-        expected_2 = pd.read_parquet("test_data/between_region_2.parquet")
+        expected_1 = pd.read_parquet("tests/test_data/between_region_1.parquet")
+        expected_2 = pd.read_parquet("tests/test_data/between_region_2.parquet")
 
         self.assertTrue(expected_1.equals(result_1))
         self.assertTrue(expected_2.equals(result_2))
