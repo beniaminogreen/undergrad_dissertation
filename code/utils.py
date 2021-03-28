@@ -31,7 +31,7 @@ def censor_string(string):
     return (string[0] + "_" * (len(string) - 2) + string[-1])
 
 
-# credit to Ilja Everilä for this implimentation
+# credit to Ilja Everila for this implimentation
 # https://stackoverflow.com/questions/48381870/a-better-way-to-split-a-sequence-in-chunks-with-overlaps
 def itr_split_overlap(iterable, size, overlap):
 

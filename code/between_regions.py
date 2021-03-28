@@ -1,8 +1,6 @@
 #!/usr/bin/env python
 from pytrends.request import TrendReq
-from utils import itr_split_overlap, censor_string
-import re
-import csv
+from utils import censor_string
 
 
 def between_region(query, censor, **kwargs):
@@ -42,16 +40,3 @@ def between_reigion_many(iterable, censor, **kwargs):
         chunk1 = chunk2
 
     return (df1)
-
-if __name__ == "__main__":
-    with open("random_keywords.csv") as csvfile:
-        reader = csv.reader(csvfile)
-        queries = [row[0] for row in reader]
-
-    with open("../data/random_between.csv", "w") as f:
-        df = between_reigion_many(itr_split_overlap(queries, 5, 1),
-                                  censor=False,
-                                  timeframe="all",
-                                  geo="US",
-                                  gprop="")
-        df.to_csv(f, header=True)

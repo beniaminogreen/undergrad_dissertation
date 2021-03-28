@@ -23,6 +23,10 @@ def get_region_trend(query, region, censor):
 
             return df
     except:
-        print(f"Rate error: {query} in {region}")
+        if censor:
+            print(f"Rate error: {censor_string(query)} in {region}")
+        else:
+            print(f"Rate error: {query} in {region}")
+
         time.sleep(60)
-        get_region_trend(query, region)
+        get_region_trend(query, region, censor)
