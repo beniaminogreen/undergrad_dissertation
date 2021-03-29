@@ -1,11 +1,10 @@
+#!/usr/bin/Rscript
 # Load Libraries for Analysis
 library(tidyverse)
 library(lubridate)
 # Load utility functions
 source("utils.R")
 
-# Not done annotating / updating after here
-################################################################################
 between_data <- read_csv("../data/google_trends_data/set_1_between_regions.csv") %>%
   pivot_longer(-code, names_to = "term", values_to = "overall") %>%
   mutate(term = censor_string(term))

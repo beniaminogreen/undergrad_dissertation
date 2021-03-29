@@ -1,3 +1,4 @@
+#!/usr/bin/Rscript
 # Load Libraries for Analysis
 library(tidyverse)
 library(lubridate)
@@ -43,6 +44,8 @@ stopifnot(!any(duplicated(sinclair_present)))
 
 # Loads in Traslation dictionary of DMA codes to Standardized names
 dma_names <- read_csv("../data/dma_list.csv")
+# Checks there are 210 DMA marketes in lookup table
+stopifnot(nrow(dma_names) == 210)
 
 # Fills in data to include stations where sinclair was not present
 sinclair_data <- sinclair_present %>%

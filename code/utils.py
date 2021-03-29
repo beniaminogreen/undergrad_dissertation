@@ -2,7 +2,6 @@ import itertools as it
 import requests
 import random
 
-
 # Returns list of N random words from MIT dictionary
 def random_words(n):
     word_site = "https://www.mit.edu/~ecprice/wordlist.10000"
