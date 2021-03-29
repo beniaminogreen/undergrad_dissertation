@@ -22,16 +22,14 @@ Market,MarketRank (a),Stations,Status (b),Channel,Affiliation,Expiration ofaffil
 "Dayton, Ohio",56,WKEF,O&O,22,ABC,open ended,8,3,10/01/05
 "Richmond, Virginia",61,WRLH,O&O,35,FOX,6/30/05,5,4,10/01/04 (e)
 "Charleston and Huntington, West Virginia",62,WCHS,O&O,8,ABC,1/01/00 (n),6,3,10/01/04 (e)
-"Mobile, Alabama and",63,WEAR,O&O,3,ABC,1/01/00 (n),8,2,2/01/05 (e)
-"Pensacola, Florida", ,WFGX,O&O,35,IND (q),n/a, ,not rated,2/01/05 (e)
+"mobilealabamaandpensacolaflorida",63,WEAR,O&O,3,ABC,1/01/00 (n),8,2,2/01/05 (e)
 "Lexington, Kentucky",64,WDKY,O&O,56,FOX,6/30/05,6,4,8/01/05
 "Flint/Saginaw/Bay City, Michigan",65,WSMH,O&O,66,FOX,6/30/05,5,4,10/01/05
 "Des Moines, Iowa",73,KDSM,O&O,17,FOX,6/30/05,5,4,2/01/06
 "Portland, Maine",74,WGME,O&O,13,CBS,12/31/07,6,2,4/01/07
 "Rochester, New York",75,WUHF,O&O,31,FOX,6/30/05,6,4,6/01/07
 "Syracuse, New York",77,WSYT,O&O,68,FOX,6/30/05,6,4,6/01/07
-"Cape Girardeau, Missouri/",79,KBSI,O&O,23,FOX,6/30/05,7,4,2/01/06
-"Paducah, Kentucky", ,WDKA,LMA,49,WB,6/15/04 (n), ,5,8/01/05
+"Cape Girardeau, Missouri/ Paducah Kentucky",79,KBSI,O&O,23,FOX,6/30/05,7,4,2/01/06
 "Springfield/Champaign, Illinois",82,WICS,O&O,20,NBC (r),4/01/04 (n),6,2,12/01/05
 "Madison, Wisconsin",85,WMSN,O&O,47,FOX,6/30/05,6,4,12/01/05
 "Cedar Rapids, Iowa",88,KGAN,O&O (t),2,CBS,12/31/07,6,3,2/01/06
