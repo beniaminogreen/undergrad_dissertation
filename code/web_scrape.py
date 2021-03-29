@@ -45,5 +45,5 @@ if __name__ == "__main__":
     keyword_files = sorted(glob.glob("keywords/*.csv"))
     base_names = [get_basename(filename) for filename in keyword_files]
     keywords = [extract_keywords(filename) for filename in keyword_files]
-    first = (list(zip(base_names, keywords)))[1]
+    first = (list(zip(base_names, keywords)))[0]
     run_keywords(first[0], first[1])

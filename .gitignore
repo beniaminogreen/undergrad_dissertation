@@ -1,7 +1,13 @@
-__pycache__/
-env/
 *.aux
 *.bbl
 *.bcf
 *.blg
 *.log
+*.run
+*.run.xml
+*.run.xml
+__pycache__/
+cache/
+cache/
+env/
+figure/
