@@ -82,7 +82,7 @@ The net result is ``one-click reproducibility" \parencite[][]{N_st_2020}; reader
 
 <<>>=
 # Load and create data to show markets Sinclair has expanded to / moved out of
-sinclair_expansions <- read_csv("../data/clean_sinclair_data.csv") %>%
+sinclair_expansions <- read_csv("../data/clean_sinclair_data") %>%
     nest(-code) %>%
     mutate(
            any_true =  data %>% map_lgl(~any(.$sinclair_present)),

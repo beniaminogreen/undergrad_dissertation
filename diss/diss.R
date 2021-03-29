@@ -7,13 +7,13 @@ library(sf)
 
 ## -----------------------------------------------------------------------------
 # Load and create data to show markets Sinclair has expanded to / moved out of
-sinclair_expansions <- read_csv("../data/clean_sinclair_data.csv") %>%
+sinclair_expansions <- read_csv("../data/clean_sinclair_data") %>%
     nest(-code) %>%
     mutate(
            any_true =  data %>% map_lgl(~any(.$sinclair_present)),
            any_false =  data %>% map_lgl(~any(!.$sinclair_present)),
            changed = any_true & any_false
-   )
+    )
 
 dma_boundaries <- st_read("../data/dma_boundaries/dma_boundary.shp")
 dma_boundaries <- merge(dma_boundaries, sinclair_expansions, by.x="dma0", by.y="code")

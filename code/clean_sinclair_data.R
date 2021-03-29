@@ -6,7 +6,7 @@ library(lubridate)
 source("utils.R")
 
 # Creat tidy dataframe of years / markets in which sinclair was present
-sinclair_raw <- tibble(filename = list.files(path = "../data/sinclair_data/", full.names = T, pattern = "*.csv")) %>%
+sinclair_raw <- tibble(filename = list.files(path = "data/sinclair_data/", full.names = T, pattern = "*.csv")) %>%
   mutate(
     year = str_extract(filename, "[0-9]+") %>% as.double(),
     data = filename %>% map(~ read_csv(.x, locale = locale(encoding = "UTF-8"))),
@@ -24,7 +24,7 @@ sinclair_raw <- tibble(filename = list.files(path = "../data/sinclair_data/", fu
 
 # Loads in Traslation dictionary of market names in the Sinclair
 # dataset to DMA codes
-sinclair_codes <- read_csv("sinclair_names.csv")
+sinclair_codes <- read_csv("data/sinclair_names.csv")
 
 # checks that the sinclair codes table has all markets from the sinclair present dataset
 stopifnot(
@@ -43,7 +43,7 @@ stopifnot(nrow(sinclair_raw) == nrow(sinclair_present))
 stopifnot(!any(duplicated(sinclair_present)))
 
 # Loads in Traslation dictionary of DMA codes to Standardized names
-dma_names <- read_csv("../data/dma_list.csv")
+dma_names <- read_csv("data/dma_list.csv")
 # Checks there are 210 DMA marketes in lookup table
 stopifnot(nrow(dma_names) == 210)
 

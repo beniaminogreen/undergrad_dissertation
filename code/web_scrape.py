@@ -21,7 +21,7 @@ def get_basename(filename):
 
 def run_keywords(name, keywords):
     regions = pkl.load(open("dma_abbreviations.pkl", "rb"))
-    filename = f"../data/google_trends_data/{name}_time_serires.csv"
+    filename = f"data/google_trends_data/{name}_time_serires.csv"
     with open(filename, "w") as f:
         f.write("row,date,score,ispartial,code,term\n")
         for keyword in keywords:
@@ -31,7 +31,7 @@ def run_keywords(name, keywords):
                 if df is not None:
                     df.to_csv(f, header=False)
 
-    filename = f"../data/google_trends_data/{name}_between_regions.csv"
+    filename = f"data/google_trends_data/{name}_between_regions.csv"
     with open(filename, "w") as f:
         df = between_reigion_many(itr_split_overlap(keywords, 5, 1),
                                   censor=True,
@@ -42,7 +42,7 @@ def run_keywords(name, keywords):
 
 
 if __name__ == "__main__":
-    keyword_files = sorted(glob.glob("keywords/*.csv"))
+    keyword_files = sorted(glob.glob("data/keywords/*.csv"))
     base_names = [get_basename(filename) for filename in keyword_files]
     keywords = [extract_keywords(filename) for filename in keyword_files]
     first = (list(zip(base_names, keywords)))[0]
