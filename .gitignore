@@ -5,9 +5,9 @@
 *.log
 *.run
 *.run.xml
-*.run.xml
-__pycache__/
-cache/
-cache/
+*.tex
+*.tex
+**/__pycache__/
+**/cache/
 env/
-figure/
+**/figure/

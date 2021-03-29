@@ -3,12 +3,12 @@ from pytrends.request import TrendReq
 from utils import censor_string
 import time
 
-def get_region_trend(query, region, censor):
+def in_region(query, region, censor, **kwargs):
     pytrends = TrendReq(hl='en-US', tz=360)
     try:
         pytrends.build_payload(kw_list=[query],
                                geo=f"{region}",
-                               timeframe="all")
+                               **kwargs)
         df = pytrends.interest_over_time()
         if not df.empty:
             df.columns = ["n", "ispartial"]
@@ -29,4 +29,4 @@ def get_region_trend(query, region, censor):
             print(f"Rate error: {query} in {region}")
 
         time.sleep(60)
-        get_region_trend(query, region, censor)
+        in_region(query, region, censor)

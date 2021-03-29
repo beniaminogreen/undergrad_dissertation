@@ -1,16 +1,18 @@
 from archlinux
 
-RUN pacman -Syu --noconfirm && \
-    pacman -S --noconfirm python python-pip r sudo texlive-core base-devel base
+RUN pacman -Syu --noconfirm
+RUN pacman -S --noconfirm python python-pip r sudo texlive-core base-devel base zathura zathura-pdf-poppler gdal
 
-WORKDIR /tmp/report
-
-COPY requirements.txt requirements.txt
+COPY . /opt/report
+WORKDIR /opt/report
 
 RUN pip install -r requirements.txt
 
-RUN Rscript -e "install.packages(c('tidyverse','knitr','lubridate'),repos='http://cran.us.r-project.org')"
+RUN Rscript -e "install.packages(c('tidyverse','knitr','lubridate',''),repos='http://cran.us.r-project.org')"
 
-COPY diss/diss.Rnw diss.Rnw
-
-CMD R -e "require('knitr'); knit('diss.Rnw')"
+CMD cd diss && \
+    R -e "require('knitr'); knit('diss.rnw')" && \
+    pdflatex diss.tex && \
+    biber diss && \
+    pdflatex diss.tex && \
+    zathura diss.pdf
