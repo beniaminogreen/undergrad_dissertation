@@ -5,11 +5,15 @@ library(lubridate)
 # Load utility functions
 source("utils.R")
 
-between_data <- read_csv("../data/google_trends_data/set_1_between_regions.csv") %>%
+between_data <- read_csv("data/google_trends_data/set_1_between_regions.csv") %>%
   pivot_longer(-code, names_to = "term", values_to = "overall") %>%
   mutate(term = censor_string(term))
 
-search_data <- read_csv("../data/google_trends_data/set_1_time_serires.csv") %>%
+#Checks there is data for comparing each region
+stopifnot(length(unique(between_data$code)) == 210)
+
+
+search_data <- read_csv("data/google_trends_data/set_1_time_serires.csv") %>%
   mutate(year = year(date)) %>%
   mutate(term = censor_string(term)) %>%
   group_by(year, code, term) %>%
@@ -18,6 +22,9 @@ search_data <- read_csv("../data/google_trends_data/set_1_time_serires.csv") %>%
     score = data %>% map_dbl(~ mean(.x$score, na.rm = T)),
     code = str_extract(code, "[0-9]+") %>% as.numeric()
   )
+
+#Checks there is trend data for each region
+#stopifnot(length(unique(search_data$code)) == 210)
 
 search_data <- search_data %>%
   dplyr::select(-data) %>%

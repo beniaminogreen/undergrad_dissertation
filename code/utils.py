@@ -1,3 +1,4 @@
+#!/usr/bin/python
 import itertools as it
 import requests
 import random

@@ -127,7 +127,7 @@ ggplot() +
 # Pull R code out of this document to put into the appendix
 code <- knitr::purl("diss.Rnw", quiet=T)
 @
-\lstinputlisting[language=R]{diss.R}
+
 \section{Web Scraping Code}
 \subsection{Master Web Scraping Script}
 \lstinputlisting[language=python]{../code/web_scrape.py}

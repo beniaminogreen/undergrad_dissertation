@@ -3,7 +3,7 @@ import glob
 import os
 import pickle as pkl
 from between_regions import between_reigion_many
-from in_region import get_region_trend
+from in_region import in_region
 from utils import itr_split_overlap
 import tqdm
 
@@ -20,13 +20,13 @@ def get_basename(filename):
 
 
 def run_keywords(name, keywords):
-    regions = pkl.load(open("dma_abbreviations.pkl", "rb"))
+    regions = pkl.load(open("data/dma_abbreviations.pkl", "rb"))
     filename = f"data/google_trends_data/{name}_time_serires.csv"
     with open(filename, "w") as f:
         f.write("row,date,score,ispartial,code,term\n")
         for keyword in keywords:
             for region in tqdm.tqdm(regions):
-                df = get_region_trend(keyword, region, True)
+                df = in_region(keyword, region, True, timeframe="all")
 
                 if df is not None:
                     df.to_csv(f, header=False)

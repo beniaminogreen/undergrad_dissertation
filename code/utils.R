@@ -1,3 +1,4 @@
+#!/usr/bin/Rscript
 censor_string <- function(string) {
   substr(string, 2, nchar(string) - 1) <- paste0(rep("_", nchar(string) - 2), collapse = "")
   names(string) <- NULL

@@ -1,3 +1,4 @@
+#!/usr/bin/python
 import unittest
 from utils import itr_split_overlap, censor_string
 
