@@ -38,7 +38,8 @@ def score_point(h_matrix, v_matrix, x0, y0):
     return (sum_score)
 
 
-h_matrix = np.array([[2, 4, 6], [12, 15, 18], [3.5, 4, 4.5]])
-v_matrix = np.array([[3, 1, 1], [12, 2.5, 2], [21, 4, 3]])
+if __name__ == "__main__":
+    h_matrix = np.array([[2, 4, 6], [12, 15, 18], [3.5, 4, 4.5]])
+    v_matrix = np.array([[3, 1, 1], [12, 2.5, 2], [21, 4, 3]])
 
-compare(h_matrix,v_matrix,0,0,1,2)
+    compare(h_matrix, v_matrix, 0, 0, 1, 2)

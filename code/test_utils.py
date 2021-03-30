@@ -2,6 +2,7 @@
 import unittest
 from utils import itr_split_overlap, censor_string
 
+
 class TestItrSplitOverlap(unittest.TestCase):
     def test_itr(self):
         test_list = ["one", "two", "three", "four", "five"]

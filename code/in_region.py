@@ -3,12 +3,11 @@ from pytrends.request import TrendReq
 from utils import censor_string
 import time
 
+
 def in_region(query, region, censor, **kwargs):
     pytrends = TrendReq(hl='en-US', tz=360)
     try:
-        pytrends.build_payload(kw_list=[query],
-                               geo=f"{region}",
-                               **kwargs)
+        pytrends.build_payload(kw_list=[query], geo=f"{region}", **kwargs)
         df = pytrends.interest_over_time()
         if not df.empty:
             df.columns = ["n", "ispartial"]

@@ -7,6 +7,7 @@ from in_region import in_region
 from utils import itr_split_overlap
 import tqdm
 
+
 def extract_keywords(filename):
     with open(filename, "r") as f:
         keywords = f.read().splitlines()

@@ -3,6 +3,7 @@ import itertools as it
 import requests
 import random
 
+
 # Returns list of N random words from MIT dictionary
 def random_words(n):
     word_site = "https://www.mit.edu/~ecprice/wordlist.10000"
@@ -26,7 +27,8 @@ def connected():
         return (False)
 
 
-# Censors strings so that senstive words aren't uploaded to github / used in scripts
+# Censors strings so that senstive words aren't uploaded to github / used in
+# scripts
 def censor_string(string):
     return (string[0] + "_" * (len(string) - 2) + string[-1])
 
