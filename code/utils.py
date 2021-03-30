@@ -4,6 +4,15 @@ import requests
 import random
 
 
+# returns mean of nonzero values in iterator
+def mean_nonzero(iterator):
+    nonzero = tuple(filter(lambda x: x != 0, iterator))
+    if len(nonzero) == 0:
+        return 0
+    else:
+        return sum(nonzero) / len(nonzero)
+
+
 # Returns list of N random words from MIT dictionary
 def random_words(n):
     word_site = "https://www.mit.edu/~ecprice/wordlist.10000"
