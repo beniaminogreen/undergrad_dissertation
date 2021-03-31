@@ -1,8 +1,10 @@
-#!/usr/bin/python
+#!/usr/bin/env python
 import numpy as np
 from utils import mean_nonzero
 import random
 
+
+# Find the ratio of two scores that are horizontally comparable
 def compare_horizontal(h_matrix, y, x0, x1):
     if h_matrix[y, x0] == 0 or h_matrix[y, x1] == 0:
         return None
@@ -12,6 +14,7 @@ def compare_horizontal(h_matrix, y, x0, x1):
         return present / next_val
 
 
+# Find the ratio of two scores that are vertically comparable
 def compare_vertical(v_matrix, x, y0, y1):
     if v_matrix[y0, x] == 0 or v_matrix[y1, x] == 0:
         return None
@@ -21,6 +24,8 @@ def compare_vertical(v_matrix, x, y0, y1):
         return present / next_val
 
 
+# Find the ratio of two scores, if possible, using a horizontally comparable
+# and vertically comparable array
 def compare(h_matrix, v_matrix, x0, y0, x1, y1):
     if h_matrix[y0, x0] == 0 or h_matrix[y1, x1] == 0:
         return (0)
@@ -50,6 +55,9 @@ def compare(h_matrix, v_matrix, x0, y0, x1, y1):
             return None
 
 
+# Find a standardized score for an individual cell given a using the ratio of
+# the score to other cells, given a horizontally comparable and vertically
+# comparable array
 def score_point(h_matrix, v_matrix, x0, y0):
     ncol, nrow = h_matrix.shape
 
@@ -62,6 +70,8 @@ def score_point(h_matrix, v_matrix, x0, y0):
         return mean_nonzero(scores)
 
 
+# Find the standardized scores across an entire array, using the ratio of each
+# score to each other score
 def recover_scores(h_matrix, v_matrix):
     assert h_matrix.shape == v_matrix.shape
     result = np.zeros(h_matrix.shape)
@@ -77,6 +87,9 @@ def recover_scores(h_matrix, v_matrix):
         return result
 
 
+# From a matrix of correctly imputed values and a matrix of horziontally and
+# vertically comparable values, repair values that could not be imputed in the
+# first stage because zero values had 'cast a shadow' on on them.
 def repair_matrix(h_matrix, v_matrix, current):
     for i in range(50):
         current_sum = np.sum(current)
@@ -105,14 +118,15 @@ def repair_matrix(h_matrix, v_matrix, current):
 
 if __name__ == "__main__":
     for _ in range(50):
-        arr = np.array([[x+1 + 5 * y for x in range(5)] for y in range(5)])
+        arr = np.array([[x + 1 + 10 * y for x in range(10)]
+                        for y in range(10)])
 
-        n = 8
+        n = 50
         index = np.random.choice(arr.size, n, replace=False)
         arr.ravel()[index] = 0
 
-        rowmod = np.array(tuple(random.random() for _ in range(5)))
-        colmod = np.array(tuple(random.random() for _ in range(5)))
+        rowmod = np.array(tuple(random.random() for _ in range(10)))
+        colmod = np.array(tuple(random.random() for _ in range(10)))
 
         h_matrix = arr * rowmod[:, np.newaxis]
         v_matrix = arr * colmod
@@ -124,4 +138,6 @@ if __name__ == "__main__":
 
             repaired_scaled = repaired / np.max(repaired)
             arr_scaled = arr / np.max(arr)
-            print((25*repaired)/np.max(repaired))
+            print((100 * repaired) / np.max(repaired))
+
+

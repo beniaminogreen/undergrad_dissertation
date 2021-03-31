@@ -5,13 +5,13 @@ This is a Git repo to manage my dissertation work.
 
 - [x] Re-do directory structure
 - [ ] Ensure scaling works for multiple keywords
-- [ ] Add code to estimate placebo cutoff effects
+- [x] Add code to estimate placebo cutoff effects
 - [x] Find expanded list of keywords
-- [x] Write test assertions for R sinclair data cleaning
+- [ ] Write test assertions for R sinclair data cleaning
 - [ ] Finish coding unit tests for python code
 - [ ] Finish coding unit tests for analysis routines
 - [x] Move manuscript over to Sweave
-- [ ] Nest entire paper within a Docker container
+- [x] Nest entire paper within a Docker container
 
 ## Replication with docker
 ### On Linux:

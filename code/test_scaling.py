@@ -53,14 +53,15 @@ class TestRecoverScores(unittest.TestCase):
 class TestRepairScores(unittest.TestCase):
     def test_repair_scores(self):
         for _ in range(100):
-            arr = np.array([[x + 8 * y for x in range(8)] for y in range(8)])
+            arr = np.array([[x + 10 * y for x in range(10)]
+                            for y in range(10)])
 
             n = 15
             index = np.random.choice(arr.size, n, replace=False)
             arr.ravel()[index] = 0
 
-            rowmod = np.array(tuple(random.random() for _ in range(8)))
-            colmod = np.array(tuple(random.random() for _ in range(8)))
+            rowmod = np.array(tuple(random.random() for _ in range(10)))
+            colmod = np.array(tuple(random.random() for _ in range(10)))
 
             h_matrix = arr * rowmod[:, np.newaxis]
             v_matrix = arr * colmod
