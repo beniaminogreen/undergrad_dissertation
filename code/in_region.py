@@ -20,7 +20,19 @@ def in_region(query, region, censor, **kwargs):
     try:
         pytrends.build_payload(kw_list=[query], geo=f"{region}", **kwargs)
         df = pytrends.interest_over_time()
-        if not df.empty:
+        if df.empty:
+
+            df = pd.DataFrame()
+            df['date'] = pd.period_range(start='2004-01-01',
+                                         end='2021-01-01',
+                                         freq='M').to_timestamp()
+            df['region'] = region
+            df['n'] = 0
+            df['ispartial'] = pd.Series([True]).bool()
+            df["query"] = query
+
+        else:
+
             df.columns = ["n", "ispartial"]
             df.index.name = 'date'
             df.reset_index(inplace=True)
@@ -28,10 +40,10 @@ def in_region(query, region, censor, **kwargs):
 
             df["query"] = query
 
-            if censor:
-                df["query"] = df["query"].apply(censor_string)
+        if censor:
+            df["query"] = df["query"].apply(censor_string)
 
-            return df
+        return df
     except:
         if censor:
             print(f"Rate error: {censor_string(query)} in {region}")
@@ -50,12 +62,16 @@ def to_wide(df):
 
     """
     df['year'] = pd.DatetimeIndex(df['date']).year
-    df = df.groupby(['year', 'region']).mean().unstack(level=0)
+    df = df.groupby(['year', 'region'])["n"].mean()
+    df=df.unstack(level=0)
     return (df)
 
 
 if __name__ == "__main__":
-    dfs = tuple(pd.read_parquet("in_region.parquet") for _ in range(10))
-    wide_dfs = map(to_wide, dfs)
-    h_matrix = pd.concat(wide_dfs).to_numpy()
-    print(h_matrix)
+
+    df_1 = in_region("hahahahha", "US-FL-686", False, timeframe="all")
+    df_1 = to_wide(df_1)
+    df_2 = in_region("hello", "US-FL-686", False, timeframe="all")
+    df_2 = to_wide(df_2)
+
+    print(pd.concat((df_1, df_2)))
