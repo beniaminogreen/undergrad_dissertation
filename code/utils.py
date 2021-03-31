@@ -8,7 +8,9 @@ import random
 def mean_nonzero(iterator):
     nonzero = tuple(filter(lambda x: x != 0, iterator))
     if len(nonzero) == 0:
-        return 0
+        return None
+    elif None in nonzero:
+        return None
     else:
         return sum(nonzero) / len(nonzero)
 

@@ -2,7 +2,8 @@
 import unittest
 import numpy as np
 import random
-from scaling import compare, compare_horizontal, compare_vertical, recover_scores
+from scaling import compare, compare_horizontal, compare_vertical
+from scaling import recover_scores, repair_matrix
 
 
 class TestCompareHorizontal(unittest.TestCase):
@@ -35,7 +36,7 @@ class TestCompare(unittest.TestCase):
 
 class TestRecoverScores(unittest.TestCase):
     def test_recover_scores(self):
-        for _ in range(5):
+        for _ in range(100):
             arr = np.array([[x + 8 * y for x in range(8)] for y in range(8)])
 
             rowmod = np.array(tuple(random.random() for _ in range(8)))
@@ -45,4 +46,31 @@ class TestRecoverScores(unittest.TestCase):
             v_matrix = arr * colmod
 
             self.assertTrue(
-                np.allclose(recover_scores(h_matrix, v_matrix) * 63, arr))
+                np.allclose(arr,
+                            recover_scores(h_matrix, v_matrix) * 63))
+
+
+class TestRepairScores(unittest.TestCase):
+    def test_repair_scores(self):
+        for _ in range(100):
+            arr = np.array([[x + 8 * y for x in range(8)] for y in range(8)])
+
+            n = 15
+            index = np.random.choice(arr.size, n, replace=False)
+            arr.ravel()[index] = 0
+
+            rowmod = np.array(tuple(random.random() for _ in range(8)))
+            colmod = np.array(tuple(random.random() for _ in range(8)))
+
+            h_matrix = arr * rowmod[:, np.newaxis]
+            v_matrix = arr * colmod
+
+            gen1 = recover_scores(h_matrix, v_matrix)
+            if not gen1 is None:
+
+                repaired = repair_matrix(h_matrix, v_matrix, gen1)
+
+                repaired_scaled = repaired / np.max(repaired)
+                arr_scaled = arr / np.max(arr)
+
+                self.assertTrue(np.allclose(repaired_scaled, arr_scaled))
