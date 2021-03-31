@@ -20,6 +20,4 @@ docker build -t dissertation_replication .
 docker run --rm -v $PWD:/opt/report dissertation_replication
 ```
 ### On Windows:
-This part to come soon.
 ### On Mac:
-This part to come soon.

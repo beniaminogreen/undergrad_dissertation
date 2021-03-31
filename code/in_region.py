@@ -3,6 +3,8 @@ from pytrends.request import TrendReq
 from utils import censor_string
 import time
 import pandas as pd
+import re
+import pickle as pkl
 
 
 def in_region(query, region, censor, **kwargs):
@@ -26,20 +28,17 @@ def in_region(query, region, censor, **kwargs):
             df['date'] = pd.period_range(start='2004-01-01',
                                          end='2021-01-01',
                                          freq='M').to_timestamp()
-            df['region'] = region
             df['n'] = 0
             df['ispartial'] = pd.Series([True]).bool()
-            df["query"] = query
 
         else:
 
             df.columns = ["n", "ispartial"]
             df.index.name = 'date'
             df.reset_index(inplace=True)
-            df["region"] = region
 
-            df["query"] = query
-
+        df["query"] = query
+        df['code'] = re.findall("\d+", region)[0]
         if censor:
             df["query"] = df["query"].apply(censor_string)
 
@@ -62,16 +61,8 @@ def to_wide(df):
 
     """
     df['year'] = pd.DatetimeIndex(df['date']).year
-    df = df.groupby(['year', 'region'])["n"].mean()
-    df=df.unstack(level=0)
+    df['year'] = df['year'].apply(str)
+    df = df.groupby(['year', 'code'])["n"].mean()
+    df = df.unstack(level=0)
     return (df)
 
-
-if __name__ == "__main__":
-
-    df_1 = in_region("hahahahha", "US-FL-686", False, timeframe="all")
-    df_1 = to_wide(df_1)
-    df_2 = in_region("hello", "US-FL-686", False, timeframe="all")
-    df_2 = to_wide(df_2)
-
-    print(pd.concat((df_1, df_2)))

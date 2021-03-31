@@ -2,6 +2,7 @@
 import numpy as np
 from utils import mean_nonzero
 import random
+import pandas as pd
 
 
 # Find the ratio of two scores that are horizontally comparable
@@ -117,27 +118,13 @@ def repair_matrix(h_matrix, v_matrix, current):
 
 
 if __name__ == "__main__":
-    for _ in range(50):
-        arr = np.array([[x + 1 + 10 * y for x in range(10)]
-                        for y in range(10)])
+    v_df = pd.read_parquet("v_matrix.parquet").sort_index().drop_duplicates()
+    v_matrix = v_df.to_numpy()
+    h_df = pd.read_parquet("horizontal.parquet").sort_index().drop_duplicates()
+    h_df = h_df.drop("2021", axis=1)
 
-        n = 50
-        index = np.random.choice(arr.size, n, replace=False)
-        arr.ravel()[index] = 0
+    v_matrix = v_df.to_numpy()
+    h_matrix = h_df.to_numpy()
 
-        rowmod = np.array(tuple(random.random() for _ in range(10)))
-        colmod = np.array(tuple(random.random() for _ in range(10)))
-
-        h_matrix = arr * rowmod[:, np.newaxis]
-        v_matrix = arr * colmod
-
-        gen1 = recover_scores(h_matrix, v_matrix)
-        if not gen1 is None:
-
-            repaired = repair_matrix(h_matrix, v_matrix, gen1)
-
-            repaired_scaled = repaired / np.max(repaired)
-            arr_scaled = arr / np.max(arr)
-            print((100 * repaired) / np.max(repaired))
-
-
+    recovered = recover_scores(h_matrix, v_matrix)
+    print(repair_matrix(h_matrix, v_matrix, recovered))

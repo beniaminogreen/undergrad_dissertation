@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 from pytrends.request import TrendReq
 from utils import censor_string
+import pandas as pd
 
 
 def between_region(query, censor, **kwargs):
@@ -40,3 +41,17 @@ def between_reigion_many(iterable, censor, **kwargs):
         chunk1 = chunk2
 
     return (df1)
+
+
+def create_v_df(term, year):
+    timeframe = f"{year}-01-01 {year}-12-31"
+    df = between_region([term], False, timeframe=timeframe, geo="US")
+    df = df.rename(columns={term: str(year)})
+    return df
+
+
+if __name__ == "__main__":
+    dfs = tuple(create_v_df("hello", year) for year in range(2004, 2021))
+    df_c = pd.concat(dfs, axis=1)
+
+    df_c.to_parquet("v_matrix.parquet")
