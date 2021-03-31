@@ -1,6 +1,8 @@
 \documentclass{article}
 \usepackage{setspace}
+\usepackage[colorlinks, allcolors=blue]{hyperref}
 \usepackage{graphicx}
+\usepackage{pdfpages}
 \usepackage{float}
 \usepackage{chngpage}
 \usepackage{subcaption}
@@ -41,6 +43,10 @@
 \addtolength{\topmargin}{-.5in}
 \addtolength{\textheight}{1in}
 
+\newcommand{\wone}{[Word 1] }
+\newcommand{\wones}{[Word 1]'s }
+\newcommand{\woneps}{[Word 1](s) }
+
 \newenvironment{centerfig}
 {\begin{figure}[H]\centering}
 {\end{figure}}
@@ -64,21 +70,32 @@ library(sf)
 
 \subsection{Tools Used}
 
-Surveys of major social science journals routinely fail to reproduce the findings of a plurality or majority of published articles, even when using data provided with the paper \parencites[][]{Nuijten_2015}{Nuijten_2020}{Eubank_2016}.
-In many cases, failures to replicate are due to coding errors or mistakes in transcribing the results of a calculation into the published manuscript \parencite[][]{Eubank_2016}.
+Surveys of major social science journals routinely fail to reproduce the findings of a plurality or majority of papers from the supplementary code and data provided \parencites[][]{Nuijten_2015}{Nuijten_2020}{Eubank_2016}.
 
-To ensure that the methods of this paper have been properly implemented and the finding are reproducible, I tested the analysis routines using the \textit{testthat} package in R \parencite[][]{testthat} and the \textit{unittest} module in Python \parencite[][]{Python}.
+Failures to replicate are often due to coding errors or mistakes in transcribing the results of a calculation into a published manuscript \parencite[][276]{Eubank_2016}.
+
 I use Kintr to integrate statistical calculations into the paper, eliminating the possibility of transcription errors \parencite[][]{knitr}.
+To ensure that the methods of this paper have been properly implemented and the finding are reproducible, I tested the analysis routines using the \textit{testthat} package in R \parencite[][]{testthat} and the \textit{unittest} module in Python \parencite[][]{Python}.  But I won't make you take my word for it  –
+I provide a Docker image with the reproducibility materials to ensure others can replicate the calculations on their own systems \parencites{docker}{Boettiger_2015}.
+The net result is ``one-click reproducibility" \parencite[][]{N_st_2020}; readers can reproduce this exact paper with the push of a button from the linked materials.
+\footnote{Replication materials available \href{https://github.com/beniaminogreen/dissertation}{here}}
 
-Finally, I provide a Docker image \parencite[][]{docker} with the reproducibility materials to ensure others can replicate the figures in this paper on their own systems \parencite{Boettiger_2015}.
-The net result is ``one-click reproducibility" \parencite[][]{N_st_2020}; readers can reproduce this exact paper with the push of a button on their own systems from the reproducibility materials.
+\subsection{Preregistration}
+
+To avoid the possibility of fitting hypotheses to the data after results are known, I created a preregistration plan of my analysis. The plan can be seen in section \ref{prereg}.
+
+I have made one significant deviation from the preregistration plan.
+In my preregistration, I describe a strategy to back out a ratio-level measure of the number of searches for \wone in an area from Google trends data.
+This strategy is based on a misunderstanding of the format of Google trends data, and does not actually produce the desired measure.
+
+In the analysis I perform, I correct this mistake. I describe the correct scaling procedure in section \ref{hey}.
+
 
 
 \begin{figure}
 \caption{Sinclair News Anchors Reading a ``Must-Run'' Script (May 2018)}
 \include{media/must_run.tex}
 \end{figure}
-
 
 <<>>=
 # Load and create data to show markets Sinclair has expanded to / moved out of
@@ -109,18 +126,20 @@ ggplot() +
 
 
 
-\printbibliography{}
 \newpage
 \appendix{}
 \section{Codings for Offensive Words}
+\begin{figure}
+\label{words}
 \begin{table}[H]
 \centering
-        \label{words}
         \begin{tabular}{l|l}
             Code & Word \\ \hline
             Word 1  & nigger   \\ \hline
         \end{tabular}
-    \end{table}
+\end{table}
+\end{figure}
+\printbibliography{}
 
 \section{Code In This Document}
 <<echo=FALSE, include=T>>=
