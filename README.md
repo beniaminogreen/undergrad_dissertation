@@ -1,20 +1,27 @@
 # Undergrad Dissertation Repo
 This is a Git repo to manage my dissertation work.
 
-## Todo List:
+## Todo List Week of April 7th:
+
+- [ ] Write rationale for using Google Trends as a proxy measure of racial animus
+- [ ] Create sparklylines of DMA's with Sinclair acquisitions
+
+## Todo List Week of April 1st:
 
 - [x] Re-do directory structure
 - [ ] Ensure scaling works for multiple keywords
 - [x] Add code to estimate placebo cutoff effects
 - [x] Find expanded list of keywords
-- [ ] Write test assertions for R sinclair data cleaning
-- [ ] Finish coding unit tests for python code
-- [ ] Finish coding unit tests for analysis routines
+- [x] Write test assertions for R Sinclair data cleaning
+- [x] Finish coding unit tests for python code
+- [x] Finish coding unit tests for analysis routines
 - [x] Move manuscript over to Sweave
+- [x] Figure out Udunits2 install on Docker
 - [x] Nest entire paper within a Docker container
+- [ ] Write Docstrings For Python Functions
 
-## Replication with docker
-### On Linux:
+## Replication With Docker
+### [On](On) Linux:
 ```
 docker build -t dissertation_replication .
 docker run --rm -v $PWD:/opt/report dissertation_replication

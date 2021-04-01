@@ -6,8 +6,10 @@ import pandas as pd
 
 
 # Find the ratio of two scores that are horizontally comparable
-def compare_horizontal(h_matrix, y, x0, x1):
+def compare_horizontal(h_matrix, v_matrix, y, x0, x1):
     if h_matrix[y, x0] == 0 or h_matrix[y, x1] == 0:
+        return None
+    elif v_matrix[y, x0] == 0 or v_matrix[y, x1] == 0:
         return None
     else:
         present = h_matrix[y, x0]
@@ -16,8 +18,10 @@ def compare_horizontal(h_matrix, y, x0, x1):
 
 
 # Find the ratio of two scores that are vertically comparable
-def compare_vertical(v_matrix, x, y0, y1):
+def compare_vertical(hmatrix, v_matrix, x, y0, y1):
     if v_matrix[y0, x] == 0 or v_matrix[y1, x] == 0:
+        return None
+    elif v_matrix[y0, x] == 0 or v_matrix[y1, x] == 0:
         return None
     else:
         present = v_matrix[y0, x]
@@ -30,17 +34,19 @@ def compare_vertical(v_matrix, x, y0, y1):
 def compare(h_matrix, v_matrix, x0, y0, x1, y1):
     if h_matrix[y0, x0] == 0 or h_matrix[y1, x1] == 0:
         return (0)
+    elif v_matrix[y0, x0] == 0 or v_matrix[y1, x1] == 0:
+        return (0)
     else:
-        h_compare_1 = compare_horizontal(h_matrix, y0, x0, x1)
-        v_compare_1 = compare_vertical(v_matrix, x1, y0, y1)
+        h_compare_1 = compare_horizontal(h_matrix, v_matrix, y0, x0, x1)
+        v_compare_1 = compare_vertical(h_matrix, v_matrix, x1, y0, y1)
 
         if h_compare_1 and v_compare_1:
             first = h_compare_1 * v_compare_1
         else:
             first = None
 
-        h_compare_2 = compare_vertical(v_matrix, x0, y0, y1)
-        v_compare_2 = compare_horizontal(h_matrix, y1, x0, x1)
+        h_compare_2 = compare_vertical(h_matrix, v_matrix, x0, y0, y1)
+        v_compare_2 = compare_horizontal(h_matrix, v_matrix, y1, x0, x1)
         if h_compare_2 and v_compare_2:
             second = h_compare_2 * v_compare_2
         else:

@@ -21,7 +21,7 @@ years_before <- function(bool) {
 
     out <- c(before, after)
   } else {
-    out <- rep(NA_real_, length(bool))
+    out <- rep(-99, length(bool))
   }
 
   return(out)

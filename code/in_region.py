@@ -50,7 +50,7 @@ def in_region(query, region, censor, **kwargs):
             print(f"Rate error: {query} in {region}")
 
         time.sleep(60)
-        in_region(query, region, censor)
+        return in_region(query, region, censor, **kwargs)
 
 
 def to_wide(df):
@@ -60,9 +60,21 @@ def to_wide(df):
     :returns: 'wide' DataFrame of search data, averaged by year
 
     """
+    print(df['date'])
     df['year'] = pd.DatetimeIndex(df['date']).year
     df['year'] = df['year'].apply(str)
     df = df.groupby(['year', 'code'])["n"].mean()
     df = df.unstack(level=0)
     return (df)
 
+
+# with open("data/dma_abbreviations.pkl", "rb") as f:
+#     dmas = pkl.load(f)
+
+# dmas = dmas
+
+# in_region_dfs = tuple(
+#     in_region("economist", dma, True, timeframe="all") for dma in dmas)
+# wide_dfs = map(to_wide, in_region_dfs)
+# h_df = pd.concat(wide_dfs).sort_index()
+# print(h_df)
