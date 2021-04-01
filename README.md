@@ -4,7 +4,11 @@ This is a Git repo to manage my dissertation work.
 ## Todo List Week of April 7th:
 
 - [ ] Write rationale for using Google Trends as a proxy measure of racial animus
-- [ ] Create sparklylines of DMA's with Sinclair acquisitions
+- [ ] Write current literature section (balance moving away from CARS with fufilling requirements for section)
+- [ ] Create ``heatmap" to show which DMAs Sinclair moves into / out of
+- [ ] Run tests on random data to confirm that scaling is necessary or figure out a way to articulate that it is
+- [ ] Consider estimating average marginal treatment effects.
+- [ ] Consider running MC power analysis (stretch goal)
 
 ## Todo List Week of April 1st:
 
