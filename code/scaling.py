@@ -98,7 +98,9 @@ def recover_scores(h_matrix, v_matrix):
 # vertically comparable values, repair values that could not be imputed in the
 # first stage because zero values had 'cast a shadow' on on them.
 def repair_matrix(h_matrix, v_matrix, current):
-    for i in range(50):
+    for i in range(500):
+        if i > 1:
+            print(i)
         current_sum = np.sum(current)
         current_has_nan = np.isnan(current_sum)
 
@@ -124,13 +126,26 @@ def repair_matrix(h_matrix, v_matrix, current):
 
 
 if __name__ == "__main__":
-    v_df = pd.read_parquet("v_matrix.parquet").sort_index().drop_duplicates()
-    v_matrix = v_df.to_numpy()
-    h_df = pd.read_parquet("horizontal.parquet").sort_index().drop_duplicates()
-    h_df = h_df.drop("2021", axis=1)
+    arr = np.array([[x + 10 * y for x in range(10)] for y in range(10)])
 
-    v_matrix = v_df.to_numpy()
-    h_matrix = h_df.to_numpy()
+    rowmod = np.array(tuple(random.random() for _ in range(10)))
+    colmod = np.array(tuple(random.random() for _ in range(10)))
 
-    recovered = recover_scores(h_matrix, v_matrix)
-    print(repair_matrix(h_matrix, v_matrix, recovered))
+    h_matrix = arr * rowmod[:, np.newaxis]
+    v_matrix = arr * colmod
+
+    n = 10
+    index1 = np.random.choice(arr.size, n, replace=False)
+    index2 = np.random.choice(arr.size, n, replace=False)
+    v_matrix.ravel()[index2] = 0
+    h_matrix.ravel()[index1] = 0
+    np.savetxt("fake_h_mat.csv", h_matrix, delimiter=",")
+    np.savetxt("fake_v_mat.csv", v_matrix, delimiter=",")
+
+    gen1 = recover_scores(h_matrix, v_matrix)
+    np.savetxt("fake_gen1.csv", gen1, delimiter=",")
+    if not gen1 is None:
+
+        repaired = repair_matrix(h_matrix, v_matrix, gen1)
+
+        np.savetxt("fake_repaired.csv", repaired, delimiter=",")

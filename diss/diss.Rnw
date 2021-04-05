@@ -21,7 +21,7 @@
 }
 \graphicspath{ {./media/} }
 \usepackage[backend=biber, style=authoryear-icomp,doi=false,isbn=false,url=false]{biblatex}
-\addbibresource{$BIB}
+\addbibresource{bib.bib}
 
 \definecolor{codegreen}{rgb}{0,0.6,0}
 \definecolor{codegray}{rgb}{0.5,0.5,0.5}
@@ -79,6 +79,66 @@ library(stargazer)
 
 \section{Introduction}
 
+Can media coverage influence racial resentment?
+Empirical studies suggest that when white Americans understand welfare policies to threaten their privileged status in the U.S. Social hierarchy, their resentment of minorities increases and their support for welfare decreases \parencites[][]{Willer_2016}{Wetts_2018}.
+This tendency seems to be weaponed by conservative media institutions and politicians, who seem to encourage racial animus to erode support for social programs, as in the infamous example of the ``Welfare Queen" narrative, a racial stereotype employed to undercut support for the Aid to Families with Dependent Children (AFDC).
+However, the link between traditional media coverage and racial resentment has not been extensively studied.
+
+I propose a study exploiting the expansion of the Sinclair Media Network from 2004-2021 to understand how conservative media messaging impacts racial resentment in a media market.
+The expansion of Sinclair Media during this period provides the basis for a difference-in-differences analysis estimating the effect of Sinclair Media purchasing a station on racial animus in an area.
+I propose using data from Google search trends in an area as a proxy for racial resentment, a strategy that has already been used to measure racial resentment in the context of public health \parencites{Chae_2018}{Chae_2015} and elections research \parencite{Stephens_Davidowitz_2014}.
+
+
+\section{Background}
+\subsection{Sinclair Broadcast Group}
+
+In this paper, I suggest exploiting the expansion of Sinclair Network over the period of 2004-2021.
+During this, the Sinclair Broadcast Group sold or purchased stations in 67 media markets.
+%Fix this - it's sloppy.
+I use the same strategy to track the expansion of Sinclair Media outlets employed by \cite{Miho_2018}, namely, by extracting a record of the stations Sinclair Owns at the end of each financial year from their SEC form 10-K filings.
+These filings have an advantage over the typical sets data used to track network expansion maintained by the Nielsen Corporation as they are publicly available, so the findings can be easily reproduced.
+
+Previous research has demonstrated that Sinclair acquisition of a network is associated with a sharp rightwards shift in its coverage \parencite[][]{Martin_2019}.
+However, a quantitative analysis of the effect of Sinclair ownership on coverage of racial issues has not been conducted.
+There is significant evidence to suggest that Sinclair ownership does push stations to run more racially conservative stories than they otherwise would.
+This year, the Sinclair corporation drew ire for a series of ``must-run'' segments on police violence following the murder of George Floyd pushing the ``black-on-black violence'' canard and advocating for a military response to the protests \parencites{Pleat_2020_b}{Pleat_2020_a}.
+
+In analyzing the effects of news coverage on racial animus, it might be natural to examine the expansion of Fox News, which occupies a position in the public consciousness as among the most conservative stations on racial issues, and is the most trusted media outlet among Republican and Republican-leaning respondents in many polls \parencite[][]{Jurkowitz_2020}.
+However, I choose to use Sinclair over Fox News Stations for two reasons.
+First, Fox News' expansion strategy has involved purchasing a larger stations.
+As television companies in the US can only expand until they broadcast to 39\% of U.S. households \parencite[][]{Scherer_2018}, Fox News has been able to buy fewer stations than Sinclair, which entails a smaller sample size of stations that changed ownership.
+Second, Fox News' expansion primarily happened before 2004, the first year for which Google Trends data is available, which further limits the sample size of stations which changed ownership for which there is data on racial animus.
+
+\subsection{Google Trends Data}
+
+This analysis uses Google trends data as a proxy for the level of racial animus in an area.
+The identifying assumption of this strategy is that Google searches for the word \wone reflect underlying racial animus in an area.
+If readers find this assumption unconvincing, then they will have little reason to accept the conclusions of this analysis.
+Accordingly, I offer several reasons to suggest that Google search trends accurately predict racial animus in an area, namely; Google searches are conducted in private, and are not subject to the same social-desirability biases as traditional, survey-based measures;
+
+
+
+First, Google searches do not suffer from the same social censoring
+
+\footnote{\cite{Stephens_Davidowitz_2014} evidences this claim by reporting statistics for pornography searches. Over the past 16 years, the number of searches for ``porn" and ``news" are commensurate, yet only 14\% of GSS respondents tell the GSS they have visited a pornographic website in the past 30 days.}
+
+If readers do not find the Google trends data a convincing proxy for racial animus, they have little reason to accept the results of this analysis.
+As such, I give several reasons to suggest that Google trends data can be used to measure racial animus.
+
+
+This measurement approach has an advantage over traditional survey-based measures of racial animus in that it is less subject to a social desirability bias;
+``Google searchers are online and likely alone, both of which make it easier to express socially taboo thoughts (Kreuter et al., 2009)" \parencite[][26]{Stephens_Davidowitz_2014}.
+Further, it provides a high-resolution set of data that would be prohibitively expensive to collect from a traditional survey, especially given that the difference-in-differences approach requires a repeated survey comparable across multiple time periods.
+
+A pressing concern is that Google searches for ``\woneps'' may not actually capture the extent of racial bias in an area, but simply reflect users learning about the term.
+In fact, ``definition of \wone'' and ``what does \wone mean" are both among the top 5 search queries related to the ``\wone".
+These queries suggest that many who search for the term are searching out of curiosity to investigate the term.
+
+This is not to suggest that searches for the term do not capture any variation in racial animus: among the top 10 most searched related queries to the term \wones are ``I don't like \wones,"  ``fuck the \wones," and ``ship those \wones back."
+
+The concern that Google Searches for racial slurs may largely reflect curiosity about the term is valid.
+Subject to data availability, I suggest controlling for the frequency of searches for the definitions of these terms in each area, to try and isolate the effect of Sinclair media entering a market on searches expressing ``hardcore" racial animus rather than curiosity.
+
 \section{Methods}
 
 \subsection{Tools Used}
@@ -91,7 +151,7 @@ I use Kintr to integrate statistical calculations into the paper, eliminating th
 To ensure that the methods of this paper have been properly implemented and the finding are reproducible, I tested the analysis routines using the \textit{testthat} package in R \parencite[][]{testthat} and the \textit{unittest} module in Python \parencite[][]{Python}.  But I won't make you take my word for it  –
 I provide a Docker image with the reproducibility materials to ensure others can replicate the calculations on their own systems \parencites{docker}{Boettiger_2015}.
 The net result is ``one-click reproducibility" \parencite[][]{N_st_2020}; readers can reproduce this exact paper with the push of a button from the linked materials.
-\footnote{Replication materials available \href{https://github.com/beniaminogreen/dissertation}{here}}
+\footnote{Replication materials available \href{https://github.com/beniaminogreen/dissertation}{here}. By default, the aggregation }
 
 \subsection{Preregistration}
 
@@ -163,11 +223,32 @@ ggplot() +
 %\caption{Media Markets Sinclair Bought or Sold a Station in 2004-2001 DMA Boundaries From \Cite[][]{Hill_2015}}
 \end{centerfig}
 
-\section{Results}
-
 <<>>=
 full_data <- read_csv("../data/full_data.csv") %>%
     mutate(code = as.factor(code))
+
+full_data %>%
+    nest(-code) %>%
+    mutate(
+           any_true =  data %>% map_lgl(~any(.$sinclair_present)),
+           any_false =  data %>% map_lgl(~any(!.$sinclair_present)),
+           changed = any_true & any_false
+    ) %>%
+    unnest()  %>%
+    arrange(changed,years_before) %>%
+    mutate(group_num = as.integer(factor(code, levels = unique(.$code)))) %>%
+    ungroup() %>%
+    mutate(col = interaction(changed,sinclair_present)) %>%
+ggplot(aes(x=year,y=group_num,fill=col)) +
+geom_raster()
+
+
+@
+
+
+\section{Results}
+
+<<>>=
 
 model_1 <- lm(sword1 ~ as.factor(year) + code + sinclair_present, data = full_data)
 
@@ -193,7 +274,7 @@ stargazer(model_1, model_2,
 	title = "Fixed-Effect Model Results",
 	dep.var.labels = c("Frequency of Google Searches for \\wone"),
 	covariate.labels = c("Sinclair Present", "Constant"),
-	add.lines =list(c("Year Fixed Effects", "Yes", "Yes"),c("Region Fixed Effects", "Yes", "Yes"), c("Region / Year Fixed Effects", "Yes", "No")),
+	add.lines =list(c("Year Fixed Effects", "Yes", "Yes"),c("Region Fixed Effects", "Yes", "Yes"), c("Region / Year Fixed Effects", "No", "Yes")),
            table.placement="H")
 @
 
