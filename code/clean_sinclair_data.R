@@ -62,5 +62,9 @@ stopifnot({
 # checks there are no duplicate rows
 stopifnot(!any(duplicated(sinclair_data)))
 
+sinclair_data <- sinclair_data %>%
+  group_by(code) %>%
+  mutate(years_before = years_before(sinclair_present))
+
 # write out to csv file
-write_csv(sinclair_data, "../data/clean_sinclair_data")
+write_csv(sinclair_data, "../data/clean_sinclair_data.csv")
