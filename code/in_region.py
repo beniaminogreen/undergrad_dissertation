@@ -19,30 +19,9 @@ def in_region(query, region, censor, **kwargs):
 
     """
     pytrends = TrendReq(hl='en-US', tz=360)
+    pytrends.build_payload(kw_list=[query], geo=region, **kwargs)
     try:
-        pytrends.build_payload(kw_list=[query], geo=f"{region}", **kwargs)
         df = pytrends.interest_over_time()
-        if df.empty:
-
-            df = pd.DataFrame()
-            df['date'] = pd.period_range(start='2004-01-01',
-                                         end='2021-01-01',
-                                         freq='M').to_timestamp()
-            df['n'] = 0
-            df['ispartial'] = pd.Series([True]).bool()
-
-        else:
-
-            df.columns = ["n", "ispartial"]
-            df.index.name = 'date'
-            df.reset_index(inplace=True)
-
-        df["query"] = query
-        df['code'] = re.findall("\d+", region)[0]
-        if censor:
-            df["query"] = df["query"].apply(censor_string)
-
-        return df
     except:
         if censor:
             print(f"Rate error: {censor_string(query)} in {region}")
@@ -51,6 +30,28 @@ def in_region(query, region, censor, **kwargs):
 
         time.sleep(60)
         return in_region(query, region, censor, **kwargs)
+
+    if df.empty:
+
+        df = pd.DataFrame()
+        df['date'] = pd.period_range(start='2004-01-01',
+                                     end='2021-01-01',
+                                     freq='M').to_timestamp()
+        df['n'] = 0
+        df['ispartial'] = pd.Series([True]).bool()
+
+    else:
+
+        df.columns = ["n", "ispartial"]
+        df.index.name = 'date'
+        df.reset_index(inplace=True)
+
+    df["query"] = query
+    df['code'] = re.findall("\d+", region)[0]
+    if censor:
+        df["query"] = df["query"].apply(censor_string)
+
+    return df
 
 
 def to_wide(df):
@@ -66,15 +67,3 @@ def to_wide(df):
     df = df.groupby(['year', 'code'])["n"].mean()
     df = df.unstack(level=0)
     return (df)
-
-
-# with open("data/dma_abbreviations.pkl", "rb") as f:
-#     dmas = pkl.load(f)
-
-# dmas = dmas
-
-# in_region_dfs = tuple(
-#     in_region("economist", dma, True, timeframe="all") for dma in dmas)
-# wide_dfs = map(to_wide, in_region_dfs)
-# h_df = pd.concat(wide_dfs).sort_index()
-# print(h_df)

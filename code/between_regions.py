@@ -55,3 +55,4 @@ if __name__ == "__main__":
     df_c = pd.concat(dfs, axis=1)
 
     df_c.to_parquet("v_matrix.parquet")
+

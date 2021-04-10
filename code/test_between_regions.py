@@ -3,10 +3,14 @@ import unittest
 import pandas as pd
 from between_regions import between_region
 from utils import connected
+import warnings
 
 
 @unittest.skipIf(not connected(), "not connected to the internet")
 class TestBetweenRegion(unittest.TestCase):
+    def setUp(self):
+        warnings.simplefilter('ignore')
+
     def test_between_region_uncensored(self):
 
         result_1 = between_region(["socks"],
