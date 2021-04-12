@@ -11,9 +11,12 @@ class TestCompareHorizontal(unittest.TestCase):
         h_matrix = np.array([[2, 4, 6], [12, 15, 18], [3.5, 4, 4.5]])
         v_matrix = np.array([[3, 1, 1], [12, 2.5, 2], [21, 4, 3]])
 
-        self.assertEqual(1 / 3, compare_horizontal(h_matrix, v_matrix, 0, 0, 2))
-        self.assertEqual(2 / 3, compare_horizontal(h_matrix, v_matrix, 1, 0, 2))
-        self.assertEqual(5 / 4, compare_horizontal(h_matrix, v_matrix, 1, 1, 0))
+        self.assertEqual(1 / 3, compare_horizontal(h_matrix, v_matrix, 0, 0,
+                                                   2))
+        self.assertEqual(2 / 3, compare_horizontal(h_matrix, v_matrix, 1, 0,
+                                                   2))
+        self.assertEqual(5 / 4, compare_horizontal(h_matrix, v_matrix, 1, 1,
+                                                   0))
 
 
 class TestCompareVertical(unittest.TestCase):

@@ -10,13 +10,17 @@ from utils import connected
 class TestBetweenRegion(unittest.TestCase):
     def setUp(self):
         warnings.simplefilter('ignore')
+
     def test_in_region_uncensored(self):
 
-
-        result_1 = in_region("hello", "US-AL-630",False,
+        result_1 = in_region("hello",
+                             "US-AL-630",
+                             False,
                              timeframe="2016-12-14 2017-01-25")
 
-        result_2 = in_region("France", "US-GA-522", False,
+        result_2 = in_region("France",
+                             "US-GA-522",
+                             False,
                              timeframe="2016-12-14 2017-01-25")
 
         expected_1 = pd.read_parquet("tests/test_data/in_region_1_uc.parquet")
@@ -26,7 +30,9 @@ class TestBetweenRegion(unittest.TestCase):
         self.assertTrue(expected_2.equals(result_2))
 
     def test_in_region_censored(self):
-        result_1 = in_region("socks", "US", True,
+        result_1 = in_region("socks",
+                             "US",
+                             True,
                              timeframe="2016-12-14 2017-01-25",
                              gprop="")
 

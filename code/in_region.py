@@ -19,8 +19,8 @@ def in_region(query, region, censor, **kwargs):
 
     """
     pytrends = TrendReq(hl='en-US', tz=360)
-    pytrends.build_payload(kw_list=[query], geo=region, **kwargs)
     try:
+        pytrends.build_payload(kw_list=[query], geo=region, **kwargs)
         df = pytrends.interest_over_time()
     except:
         if censor:
@@ -47,7 +47,13 @@ def in_region(query, region, censor, **kwargs):
         df.reset_index(inplace=True)
 
     df["query"] = query
-    df['code'] = re.findall("\d+", region)[0]
+
+    code = re.findall("\d+", region)
+    if code:
+        df['code'] = code[0]
+    else:
+        code = region
+
     if censor:
         df["query"] = df["query"].apply(censor_string)
 
@@ -55,7 +61,7 @@ def in_region(query, region, censor, **kwargs):
 
 
 def to_wide(df):
-    """TODO: Turns time-series search popularity data into a 'wide' dataframe to be used in scaling
+    """Turns time-series search popularity data into a 'wide' dataframe to be used in scaling
 
     :df: 'long' dataframe of search data, as from in_region()
     :returns: 'wide' DataFrame of search data, averaged by year

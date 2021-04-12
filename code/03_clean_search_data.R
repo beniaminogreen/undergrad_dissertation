@@ -41,24 +41,3 @@ stopifnot(nrow(full_data) == 3570)
 stopifnot(all(!is.na(full_data)))
 
 write_csv(full_data, "../data/full_data.csv")
-
-model_1 <- lm(sword1 ~ as.factor(year) + as.factor(code) + sinclair_present, data = full_data)
-model_1 %>% summary()
-
-model_2 <- lm(sword1 ~ as.factor(year) + as.factor(code) + year:as.factor(code)+ sinclair_present, data = full_data)
-model_2 %>% summary()
-
-model_3 <- lm(sword1 ~ as.factor(year) + as.factor(code) + as.factor(years_before), data = full_data)
-model_3 %>% summary()
-
-model_3 %>%
-  tidy() %>%
-  filter(grepl("years_before", term)) %>%
-  mutate(term = as.numeric(gsub("[^0-9\\-]+", "", term))) %>%
-  ggplot(aes(x = term, y = estimate)) +
-  geom_point() +
-  geom_errorbar(aes(ymin = estimate - 1.96 * std.error, ymax = estimate + 1.96 * std.error)) +
-  geom_hline(aes(yintercept=0), linetype=2) +
-  geom_vline(aes(xintercept=0))
-
-

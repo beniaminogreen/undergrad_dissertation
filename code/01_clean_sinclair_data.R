@@ -26,7 +26,8 @@ sinclair_raw <- tibble(filename = list.files(path = "data/sinclair_data/", full.
 # dataset to DMA codes
 sinclair_codes <- read_csv("data/sinclair_names.csv")
 
-# checks that the sinclair codes table has all markets from the sinclair present dataset
+# checks that the sinclair codes table has all markets from the sinclair
+# present dataset
 stopifnot(
   all(sinclair_raw$market %in% sinclair_codes$market),
   all(sinclair_codes$market %in% sinclair_raw$market)
@@ -56,8 +57,9 @@ sinclair_data <- sinclair_present %>%
 
 # checks there is an observation for every year and  in the datset
 stopifnot({
-    sinclair_data %>% anti_join(expand.grid(code = dma_names$code, year = 2004:2020)) %>%
-        nrow() == 0
+  sinclair_data %>%
+    anti_join(expand.grid(code = dma_names$code, year = 2004:2020)) %>%
+    nrow() == 0
 })
 # checks there are no duplicate rows
 stopifnot(!any(duplicated(sinclair_data)))

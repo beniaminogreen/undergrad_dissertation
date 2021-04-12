@@ -50,9 +50,34 @@ def create_v_df(term, year):
     return df
 
 
-if __name__ == "__main__":
-    dfs = tuple(create_v_df("hello", year) for year in range(2004, 2021))
-    df_c = pd.concat(dfs, axis=1)
 
-    df_c.to_parquet("v_matrix.parquet")
+# result_1 = between_region(["socks"],
+#                           censor=False,
+#                           timeframe="2016-12-14 2017-01-25",
+#                           geo="US",
+#                           gprop="")
 
+# result_2 = between_region(["socks", "shoe", "fish"],
+#                           censor=False,
+#                           timeframe="2016-12-14 2017-01-25",
+#                           geo="US",
+#                           gprop="")
+
+# result_1.to_parquet("tests/test_data/between_region_1_uc.parquet")
+# result_2.to_parquet("tests/test_data/between_region_2_uc.parquet")
+
+
+# result_1 = between_region(["socks"],
+#                           censor=True,
+#                           timeframe="2016-12-14 2017-01-25",
+#                           geo="US",
+#                           gprop="")
+
+# result_2 = between_region(["socks", "shoe", "fish"],
+#                           censor=True,
+#                           timeframe="2016-12-14 2017-01-25",
+#                           geo="US",
+#                           gprop="")
+
+# result_1.to_parquet("tests/test_data/between_region_1_c.parquet")
+# result_2.to_parquet("tests/test_data/between_region_2_c.parquet")

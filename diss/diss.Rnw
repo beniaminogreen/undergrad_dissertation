@@ -97,26 +97,88 @@ Empirical studies suggest that when white Americans understand welfare policies 
 This tendency seems to be weaponed by conservative media institutions and politicians, who seem to encourage racial animus to erode support for social programs, as in the infamous example of the ``Welfare Queen" narrative, a racial stereotype employed to undercut support for the Aid to Families with Dependent Children (AFDC).
 However, the link between traditional media coverage and racial resentment has not been extensively studied.
 
-I propose a study exploiting the expansion of the Sinclair Broadcasting Group from 2004-2021 to understand how conservative media messaging impacts racial resentment in a media market.
+I use the expansion of the Sinclair Broadcasting Group from 2004-2021 to understand how conservative media messaging impacts racial resentment in a media market.
 The expansion of the Sinclair Broadcasting Group during this period provides the basis for a difference-in-differences analysis estimating the effect of Sinclair Media purchasing a station on racial animus in an area.
-I use the concentration of racially charged Google searches a proxy for the intensity of racial animus in an area.
+
+I use the number of Google searches containing racial epithets in an area as a proxy of the racial animus in an area.
 This measure has previously been used to measure the contributions of racial resentment towards African-American mortality \parencites{Chae_2018}{Chae_2015}, election outcomes \parencite{Stephens_Davidowitz_2014}, and economic inequality \parencite[][]{Connor_2019}, and does not suffer from the same social censoring issues that confound traditional measures.
+
+Using two internet-based measures of racial animus, I show that Sinclair moving into a region has no effect on the level of racial bias in an area.
+
 
 \section{Theoretical Framework}
 
 \section{Background}
 \subsection{Sinclair Broadcast Group}
 
-During the period of 2004-2021, the Sinclair Broadcasting Group bought or sold stations in 67 media markets.
-I use this pattern of expansion as the basis for a difference-in-differences analysis.
+Sinclair Broadcasting group is one of the largest telecommunications operators in the United States.  Founded in 1971 as the Chesapeake Television Corporation, Sinclair Broadcasting group has since expanded to reach the maximum 39\% of total houseolds any operator can service under U.S. law.
+In this paper, I use the variation in station ownership caused by Sinclair's expansion in the period of 2004-2021 as the basis of a difference-in-differences analysis.
 
-I extract a record of which markets Sinclair has a presence in from the company's yearly filings with the Securities and Exchange Commission, which report each station owned by the company at the end of the time of filing a map of which regions Sinclair moved into / out of can be seen in figure \ref{map}.
+I create a record of Sinclair's station ownership over time from the company's yearly filings with the Securities and Exchange Commission, which enumerate all the stations owned by the company at the end of each year.
 This strategy has previously been used by \citet{Miho_2018} to track Sinclair Expanison over the period of 1995-2017.
-SEC filings have an advantage over the typical sets data used to track network expansion maintained by the Nielsen Corporation as they are publicly available, so the findings can be easily reproduced.
+A map of the media markets Sinclair either purchased or sold a station in can be seen in in figure \ref{map}. A chart showing when each station became treated can be seen in \ref{treated}.
 
-\subsection{Does Sinclair Have a Racial Bias?}
+Traditionally, researchers track a network's expansion using datasets maintained by the Nielsen Corporation, the U.S. company responsible for tracking the boundaries of media markets.
+The SEC dataset has an advantage over this dataset as it is open-access, and can be published freely alongside the research.
 
-This analysis assumes that Sinclair stations differ from non-Sinclair stations on coverage of racial issues: if Sinclair stations deploy the same coverage on racial issues as other stations, then we would expect to see no difference in levels of racial resentment between Sinclair and non-Sinclair media markets.
+\begin{figure}
+    \makebox[\linewidth][c]{%
+        \begin{subfigure}[bt]{.6\textwidth}
+            \centering
+<<>>=
+# Load and create data to show markets Sinclair has expanded to / moved out of
+sinclair_expansions <- read_csv("../data/clean_sinclair_data.csv") %>%
+    nest(-code) %>%
+    mutate(
+           any_true =  data %>% map_lgl(~any(.$sinclair_present)),
+           any_false =  data %>% map_lgl(~any(!.$sinclair_present)),
+           changed = any_true & any_false
+    )
+
+
+dma_boundaries <- st_read("../data/dma_boundaries/dma_boundary.shp")
+dma_boundaries <- merge(dma_boundaries, sinclair_expansions, by.x="dma0", by.y="code")
+@
+
+\caption{Media Markets Sinclair Bought or Sold a Station in between 2004-2020. DMA Boundaries From \Cite[][]{Hill_2015}}
+\label{map}
+<<include = T>>=
+#Plot markets Sinclair has expanded to / moved out of
+ggplot() +
+    geom_sf(data=dma_boundaries, aes(fill=changed), alpha=.5) +
+    scale_fill_manual(values  = c(NA, "blue")) +
+    theme_void() +
+    theme(legend.pos ="none")
+@
+        \end{subfigure}%
+    \begin{subfigure}[bt]{.6\textwidth}
+        \centering
+\caption{Media Markets by Sinclair Ownership Status, Time}
+\label{treated}
+<<include = T, warn = F >>=
+#Plot markets Sinclair has expanded to / moved out of
+sinclair_expansions %>%
+    unnest(cols=c(data)) %>%
+    unite("fill", changed:sinclair_present, remove = F)  %>%
+    mutate(code = fct_reorder2(as.factor(code),as.factor(changed),as.factor(sinclair_present))) %>%
+    ggplot(aes(year,code, fill=sinclair_present)) +
+    geom_raster() +
+    scale_y_discrete(breaks=c()) +
+    scale_fill_discrete(labels = c("Untreated", "Treated")) +
+    theme(legend.title = element_blank()) +
+    xlab("Year") +
+    ylab("Media Market")
+@
+    \end{subfigure}}\\
+\end{figure}
+
+\subsubsection{Does Sinclair Have a Racial Bias?}
+
+Previous quantitative research has shown that when Sinclair buys a station, its coverage shifts sharply rightwards.
+I make the case that this effect extends to the coverage of racial issues - when Sinclair buys a station, it shifts the coverage of racial issues sharply towards the right.
+
+assume that Sinclair stations differ from non-Sinclair stations on coverage of racial issues: if Sinclair stations deploy the same coverage on racial issues as other stations, then we would expect to see no difference in levels of racial resentment between Sinclair and non-Sinclair media markets.
+
 So, it must be asked: does Sinclair coverage have a racially-conservative bent?
 Admittedly, there have been no large-scale analyses of the effects of Sinclair ownership on coverage of racial issues.
 Nonetheless, I submit that there is evidence to show Sinclair Stations cover racial issues in a more conservative light than they would absent Sinclair ownership.
@@ -126,11 +188,23 @@ I argue this effect extends to its framing of racial issues.
 
 This year, the Sinclair corporation drew ire for a series of ``must-run'' segments on police violence following the murder of George Floyd pushing the ``black-on-black violence'' canard and advocating for a military response to the protests \parencites{Pleat_2020_b}{Pleat_2020_a}.
 
-In analyzing the effects of news coverage on racial animus, it might be natural to examine the expansion of Fox News, which occupies a position in the public consciousness as among the most conservative stations on racial issues, and is the most trusted media outlet among Republican and Republican-leaning respondents in many polls \parencite[][]{Jurkowitz_2020}.
-However, I choose to use Sinclair over Fox News Stations for two reasons.
-First, Fox News' expansion strategy has involved purchasing a larger stations.
-As television companies in the US can only expand until they broadcast to 39\% of U.S. households \parencite[][]{Scherer_2018}, Fox News has been able to buy fewer stations than Sinclair, which entails a smaller sample size of stations that changed ownership.
-Second, Fox News' expansion primarily happened before 2004, the first year for which Google Trends data is available, which further limits the sample size of stations which changed ownership for which there is data on racial animus.
+% In analyzing the effects of news coverage on racial animus, it might be natural to examine the expansion of Fox News, which occupies a position in the public consciousness as among the most conservative stations on racial issues, and is the most trusted media outlet among Republican and Republican-leaning respondents in many polls \parencite[][]{Jurkowitz_2020}.
+% However, I choose to use Sinclair over Fox News Stations for two reasons.
+% First, Fox News' expansion strategy has involved purchasing a larger stations.
+% As television companies in the US can only expand until they broadcast to 39\% of U.S. households \parencite[][]{Scherer_2018}, Fox News has been able to buy fewer stations than Sinclair, which entails a smaller sample size of stations that changed ownership.
+% Second, Fox News' expansion primarily happened before 2004, the first year for which Google Trends data is available, which further limits the sample size of stations which changed ownership for which there is data on racial animus.
+
+\subsection{Measuring Racial Animus}
+
+Measuring racial resentment is difficult.
+Overt expressions of racism are severly socially sanctioned in the U.S., so respondents who do harbor racial resentment often understate it when they are interviewed for traditional surveys \parencites{Krumpal_2011}{Kuklinski_1997}.
+These social-desirability biases confound traditional survey measures, and lead to underestimates of the levels of racial hostility in the states.
+
+% The Google search results provide higher external validity (almost all of the population is represented in Google search data) at the cost of low power (the data is variable, so small effects would be difficult or impossible to detect).
+% I compliment this with data from Project Implicit which trades on external validity (IAT takers do not represent the general population) but the large sample size offers high power, so the chance of not finding a small effect is low.
+
+I sidestep social desirability biases by using two unconventional measures of racial animus: the number of Google searches for racial slurs in an area, and test scores from Harvard University's Project Implicit, an internet-based project to collect data on implicit biases.
+Both measures estimate racial animus from observed behavior (Google searches or the ability to associate black and white faces with positive words) rather than asking respondents questions, so sidestep issues of self-reporting.
 
 \subsection{Google Trends Data}
 
@@ -151,11 +225,16 @@ Further, it provides a high-resolution set of data that would be prohibitively e
 
 \footnote{\cite{Stephens_Davidowitz_2014} evidences this claim by reporting statistics for pornography searches. Over the past 16 years, the number of searches for ``porn" and ``news" are commensurate, yet only 14\% of GSS respondents tell the GSS they have visited a pornographic website in the past 30 days.}
 
-As such, I give several reasons to suggest that Google trends data can be used to measure racial animus.
+%As such, I give several reasons to suggest that Google trends data can be used to measure racial animus.
 
 %Originally developed by \citet{Stephens_Davidowitz_2014} to understand the link between racial animus and the under-performance of black candidates in national elections.
 %This measure has significant advantages over traditional survey-based methods as it is not subject to the same social desirability biases that confound traditional measures; and provides a rich, regularly-sampled repeated measure of racial animus.
 
+A pressing concern is that searches for  the word ``\wone'' might not actually measure racial animus but, in fact, reflect users learning about the term.
+Indeed, ``Definition of \wone'' and ``what does \wone mean" are both among the top 5 search queries related to term.
+These queries suggest that many who search for the term are searching out of curiosity to investigate the term.
+
+This is not to suggest that searches for the term do not capture any variation in racial animus: the top 10 most searched related queries to the term \wones are ``I don't like \wones,"  ``fuck the \wones," and ``ship those \wones back."
 
 
 <<include=T, warn=FALSE>>=
@@ -192,17 +271,6 @@ ggplot(state_iat_searches, aes(word1, sbp5, label=state)) +
 @
     \end{subfigure}}\\
 \end{figure}
-
-
-A pressing concern is that Google searches for ``\woneps'' may not actually capture the extent of racial bias in an area, but simply reflect users learning about the term.
-In fact, ``definition of \wone'' and ``what does \wone mean" are both among the top 5 search queries related to the ``\wone".
-These queries suggest that many who search for the term are searching out of curiosity to investigate the term.
-
-This is not to suggest that searches for the term do not capture any variation in racial animus: among the top 10 most searched related queries to the term \wones are ``I don't like \wones,"  ``fuck the \wones," and ``ship those \wones back."
-
-The concern that Google Searches for racial slurs may largely reflect curiosity about the term is valid.
-Subject to data availability, I suggest controlling for the frequency of searches for the definitions of these terms in each area, to try and isolate the effect of Sinclair media entering a market on searches expressing ``hardcore" racial animus rather than curiosity.
-
 
 \subsection{Scaling Google Trends Data:}
 
@@ -260,55 +328,6 @@ In the analysis I perform, I correct this mistake. I describe the correct scalin
 \include{media/scaling.tex}
 \end{figure}
 
-\begin{figure}
-    \makebox[\linewidth][c]{%
-        \begin{subfigure}[bt]{.6\textwidth}
-            \centering
-<<>>=
-# Load and create data to show markets Sinclair has expanded to / moved out of
-sinclair_expansions <- read_csv("../data/clean_sinclair_data.csv") %>%
-    nest(-code) %>%
-    mutate(
-           any_true =  data %>% map_lgl(~any(.$sinclair_present)),
-           any_false =  data %>% map_lgl(~any(!.$sinclair_present)),
-           changed = any_true & any_false
-    )
-
-
-dma_boundaries <- st_read("../data/dma_boundaries/dma_boundary.shp")
-dma_boundaries <- merge(dma_boundaries, sinclair_expansions, by.x="dma0", by.y="code")
-@
-
-\caption{Media Markets Sinclair Bought or Sold a Station in between 2004-2020. DMA Boundaries From \Cite[][]{Hill_2015}}
-\label{map}
-<<include = T>>=
-#Plot markets Sinclair has expanded to / moved out of
-ggplot() +
-    geom_sf(data=dma_boundaries, aes(fill=changed), alpha=.5) +
-    scale_fill_manual(values  = c(NA, "blue")) +
-    theme_void() +
-    theme(legend.pos ="none")
-@
-        \end{subfigure}%
-    \begin{subfigure}[bt]{.6\textwidth}
-        \centering
-\caption{Media Markets by Sinclair Ownership Status, Time}
-<<include = T, warn = F >>=
-#Plot markets Sinclair has expanded to / moved out of
-sinclair_expansions %>%
-    unnest(cols=c(data)) %>%
-    unite("fill", changed:sinclair_present, remove = F)  %>%
-    mutate(code = fct_reorder2(as.factor(code),as.factor(changed),as.factor(sinclair_present))) %>%
-    ggplot(aes(year,code, fill=sinclair_present)) +
-    geom_raster() +
-    scale_y_discrete(breaks=c()) +
-    scale_fill_discrete(labels = c("Untreated", "Treated")) +
-    theme(legend.title = element_blank()) +
-    xlab("Year") +
-    ylab("Media Market")
-@
-    \end{subfigure}}\\
-\end{figure}
 
 <<>>=
 full_data <- read_csv("../data/full_data.csv") %>%
@@ -402,7 +421,11 @@ model_3 %>%
         \begin{tabular}{l|l}
 \label{words}
             Code & Word \\ \hline
-            Word 1  & nigger   \\ \hline
+            Word 1  & Nigger   \\ \hline
+            Word 2 & Coon \\ \hline
+            Word 3 & Kike \\ \hline
+            Word 4 & Spic \\ \hline
+            Word 5 & Spook \\ \hline
         \end{tabular}
 \end{table}
 \end{figure}
@@ -415,25 +438,25 @@ code <- knitr::purl("diss.Rnw", quiet=T)
 @
 
 \section{Web Scraping Code}
-\subsection{Master Web Scraping Script}
-\lstinputlisting[language=python]{../code/web_scrape.py}
-\subsection{Collecting Data for Between-Region Comparisons}
-\lstinputlisting[language=python]{../code/between_regions.py}
-\subsection{Collecting Within-Region Data}
-\lstinputlisting[language=python]{../code/in_region.py}
-\subsection{Utility Functions}
-\lstinputlisting[language=python]{../code/utils.py}
-\section{Analysis Code}
-\lstinputlisting[language=R]{../code/analysis.R}
-\subsection{Utility Functions}
-\lstinputlisting[language=R]{../code/utils.R}
-\section{Unit tests}
-\subsection{For Python Code}
-\lstinputlisting[language=python]{../code/test_between_regions.py}
-\lstinputlisting[language=python]{../code/test_in_region.py}
-\lstinputlisting[language=python]{../code/test_scaling.py}
-\lstinputlisting[language=python]{../code/test_utils.py}
-\subsection{For R Code}
-\lstinputlisting[language=R]{../code/tests/testthat/test_utils.R}
+% \subsection{Master Web Scraping Script}
+% \lstinputlisting[language=python]{../code/web_scrape.py}
+% \subsection{Collecting Data for Between-Region Comparisons}
+% \lstinputlisting[language=python]{../code/between_regions.py}
+% \subsection{Collecting Within-Region Data}
+% \lstinputlisting[language=python]{../code/in_region.py}
+% \subsection{Utility Functions}
+% \lstinputlisting[language=python]{../code/utils.py}
+% \section{Analysis Code}
+% \lstinputlisting[language=R]{../code/analysis.R}
+% \subsection{Utility Functions}
+% \lstinputlisting[language=R]{../code/utils.R}
+% \section{Unit tests}
+% \subsection{For Python Code}
+% \lstinputlisting[language=python]{../code/test_between_regions.py}
+% \lstinputlisting[language=python]{../code/test_in_region.py}
+% \lstinputlisting[language=python]{../code/test_scaling.py}
+% \lstinputlisting[language=python]{../code/test_utils.py}
+% \subsection{For R Code}
+% \lstinputlisting[language=R]{../code/tests/testthat/test_utils.R}
 
 \end{document}
