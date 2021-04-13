@@ -18,8 +18,8 @@ def in_region(query, region, censor, **kwargs):
         search term in a given region
 
     """
-    pytrends = TrendReq(hl='en-US', tz=360)
     try:
+        pytrends = TrendReq(hl='en-US', tz=360)
         pytrends.build_payload(kw_list=[query], geo=region, **kwargs)
         df = pytrends.interest_over_time()
     except:
@@ -67,7 +67,6 @@ def to_wide(df):
     :returns: 'wide' DataFrame of search data, averaged by year
 
     """
-    print(df['date'])
     df['year'] = pd.DatetimeIndex(df['date']).year
     df['year'] = df['year'].apply(str)
     df = df.groupby(['year', 'code'])["n"].mean()

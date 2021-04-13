@@ -82,8 +82,6 @@ library(stargazer)
 \section*{Abstract}
 \newpage
 
-
-
 \tableofcontents
 
 \newpage
@@ -354,11 +352,11 @@ geom_raster()
 
 <<>>=
 
-model_1 <- lm(sword1 ~ as.factor(year) + code + sinclair_present, data = full_data)
+model_1 <- lm(word1 ~ as.factor(year) + code + sinclair_present, data = full_data)
 
-model_2 <- lm(sword1 ~ as.factor(year) + code + code:year+ sinclair_present, data = full_data)
+model_2 <- lm(word1 ~ as.factor(year) + code + code:year+ sinclair_present, data = full_data)
 
-model_3 <- lm(sword1 ~ as.factor(year) + as.factor(code) + as.factor(years_before), data = full_data)
+model_3 <- lm(word1 ~ as.factor(year) + as.factor(code) + as.factor(years_before), data = full_data)
 
 @
 

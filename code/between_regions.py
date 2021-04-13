@@ -16,7 +16,6 @@ def between_region(query, censor, **kwargs):
         df = df.rename(censor_string, axis="columns")
     return (df)
 
-
 def between_reigion_many(iterable, censor, **kwargs):
     iterable = iter(iterable)
     chunk1 = next(iterable)
@@ -45,39 +44,8 @@ def between_reigion_many(iterable, censor, **kwargs):
 
 def create_v_df(term, year):
     timeframe = f"{year}-01-01 {year}-12-31"
-    df = between_region([term], False, timeframe=timeframe, geo="US")
-    df = df.rename(columns={term: str(year)})
+    df = between_region(term, False, timeframe=timeframe, geo="US")
+    df = df.rename(columns={"term": str(year)})
     return df
 
 
-
-# result_1 = between_region(["socks"],
-#                           censor=False,
-#                           timeframe="2016-12-14 2017-01-25",
-#                           geo="US",
-#                           gprop="")
-
-# result_2 = between_region(["socks", "shoe", "fish"],
-#                           censor=False,
-#                           timeframe="2016-12-14 2017-01-25",
-#                           geo="US",
-#                           gprop="")
-
-# result_1.to_parquet("tests/test_data/between_region_1_uc.parquet")
-# result_2.to_parquet("tests/test_data/between_region_2_uc.parquet")
-
-
-# result_1 = between_region(["socks"],
-#                           censor=True,
-#                           timeframe="2016-12-14 2017-01-25",
-#                           geo="US",
-#                           gprop="")
-
-# result_2 = between_region(["socks", "shoe", "fish"],
-#                           censor=True,
-#                           timeframe="2016-12-14 2017-01-25",
-#                           geo="US",
-#                           gprop="")
-
-# result_1.to_parquet("tests/test_data/between_region_1_c.parquet")
-# result_2.to_parquet("tests/test_data/between_region_2_c.parquet")
