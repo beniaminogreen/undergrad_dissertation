@@ -65,7 +65,7 @@
 
 <<echo=FALSE, warn=FALSE, include=FALSE>>=
 # Set options to knit this document, load libraries
-knitr::opts_chunk$set(out.width="100%", message=F, cache=T,echo=F, warn=F, include=F)
+knitr::opts_chunk$set(out.width="100%", message=F, cache=F,echo=F, warn=F, include=F)
 library(tidyverse)
 library(sf)
 library(broom)
@@ -327,58 +327,54 @@ In the analysis I perform, I correct this mistake. I describe the correct scalin
 \end{figure}
 
 
-<<>>=
-full_data <- read_csv("../data/full_data.csv") %>%
-    mutate(code = as.factor(code))
-
-full_data %>%
-    nest(-code) %>%
-    mutate(
-           any_true =  data %>% map_lgl(~any(.$sinclair_present)),
-           any_false =  data %>% map_lgl(~any(!.$sinclair_present)),
-           changed = any_true & any_false
-    ) %>%
-    unnest()  %>%
-    arrange(changed,years_before) %>%
-    mutate(group_num = as.integer(factor(code, levels = unique(.$code)))) %>%
-    ungroup() %>%
-    mutate(col = interaction(changed,sinclair_present)) %>%
-ggplot(aes(x=year,y=group_num,fill=col)) +
-geom_raster()
-@
-
 
 \section{Results}
 
 <<>>=
 
-model_1 <- lm(word1 ~ as.factor(year) + code + sinclair_present, data = full_data)
-
-model_2 <- lm(word1 ~ as.factor(year) + code + code:year+ sinclair_present, data = full_data)
-
-model_3 <- lm(word1 ~ as.factor(year) + as.factor(code) + as.factor(years_before), data = full_data)
+load("../data/models.Rdata")
 
 @
-
-
-\[
-    \text{Racially Charged Search Rate}= \beta_{1}(\text{ Sinclair Present }) + \beta_{2}(\text{ DMA fixed effects }) + \beta_{3}(\text{ year fixed effects })
-\]
-
 
 
 <<include=TRUE, results="asis">>=
-stargazer(model_1, model_2,
+stargazer(model_1, model_2, model_4, model_5,
           omit=c('^as\\.factor\\(year\\)[0-9]{4}$',
                  "^code[0-9]{3}$",
-                 "^code[0-9]{3}\\:year$"
+                 "^code[0-9]{3}\\:year$",
+                 "code"
                  ),
-	title = "Fixed-Effect Model Results",
-	dep.var.labels = c("Frequency of Google Searches for \\wone"),
+	title = "Fixed Effects Models For Sinclair Aqusisition on Google Searches",
+	dep.var.labels = c("Frequency of Searches for \\wone", "Frequency of Searches for Words 1-5"),
 	covariate.labels = c("Sinclair Present", "Constant"),
-	add.lines =list(c("Year Fixed Effects", "Yes", "Yes"),c("Region Fixed Effects", "Yes", "Yes"), c("Region Time Trends", "No", "Yes")),
+	add.lines =
+        list(
+             c("Year Fixed Effects", "Yes", "Yes", "Yes", "Yes"),
+             c("Region Fixed Effects", "Yes", "Yes","Yes", "Yes"),
+             c("Region Time Trends", "No", "Yes", "No", "Yes")),
+        omit.stat=c("LL","ser","f"),
            table.placement="H")
 @
+
+<<>>=
+library(biglm)
+library(texreg)
+load("../data/models.Rdata")
+@
+
+<<include=TRUE, results="asis">>=
+texreg(list(model_7, model_8, model_10, model_11),
+       custom.gof.rows =
+           list(
+                "Year Fixed Effects" = c("Yes", "Yes", "Yes", "Yes"),
+                "Region Fixed Effects" = c("Yes", "Yes", "Yes", "Yes"),
+                "Region Time Trends" = c("No", "Yes", "No", "Yes"),
+                "White Respondents Only" = c("No", "No", "Yes", "Yes")
+                ),
+       float.pos = "H",
+       omit.coef="code|year")
+@
+
 
 \subsection{Indentification Asssumption}
 
@@ -391,7 +387,7 @@ In this section, I test the indefication assumption, the assumption that the tre
 \]
 
 \begin{centerfig}
-\caption{Fixed-Effects Estimates of the effect of Sinclair Acquisition on Rate of Racially Charged Google Searches}
+\caption{Fixed-Effects Estimates of the effect of Sinclair Acquisition on Searches for ``\wone"}
 <<include =T, warn = FALSE >>=
 model_3 %>%
   tidy() %>%
@@ -404,7 +400,7 @@ model_3 %>%
   geom_hline(aes(yintercept=0), linetype=2) +
   geom_vline(aes(xintercept=0)) +
   xlab("Years Relative to Sinclair Acquisition") +
-  ylab("Estimated Effect of Acquisition on Number of Racially-Charged Google Searches")
+  ylab("Estimated Effect of Acquisition on Number of Searches for \"[Word 1]\"")
 @
 \end{centerfig}
 

@@ -38,9 +38,14 @@ rm(state_to_no, full_iat_data)
 iat_by_dma <- iat_by_county %>% right_join(dma_to_zip)
 rm(iat_by_county, dma_to_zip)
 
-
 # make dolumn names pretty and conforming with other datasets
 iat_by_dma <- rename_with(iat_by_dma, ~ tolower(gsub(" ", "_", .x, fixed = TRUE))) %>%
-  rename(code = dma_code)
+  rename(code = dma_code) %>%
+  mutate(code = as.numeric(code))
 
-write_csv(iat_by_dma, "data/iat_by_dma.csv")
+sinclair_data <- read_csv("../data/clean_sinclair_data.csv")
+
+clean_iat_data <- right_join(sinclair_data, iat_by_dma)
+stopifnot(nrow(iat_by_dma) == nrow(clean_iat_data))
+
+save(clean_iat_data, file = "../data/clean_iat_data.Rdata")

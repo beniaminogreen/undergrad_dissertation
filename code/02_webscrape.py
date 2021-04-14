@@ -31,7 +31,7 @@ for i, term in tqdm.tqdm(enumerate(terms)):
     final.columns = h_df.columns
     final.index = h_df.index
 
-    final.to_csv(f"data/scaled_word_{i+2}.csv")
+    final.to_csv(f"data/scaled_word_{i+1}.csv")
 
 old_df = None
 for year in range(2004, 2021):
