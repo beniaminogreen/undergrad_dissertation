@@ -78,7 +78,6 @@ ggplot(state_iat_searches, aes(word1, sbp5, label=state)) +
 load("../data/models.Rdata")
 
 
-
 ## ----include=TRUE, results="asis"---------------------------------------------
 stargazer(model_1, model_2, model_4, model_5,
           omit=c('^as\\.factor\\(year\\)[0-9]{4}$',

@@ -11,6 +11,7 @@ full_iat_data <- list.files(path = "data", pattern = "race.*.csv", full.names = 
 
 #Get estimates of bias by state
 full_iat_data %>%
+    filter(race == 6, ethnicityomb == 2) %>%
   summarize(iat = mean(d_biep.white_good_all, na.rm = T), sbp5 = mean(sbp5, na.rm = T)) %>%
   select(state, iat, sbp5) %>%
   write_csv("../data/iat_state_data.csv")

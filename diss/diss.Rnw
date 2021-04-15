@@ -1,6 +1,7 @@
 \documentclass{article}
 
 \usepackage{setspace}
+\usepackage{relsize}
 \usepackage[colorlinks, allcolors=blue]{hyperref}
 \usepackage{graphicx}
 \usepackage{pdfpages}
@@ -73,11 +74,11 @@ library(stargazer)
 @
 
 \begin{document}
-\title{Sinclair Broadcasting and Racial Resentment: Evidence from Google Trends}
+\title{Sinclair Broadcasting and Racial Resentment: Evidence from Google Trends and Project Implicit}
 \maketitle{}
 
 \newpage
-\section*{Aknowledgements}
+\section*{Acknowledgments}
 \newpage
 \section*{Abstract}
 \newpage
@@ -220,7 +221,6 @@ Social desirability bias is a pressing concern when it comes to measuring racial
 This measurement approach has an advantage over traditional survey-based measures of racial animus in that it is less subject to a social desirability bias;
 ``Google searchers are online and likely alone, both of which make it easier to express socially taboo thoughts (Kreuter et al., 2009)" \parencite[][26]{Stephens_Davidowitz_2014}.
 Further, it provides a high-resolution set of data that would be prohibitively expensive to collect from a traditional survey, especially given that the difference-in-differences approach requires a repeated survey comparable across multiple time periods.
-
 \footnote{\cite{Stephens_Davidowitz_2014} evidences this claim by reporting statistics for pornography searches. Over the past 16 years, the number of searches for ``porn" and ``news" are commensurate, yet only 14\% of GSS respondents tell the GSS they have visited a pornographic website in the past 30 days.}
 
 %As such, I give several reasons to suggest that Google trends data can be used to measure racial animus.
@@ -233,6 +233,9 @@ Indeed, ``Definition of \wone'' and ``what does \wone mean" are both among the t
 These queries suggest that many who search for the term are searching out of curiosity to investigate the term.
 
 This is not to suggest that searches for the term do not capture any variation in racial animus: the top 10 most searched related queries to the term \wones are ``I don't like \wones,"  ``fuck the \wones," and ``ship those \wones back."
+\citet{Stephens_Davidowitz_2014} evidences this claim by reporting strong correlations between opposition to interracial marriage and Google searches for \wone at the state level.
+I provide further support for this claim by reporting correlations between searches for \wone and the scores of white respondents in a state on the IAT.
+Following practices of other research using IAT data \parencite[][206]{Connor_2019} I use the scores of only white respondents.
 
 
 <<include=T, warn=FALSE>>=
@@ -246,7 +249,9 @@ state_iat_searches <- full_join(state_iat_data,word1_state_data) %>%
     drop_na()
 @
 
+
 \begin{figure}
+\ref{correlations}
     \makebox[\linewidth][c]{%
         \begin{subfigure}[bt]{.6\textwidth}
             \centering
@@ -272,13 +277,13 @@ ggplot(state_iat_searches, aes(word1, sbp5, label=state)) +
 
 \subsection{Scaling Google Trends Data:}
 
-Google trends data measures the popularity of a search on an idiosyncratic scale: a term's ``search score" in a given time is given as the volume of searches over that time divided by the volume of searches when the term was most popular.
-In this section, I describe the scaling process used to back-out an interval-level measure of search popularity from these search scores.
+Google trends data measures the popularity of a search on an idiosyncratic scale: a term's ``Google search score" in a given time is given as the volume of searches over that time divided by the volume of searches when the term was most popular.
+However, the difference-in-difference analysis I perform requires that the search volume is measured on the same scale.
+In this section, I describe the scaling process used to back out an interval-level measure of search popularity from these search scores.
 
-First, a full explanation of the problem.
 Search popularity can be obtained from Google in two flavors: a measure that compares the popularity of a search across all regions at a given time, and a measure that gives the popularity of a search in a given region across all times.
 
-The search score between regions at a given time is defined as the following:
+The search score that can be used to make comparisons between regions at a given time is defined as the following:
 \[
     \text{Between Regions Search Score} = \frac{\text{Popularity in Region } i }{\text{Popurality in the Most Popular Region}}
 \]
@@ -289,26 +294,47 @@ The search score that can be used to compare the popularity across different tim
 \]
 
 The first measure allows for comparisons between regions but not between times, while the second permits comparisons between times but only within one region.
+When combined together, these measures can be used to compare the volume of searches across both time periods and regions.
+
+As an example, we might want to compare searches for the word apple in Washington D.C. in 2017 to searches in Pensacola in 2018.
+Washington D.C. had twice the number of searches for the word apple as Pensacola in 2017. As Pensacola had three times the amount of searches for the word apple in 2017 as 2018, we know that Pensacola had just $1/6th$ the searches for the word apple in 2018 as Washington D.C. in the year 2017.
+
+By comparing the volume of searches in each region at each time to each other region, I back out a measure of search volume that is comparable both between regions and between times.
+
+\[
+    \text{Search Volume in Region } r \text{ at Time } t =
+    \mathlarger{\mathlarger{\mathlarger{\sum}}}_{i=1}^{I}
+    \mathlarger{\mathlarger{\mathlarger{\sum}}}_{j=1}^{J}
+    \frac{\text{Search Volume in Region } r \text{ at Time } t }{\text{Search Volume in Region } i \text{ at Time } j }
+\]
+With
+\begin{itemize}
+    \item regions $1\dots J$
+    \item time periods $1\dots I$
+\end{itemize}
+
+
+
+\begin{figure}
+\caption{Illustration of Scaling Algorithm}
+\include{media/scaling.tex}
+\end{figure}
 
 \section{Methods}
 
 \subsection{Tools Used}
 
-%Surveys of major social science journals routinely fail to reproduce the findings of a plurality or majority of papers from the supplementary code and data provided \parencites[][]{Nuijten_2015}{Nuijten_2020}{Eubank_2016}.
-%Failures to replicate are often due to coding errors or mistakes in transcribing the results of a calculation into a published manuscript \parencite[][276]{Eubank_2016}.
-
-I use Kintr to integrate statistical calculations into the paper, eliminating the possibility of transcription errors \parencite[][]{knitr}.
-To ensure that the methods of this paper have been properly implemented and the finding are reproducible, I tested the analysis routines using the \textit{testthat} package in R \parencite[][]{testthat} and the \textit{unittest} module in Python \parencite[][]{Python}.  But I won't make you take my word for it  –
-I provide a Docker image with the reproducibility materials to ensure others can replicate the calculations on their own systems \parencites{docker}{Boettiger_2015}.
-The net result is ``one-click reproducibility" \parencite[][]{N_st_2020}; readers can reproduce this exact paper with the push of a button from the linked materials.
-\footnote{Replication materials available \href{https://github.com/beniaminogreen/dissertation}{here}. By default, the webscraping and models using IAT data are not re-run as they are memory and time-intensive.}
+I use Knitr \parencite[][]{knitr} to integrate statistical calculations into the paper, eliminating the possibility of transcription errors.
+To ensure that the methods the findings are reproducible, I tested the analysis routines using the \textit{testthat} package in R \parencite[][]{testthat} and the \textit{unittest} module in Python \parencite[][]{Python}.
+But I won't make you take my word for it – I provide a Docker image with the reproducibility materials to ensure others can replicate the calculations on their own systems \parencites{docker}{Boettiger_2015}.
+The net result is ``one-click reproducibility" \parencite[][]{N_st_2020}; readers can reproduce this exact paper with the push of a button from the linked materials. \footnote{Replication materials available \href{https://github.com/beniaminogreen/dissertation}{here}.  By default, the web-scraping does not run, as the data take several days to collect.}
 
 \subsection{Preregistration}
 
 To avoid the possibility of fitting hypotheses to the data after results are known, I created a preregistration plan of my analysis using the Google trends data. The plan can be seen in section \ref{prereg}.
 As I decided to conduct the analysis using the project implicit data to confirm the Google trends results, I did not preregister this analysis plan.
 
-I have made just one deviation from the preregistration.
+I have made one deviation from the preregistration.
 In my preregistration, I describe a different strategy to scale the Google trends data than the one I actually employ.
 This original strategy is based on a misunderstanding of the format of Google trends data, and does not actually produce the desired measure.
 
@@ -321,12 +347,6 @@ In the analysis I perform, I correct this mistake. I describe the correct scalin
 \end{figure}
 
 
-\begin{figure}
-\caption{Illustration of Scaling Algorithm}
-\include{media/scaling.tex}
-\end{figure}
-
-
 
 \section{Results}
 
@@ -335,8 +355,6 @@ In the analysis I perform, I correct this mistake. I describe the correct scalin
 load("../data/models.Rdata")
 
 @
-
-
 <<include=TRUE, results="asis">>=
 stargazer(model_1, model_2, model_4, model_5,
           omit=c('^as\\.factor\\(year\\)[0-9]{4}$',
@@ -376,9 +394,9 @@ texreg(list(model_7, model_8, model_10, model_11),
 @
 
 
-\subsection{Indentification Asssumption}
+\subsection{Identification Assumption}
 
-In this section, I test the indefication assumption, the assumption that the treated and control units would have the outcomes if the treatment were absent.
+In this section, I test the indication assumption, the assumption that the treated and control units would have the outcomes if the treatment were absent.
 
 
 \[
@@ -403,8 +421,6 @@ model_3 %>%
   ylab("Estimated Effect of Acquisition on Number of Searches for \"[Word 1]\"")
 @
 \end{centerfig}
-
-
 
 \newpage
 \appendix{}

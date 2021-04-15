@@ -56,7 +56,6 @@ iat_white_nonhisp <- clean_iat_data %>%
     filter(race == 6, ethnicityomb == 2) %>%
       as.data.frame()
 
-
 print("Estimating Model 10 / 12")
 chunks_10 <- split(iat_white_nonhisp, (as.numeric(rownames(iat_white_nonhisp)) - 1) %/% 500000)
 chunks_10[[1]] <- biglm(d_biep.white_good_all ~ factor_year + code + sinclair_present, data = chunks_10[[1]])
