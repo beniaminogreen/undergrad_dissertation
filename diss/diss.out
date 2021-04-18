@@ -1,16 +1,17 @@
 \BOOKMARK [1][-]{section.1}{Introduction}{}% 1
 \BOOKMARK [1][-]{section.2}{Theoretical Framework}{}% 2
 \BOOKMARK [1][-]{section.3}{Background}{}% 3
-\BOOKMARK [2][-]{subsection.3.1}{Sinclair Broadcast Group}{section.3}% 4
+\BOOKMARK [2][-]{subsection.3.1}{Sinclair Broadcast Group and Causal Inference}{section.3}% 4
 \BOOKMARK [3][-]{subsubsection.3.1.1}{Does Sinclair Have a Racial Bias?}{subsection.3.1}% 5
 \BOOKMARK [2][-]{subsection.3.2}{Measuring Racial Animus}{section.3}% 6
-\BOOKMARK [2][-]{subsection.3.3}{Google Trends Data}{section.3}% 7
-\BOOKMARK [2][-]{subsection.3.4}{Scaling Google Trends Data:}{section.3}% 8
-\BOOKMARK [1][-]{section.4}{Methods}{}% 9
-\BOOKMARK [2][-]{subsection.4.1}{Tools Used}{section.4}% 10
-\BOOKMARK [2][-]{subsection.4.2}{Preregistration}{section.4}% 11
-\BOOKMARK [1][-]{section.5}{Results}{}% 12
-\BOOKMARK [2][-]{subsection.5.1}{Identification Assumption}{section.5}% 13
-\BOOKMARK [1][-]{appendix.A}{Codings for Offensive Words}{}% 14
-\BOOKMARK [1][-]{appendix.B}{Code In This Document}{}% 15
-\BOOKMARK [1][-]{appendix.C}{Web Scraping Code}{}% 16
+\BOOKMARK [3][-]{subsubsection.3.2.1}{Google Trends Data}{subsection.3.2}% 7
+\BOOKMARK [3][-]{subsubsection.3.2.2}{Scaling Google Trends Data:}{subsection.3.2}% 8
+\BOOKMARK [2][-]{subsection.3.3}{Implicit Association Test data}{section.3}% 9
+\BOOKMARK [1][-]{section.4}{Methods}{}% 10
+\BOOKMARK [2][-]{subsection.4.1}{Tools Used}{section.4}% 11
+\BOOKMARK [2][-]{subsection.4.2}{Preregistration}{section.4}% 12
+\BOOKMARK [1][-]{section.5}{Results}{}% 13
+\BOOKMARK [2][-]{subsection.5.1}{Identification Assumption}{section.5}% 14
+\BOOKMARK [1][-]{appendix.A}{Codings for Offensive Words}{}% 15
+\BOOKMARK [1][-]{appendix.B}{Code In This Document}{}% 16
+\BOOKMARK [1][-]{appendix.C}{Web Scraping Code}{}% 17
