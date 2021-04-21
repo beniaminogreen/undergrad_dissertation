@@ -31,11 +31,11 @@ RUN pacman -S --noconfirm --noprogressbar texlive-bibtexextra biber
 COPY . /opt/report
 
 CMD cd code && \
-    ./00_replicate.sh && \
+    # ./00_replicate.sh && \ # uncomment to re-run models
     cd ../diss && \
     export PATH=$PATH:/usr/bin/vendor_perl && \
     R -e "require('knitr'); knit('diss.Rnw')" && \
     pdflatex diss.tex && \
     biber diss && \
     pdflatex diss.tex && \
-    rm diss.aux diss.bbl diss.bcf diss.blg diss.log diss.out diss.toc
+    rm diss.aux diss.bbl diss.bcf diss.blg diss.log diss.out diss.toc diss.run.xml diss.R
