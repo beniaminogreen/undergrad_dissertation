@@ -3,11 +3,15 @@ library(tidyverse)
 
 #Load in all years of IAT data, consolidate race into a single column
 full_iat_data <- list.files(path = "data", pattern = "race.*.csv", full.names = T) %>%
-  map_dfr(read.csv) %>%
+  map_dfr(read.csv, colClasses=c("tblack_0to10"="numeric")) %>%
   tibble() %>%
   unite("race", raceomb:raceomb_002, sep = "", na.rm = T, remove = T) %>%
   rename_with(tolower) %>%
   group_by(state)
+
+mean(full_iat_data$d_biep.white_good_all, na.rm=T)
+range(full_iat_data$d_biep.white_good_all, na.rm=T)
+sd(full_iat_data$d_biep.white_good_all, na.rm=T)
 
 #Get estimates of bias by state
 full_iat_data %>%

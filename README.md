@@ -1,33 +1,24 @@
 # Undergrad Dissertation Repo
-This is a Git repo to manage my dissertation work.
-
-## Todo List Week of April 7th:
-
-- [x] Write rationale for using Google Trends as a proxy measure of racial animus
-- [ ] Write current literature section (balance moving away from CARS with fufilling requirements for section)
-- [x] Create ``heatmap" to show which DMAs Sinclair moves into / out of
-- [x] Run tests on random data to confirm that scaling is necessary or figure out a way to articulate that it is
-- [ ] Consider estimating average marginal treatment effects.
-
-## Todo List Week of April 1st:
-
-- [x] Re-do directory structure
-- [ ] Ensure scaling works for multiple keywords
-- [x] Add code to estimate placebo cutoff effects
-- [x] Find expanded list of keywords
-- [x] Write test assertions for R Sinclair data cleaning
-- [x] Finish coding unit tests for python code
-- [x] Finish coding unit tests for analysis routines
-- [x] Move manuscript over to Sweave
-- [x] Figure out Udunits2 install on Docker
-- [x] Nest entire paper within a Docker container
-- [ ] Write Docstrings For Python Functions
+Welcome to the repo of replication materials for my undergraduate dissertation!
+Please follow the steps below if you are interested in re-running the code used to generate the paper.
 
 ## Replication With Docker
-### [On](On) Linux:
+Using either git in the command line, or the download button above, clone this repository and navigate into it.
+
+Then, depending on your system, run the following commands.
+
+### [On](On) Linux / Mac / Windows Power Shell:
 ```
 docker build -t dissertation_replication .
-docker run --rm -v $PWD:/opt/report dissertation_replication
+docker run --rm -v ${PWD}:/opt/report dissertation_replication
 ```
-### On Windows:
-### On Mac:
+### Windows Command Line:
+```
+docker build -t dissertation_replication .
+docker run --rm -v  %cd%:/opt/report dissertation_replication
+```
+The first command could take around 40 minutes to install as installing the necessary R packages is slow.
+The next command should run in under 10 minutes.
+Once both have run, you should find a newly-generated copy of the report, ```diss.pdf``` in the ```diss``` directory.
+
+Hope you enjoy!

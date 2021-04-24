@@ -71,77 +71,74 @@
 
 <<echo=FALSE, warn=FALSE, include=FALSE>>=
 # Set options to knit this document, load libraries
-knitr::opts_chunk$set(out.width="100%", message=F, cache=F,echo=F, warn=F, include=F)
+knitr::opts_chunk$set(out.width="70%", message=F, cache=F,echo=F, warn=F, include=F)
 library(tidyverse)
 library(sf)
 library(broom)
 library(stargazer)
 @
 \begin{document}
-\title{Sinclair Broadcasting and Racial Resentment: Evidence from Google Trends and Project Implicit}
-\maketitle{}
+% \title{Sinclair Broadcasting and Racial Resentment: Evidence from Google Trends and Project Implicit}
+% \maketitle{}
 
-\newpage
-\section*{Acknowledgments}
-\newpage
-\section*{Abstract}
-\newpage
+% \newpage
+% \section*{Acknowledgments}
+% \newpage
+% \section*{Abstract}
+% \newpage
 
-\tableofcontents
+% \tableofcontents
 
-\newpage
+% \newpage
 
 \textit{This paper uses Google search terms containing offensive language as a proxy measure for racial animus. Following the practice of similar works \parencites{Stephens_Davidowitz_2014}{Chae_2015}{Chae_2018}{Isoya_2021}, I use coded language to refer to these terms. The words themselves can be found in \autoref{words}}
 
 \section{Introduction}
 
 Can media coverage influence racial resentment?
-Empirical studies suggest that when White Americans understand welfare policies to threaten their privileged status in the U.S. Social hierarchy, their resentment of minorities increases and their support for welfare decreases \parencites[][]{Willer_2016}{Wetts_2018}.
-This tendency seems to be weaponed by conservative media institutions and politicians, who encourage racial animus to erode support for social programs, as in the infamous example of the ``Welfare Queen" narrative, a racial stereotype employed to undercut support for the Aid to Families with Dependent Children (AFDC).
-However, the link between traditional media coverage and racial resentment has not been extensively studied.
+Empirical studies suggest that when White Americans understand welfare policies to threaten their privileged status in the U.S. social hierarchy, they feel more hostile towards minorities, and their support for welfare decreases \parencites[][]{Willer_2016}{Wetts_2018}.
+This tendency has historically been weaponized by conservative media institutions, who stoke racial hostility to erode support for social programs, as in the infamous example of the ``Welfare Queen" narrative, a racial stereotype employed to undercut support for the Aid to Families with Dependent Children (AFDC).
+However, the link between media coverage and racial resentment has not been extensively studied outside of experimental settings.
+Specifically, while we know from laboratory experiments that racially framings of news stories can increase racial animus \parencites{Wetts_2018}{Gilliam_2000}, there is little literature that documents this process in the real world, or helps understand the effects of \textit{long-term} exposure to these framings \parencite[][532]{Schemer_2013}.
 
-I use the expansion of the Sinclair Broadcasting Group from 2004-2021 to understand how conservative media messaging impacts racial resentment in a media market.
-The expansion of the Sinclair Broadcasting Group during this period provides the basis for a difference-in-differences analysis estimating the effect of Sinclair Media purchasing a station on racial animus in an area.
+Does racially-conservative media influence consumers' racial attitudes outside of an experimental setting?
+To answer this question, I use the expansion of Sinclair Broadcasting Group, a conservative media conglomerate, from the period of 2004-2020 as the basis for a preregistered difference-in-differences analysis.
 
-I use two internet-based measures of racial animus, the number of google searches containing racial epiphets, and average scores on the IAT as measures of racial animus in an area.
-Google trends data have previously been used to measure the contributions of racial resentment towards African-American mortality \parencites{Chae_2018}{Chae_2015}, election outcomes \parencite{Stephens_Davidowitz_2014}, and economic inequality \parencite[][]{Connor_2019}, and does not suffer from the same social censoring issues that confound traditional measures.
+Data on racial animus is scarce, and rife with social desirability biases, so I use an internet-based measure of racial animus: the number of Google searches containing the word ''\wone.''
+The google trends data has such a large variance that the difference-in-differences analysis I run is severely underpowered, and would likely not be able to detect plausible effects.
+Accordingly, I incoproprate and average scores on the Harvard Implicit Association Test, a massively peopular online experiment, as measures of racial animus.
 
 Overall, I find no link between Sinclair moving into a county and changes of racial resentment.
 This result is robust to multiple measurement strategies and specifications.
 
 \section{Theoretical Framework}
+\subsection{What Characterizes Racially Conservative Coverage, and What Does It Mean for Public Opinion?}
 
-Data on racial animus is scarce, and rife with social desirability and reporting biases.
-To circumvent these problems, I turn to two internet-based measures of racial animus: the number of Google searches for racial epithets in a region, and scores on the Harvard IAT.
+I use the term-racially conservative to denote a particular media framing characterized by its insistence that race does not shape modern-day Americans life prospects and ``that individual characteristics, not structural barriers, explain group-based disparities" \parencite[][3]{Engelhardt_2019}.
+In its most extreme forms, this framing instructs consumers that ``demands from minority groups for special attention and improvements to their station" \parencite[][3]{Engelhardt_2019} are either without basis, attempts to defraud the welfare state, or calls to redress Black American cultural failings.
+These framings also disproportionately frame recipients of welfare spending as African-American \parencite[][]{Gilens_2009}.
 
-I contribute to an existing body of research \parencites{DellaVigna_2007}{Miho_2018}{Gentzkow_2006}{Gentzkow_2011}{Morris_2005} that uses the variation in station ownership caused by the expansion of major news institutions as the basis of a causal study.
+Studies in the literature have focused on the effects of racial media coverage on racial attitudes in the short-term (respondents are typically asked questions on racial issues immediately after being shown a treatment), but there has been comparatively little investigation in to whether these effects are long-lasting, or persist outside of an experiment \parencite[][532]{Schemer_2013}.
 
-\citet{Ladd_2009} document four major hurdles to convincingly document several major hurdles to documenting media persuasion --- a lack of major variation in media coverage, poor measures of media exposure, and alternative explanations for media effects (consumer self-selection and media outlet pandering towards consumer).
+%Survey studies have shown that messages and framing of this type increase racial resentment in survey experiments \parencites[][]{Willer_2016}{Wetts_2018}.
 
-First, there is little variation in media messaging; news outlets have a financial incentive to carve out a segment of the market \parencite[][]{Mullainathan_2005}, and so generally generally endorse candidates / employ framings sympathetic to a single party \parencites[][395]{Ladd_2009}[][13]{Ansolabehere_2006}.
-Second, measures of media exposure are often primitive \parencite[][395]{Ladd_2009}.
+%There is some evidence to suggest that exposure to negative racial stereotypes can increase racial prejudice \parencite[][538]{Schemer_2013}
 
-Where effects are found, it can be difficult to understand whether they come as a result of media persuading consumers, consumers shifting their news consumption to align with their existing views, or media institutions shifting their coverage to better align with the interests of their readers \parencite[][395]{Ladd_2009}.
+\subsection{The Sinclair Group and Its Advantages for Causal Inference}
 
-\citet{DellaVigna_2007} and \citet{Ladd_2009}, use difference-in-differences approaches to estimate the effect of changes in media endorsement on election outcomes.
+\citet{Ladd_2009} document four major hurdles to convincingly identifying the effects of media framing on public opinion: a lack of major variation in media coverage, poor measures of media exposure, and alternative explanations for media effects (consumer self-selection and media outlet pandering towards consumer).
+I use these hurdles to motivate using Sinclair's expansion to study racial attitudes.
+I discuss each of these hurdles in turn, and describe how my research strategy overcomes (or struggles to overcome) each obstacle.
 
-\section{Background}
-\subsection{Sinclair Broadcast Group}
+\subsubsection{Variation in Messaging}
+One of the primary issues in studying the effects of media framing is there is little variation in media messaging; news outlets have a financial incentive to carve out a segment of the market \parencite[][]{Mullainathan_2005}, and so generally generally endorse candidates / employ framings sympathetic to a single party \parencites[][395]{Ladd_2009}[][13]{Ansolabehere_2006}.
+ In this paper, I exploit Sinclair's expansion over the period 2004-2020 as the basis of a difference-in-differences model.
+Here, I describe Sinclair Broadcasting Group, and why its expansion can be used source of variation in media framing.
 
-In this paper, I use the expansion of the Sinclair Broadcasting Group from 2004-2020 as the basis of a difference-in-differences analysis.
-Founded in 1971 as the Chesapeake Television Corporation, the Sinclair Broadcasting Group is one of the largest telecommunications providers in the U.S, and has grown to serve the maximum 39\% of houseolds allowable under U.S. law \parencite[][1]{Scherer_2018}.
-
-Sinclair's pattern of expansion stands out from other providers in the industry.
-Rather than purchasing stations in large media markets across the country, Sinclair has expanded by buying up stations in small media markets.
-Previous research has demonstrated that Sinclair acquisition of a network is associated with a sharp rightwards shift in its coverage \parencite[][]{Martin_2019}.
-I use the change in media coverage induced by Sinclair expansion as the basis of a difference-in-difference analysis of the contribution of media framing towards racial animus.
-
-I create a record of Sinclair's station ownership over time from the company's yearly filings with the Securities and Exchange Commission, which enumerate all the stations owned by the company at the end of each year.
+Sinclair Broadcasting Group is the largest telecommunications providers in the U.S, and has grown to serve the maximum 39\% of houseolds allowable under U.S. law since its founding in 1971 \parencite[][1]{Scherer_2018}.
+A map of the media markets Sinclair either purchased or sold a station in can be seen in in \autoref{map}. A chart showing when each station became treated can be seen in \ref{treated}.
+Rather than purchasing stations in large media markets across the country, Sinclair has expanded by buying up stations in small media markets, which means a large set of ``treated" counties in the context of a difference-in-differences analysis - in the period I consider, Sinclair bought or sold stations in 68 markets.
 This strategy has previously been used by \citet{Miho_2018} to track Sinclair Expanison over the period of 1995-2017.
-A map of the media markets Sinclair either purchased or sold a station in can be seen in in figure \ref{map}. A chart showing when each station became treated can be seen in \ref{treated}.
-
-Traditionally, researchers track a network's expansion using datasets maintained by the Nielsen Corporation, the U.S. company responsible for tracking the boundaries of media markets.
-The SEC dataset has an advantage over this dataset as it is open-access, and can be published freely alongside the research.
 
 \begin{figure}
     \makebox[\linewidth][c]{%
@@ -156,12 +153,9 @@ sinclair_expansions <- read_csv("../data/clean_sinclair_data.csv") %>%
            any_false =  data %>% map_lgl(~any(!.$sinclair_present)),
            changed = any_true & any_false
     )
-
-
 dma_boundaries <- st_read("../data/dma_boundaries/dma_boundary.shp")
 dma_boundaries <- merge(dma_boundaries, sinclair_expansions, by.x="dma0", by.y="code")
 @
-
 \caption{Media Markets Sinclair Bought or Sold a Station in between 2004-2020. DMA Boundaries From \Cite[][]{Hill_2015}}
 \label{map}
 <<include = T>>=
@@ -194,52 +188,84 @@ sinclair_expansions %>%
     \end{subfigure}}\\
 \end{figure}
 
-\subsection{What Characterizes Racially Conservative Coverage?}
-
-I use the term-racially conservative to denote a particular media framing characterized by its insistence that race does not shape modern-day Americans life prospects and ``that individual characteristics, not structural barriers, explain group-based disparities" \parencite[][3]{Engelhardt_2019}.
-In its most extreme forms, this framing instructs consumers that ``demands from minority groups for special attention and improvements to their station" \parencite[][3]{Engelhardt_2019} are either without basis, attempts to defraud the welfare state, or calls to redress cultural failings of Black Americans.
-
-\subsubsection{Does Sinclair Have a Racial Bias?}
-I assume that Sinclair stations differ from non-Sinclair stations on coverage of racial issues: if Sinclair stations deploy the same coverage on racial issues as other stations, then there is no causal pathway by which Sinclair acquisition can change levels of racial resentment in a market.
-In this section, I provide evidence to motivate this assumption.
-While Sinclair's coverage of racial issues has not been extensively studied, research does show that Sinclair buying a station leads to a sharp rightwards shift in its coverage.
+Of course, using Sinclair's expansion as a source of variation in coverage presupposes that Sinclair stations differ from non-Sinclair stations on coverage of racial issues - if Sinclair stations deploy the same coverage on racial issues as other stations, then there is no causal pathway by which Sinclair acquisition can change levels of racial resentment in a market.
+I argue this is the case.
+While Sinclair's coverage of racial issues has not been extensively studied, research does show that Sinclair buying a station leads to a sharp rightwards shift in its coverage \parencite[][]{Martin_2019}.
 I argue that this effect extends to the coverage of racial issues - when Sinclair buys a station, it shifts the coverage of racial issues sharply towards the right, and provide anecdotal evidence to support this assertion.
 
-First, Sinclair explicitly models itself as a local-news alternative to Fox News, a station known for its racially-conservative coverage.
+%First, Sinclair explicitly models itself as a local-news alternative to Fox News, a station known for its racially-conservative coverage.
+%``Fox News Channel has demonstrated that people want a different level of truth, and if you can do it nationally, why not locally? If we’re successful in creating meaningful, relevant controversy, we’ll be doing a community service.''
 
-``Fox News Channel has demonstrated that people want a different level of truth, and if you can do it nationally, why not locally? If we’re successful in creating meaningful, relevant controversy, we’ll be doing a community service.''
+Sinclair frequently pushes ``must run'' segments which are mandatory for owned stations to run and often push racially-conservative framings of issues.
+Must-run segments often take the form of scripts local anchors are mandated to read, or pre-filmed segments that are broadcast over all Sinclair stations.
+\autoref{mustrun} shows images from one of these scripts being read on 30 stations and an accompanying transcript (ironically, a segment about elite control of media institutions).
+I offer examples of must-run segments with below which showcase racially-conservative framings.
 
-Sinclair frequently pushes ``must run'' segments which are mandatory for owned stations to run.
-They often take the form of scripts local anchors are mandated to read, or pre-filmed segments that are broadcast over all Sinclair stations.
-Figure \ref{mustrun} shows images from one of these scripts being read on 30 stations and an accompanying transcript (ironically, a script about elite control of media institutions).
-These must-run segments often espouse racially conservative framings of news stories.
-I offer several examples of such must-run segments below.
-
-In 2010, Sinclair stations approved for broadcast and ran ``Breaking Point," an almost cartoonishly-racist, 25-minute campaign advertisement which, among other things, cast aspersions that Obama's 2008 presidential campaign was financed by Hamas and implied Obama was a Muslim by juxtaposing clips of him saying ``As-salamu alaykum'' (peace be with you) in a speech in Cairo against audio of Islamic prayers \parencite[2:08-2:50,4:36-5:15][]{breaking_point}.
+\begin{figure}
+\caption{Sinclair News Anchors Reading a ``Must-Run'' Script (May 2018)}
+\include{media/must_run.tex}
+\label{mustrun}
+\end{figure}
 
 This year, the Sinclair broadcasting has drawn ire for a series of ``must-run'' segments on police violence following the murder of George Floyd pushing the ``Black-on-Black violence'' canard and advocating for a military response to the protests \parencites{Pleat_2020_b}{Pleat_2020_a}.
 After Kyle Rittenhouse, a seventeen-year-old from Antioch, Illinois drove to Kenosha and allegedly murdered two protesters, Sinclair broadcast a segment to 93 stations warning that American cities were `` on the edge of a race war not seen since the sixties,"  and promoted the idea of neighborhood blockades and patrols to defend neighborhoods from threat \parencite[][]{Pleat_2020_c}
 
+In 2010, Sinclair stations approved for broadcast and ran ``Breaking Point," an almost cartoonishly-racist, 25-minute campaign advertisement which, among other things, cast aspersions that Obama's 2008 presidential campaign was financed by Hamas and implied Obama was a Muslim by juxtaposing clips of him saying ``As-salamu alaykum'' (peace be with you) in a speech in Cairo against audio of Islamic prayers \parencite[2:08-2:50,4:36-5:15][]{breaking_point}.
+
 These segments do not represent the entire spectrum of political programming broadcast over Sinclair stations, but the ease with which these segments can be found and the intense vitriol they contain point to a network that is extremely racially conservative.
+Thus, it is reasonable to suppose that Sinclair acquisition pushes a station to run more racially-conservative content then it would otherwise run.
 
-\begin{figure}
-\label{mustrun}
-\caption{Sinclair News Anchors Reading a ``Must-Run'' Script (May 2018)}
-\include{media/must_run.tex}
+Thus, the link between Sinclair ownership and racially-conservative coverage and the large variation in station ownership resulting from Sinclair's expansion in the period of 2004-2020 makes Sinclair's expansion an ideal source of variation to study the effects of racially-conservative coverage on racial attitudes.
 
-\end{figure}
+\subsubsection{Primitive Measures of Media Exposure}
+
+Second, measures of media exposure are often primitive \parencite[][395]{Ladd_2009}.
+
+\subsubsection{Alternate Explanations}
+
+Where a link between media framing and persuasion is found, it is difficult to tell whether this comes as a result of news consumers genuinely being convinced by the coverage, consumers shifting their news consumption to align with their existing views, or media institutions shifting their coverage to better align with the interests of their readers \parencite[][395]{Ladd_2009}.
+I argue that these alternate explanations are not a significant concern when discussing the persuasive effects of Sinclair news.
+Sinclair broadcasts and must-run segments are presented by the same local anchors that present the rest of the news, so viewers lack the contextual information needed to understand that their coverage is inconsistent with their predispositions, and will be less likely to select away from it.
+Further, Sinclair's coverage is dictated from the top down and as such, is less-sensitive to the opinions of its viewers.
+I discuss both points in turn.
+
+\subsubsection{Audience Selection}
+First, the issue of audience selection.
+A widespread issue in individual-level studies of media effects on mass attitudes is that audiences select media outlets that cater to their predispositions.
+Audience-selection cannot function as an alternative causal explanation is primarily relevant to studies that link the media framings to opinions at an individual level, but a strong audience selection effect would leave no pathway by which Sinclair Ownership could influence racial animus (viewers would simply select away from their local station when the coverage shifted to must-run segments).
+I argue that audience selection is not an issue when considering Sinclair stations, as audiences exposed to Sinclair's must-run segments lack the contextual information needed to understand that the messages they are receiving are inconsistent with their predispositions and mentally resist or actively select away from them.
+
+\cite{Zaller_1992} articulates the principle that viewers will resist arguments they understand as inconsistent with their predispositions in his model of public opinion as the resistance axiom:
+\begin{quote}
+    ``\textsc{resistance axiom}: People tend to resist arguments inconsistent with their political predispositions, but they do so only to the extent that they possess the contextual information necessary to perceive a relationship between the message and their predispositions." \parencite[][44]{Zaller_1992}
+\end{quote}
+
+Here, Zaller is primarily concerned with ``resistance" in the sense of mental resistance or skepticism to an argument, but I argue that logic also applies with regards to consumers' choice of media outlets.
+Audiences will select away from outlets which run coverage that clashes with their predispositions, but only to the extent that they understand from contextual information that these outlets do challenge their predispositions.
+As Sinclair's must-run segments are read by the anchors and run under the chyron of the local station, news viewers lack the information needed to understand that they are watching coverage ideologically different from their normal broadcasts, they are unlikely to select away from this messaging.
+Indeed, \cite[][]{Martin_2019} find that Sinclair coming to own a station has only a very small impact on its viewership - Sinclair coming to own a station is associated with a 3\% drop in viewership over the following months \parencite[][17]{Martin_2019}.
+This leaves a very large space for Sinclair to persuade its viewers.
+Accordingly, I argue that audience-selection effects are not a major concern when evaluating this research.
+
+\subsubsection{Audience Pandering}
+Second, the issue of media institutions changing their coverage to pander to viewers.
+Sinclair's structure of ``must-run" content distribution means that this is issue is not a concern.
+Coverage is dictated from the top-down, meaning that local audiences and news crews have no ability to change their coverage to suit the views of their viewers.
+\footnote{The Seattle Sinclair station KOMO 4 is famous for running its must-run segments in the small hours of the morning so as to screen them to the fewest viewers \parencite[][]{Rosenberg_2018}. However, as far as I can tell, this practice represents the exception rather than the rule.}
 
 \subsection{Measuring Racial Animus}
 
 Measuring racial resentment is difficult.
-Overt expressions of racism are severly socially sanctioned in the U.S., so respondents who do harbor racial resentment often understate it when they are interviewed for traditional surveys \parencites{Krumpal_2011}{Kuklinski_1997}.
+Overt expressions of racism are severely socially sanctioned in the U.S., so respondents who do harbor racial resentment often understate it when they are interviewed for traditional surveys \parencites{Krumpal_2011}{Kuklinski_1997}.
 These social-desirability biases confound traditional survey measures, and lead to underestimates of the levels of racial hostility in the states.
 
-% The Google search results provide higher external validity (almost all of the population is represented in Google search data) at the cost of low power (the data is variable, so small effects would be difficult or impossible to detect).
-% I compliment this with data from Project Implicit which trades on external validity (IAT takers do not represent the general population) but the large sample size offers high power, so the chance of not finding a small effect is low.
+ The Google search results provide higher external validity (almost all of the population is represented in Google search data) at the cost of low power (the data is variable, so small effects would be difficult or impossible to detect).
+I compliment this with data from Project Implicit which trades on external validity (IAT takers do not represent the general population) but the large sample size offers extremely high power, so the chance of not finding a small effect is low.
 
 I sidestep social desirability biases by using two unconventional measures of racial animus: the number of Google searches for racial slurs in an area, and test scores from Harvard University's Project Implicit, an internet-based project to collect data on implicit biases.
 Both measures estimate racial animus from observed behavior (Google searches or the ability to associate Black and White faces with positive words) rather than asking respondents questions, so sidestep issues of self-reporting.
+
+Both measures have a large history of being used to quantify racial animus --- Google trends data have previously been used to measure the contributions of racial resentment towards African-American mortality \parencites{Chae_2018}{Chae_2015}, election outcomes \parencite{Stephens_Davidowitz_2014}, and economic inequality \parencite[][]{Connor_2019}, while data from Project Implicit has been used to estimate the effects of ingroup biases on health outcomes \parencite[][]{Leitner_2016a}, anti-black racism on Black Americans' health \parencite[][]{Leitner_2016b}, and anti-black implicit-biases on student outcomes \parencite[][]{Chin_2020}.
 
 \subsubsection{Google Trends Data}
 
@@ -252,17 +278,16 @@ Accordingly, I offer several reasons to suggest that searches for racial epithet
 
 First, Google searches do not suffer from the same social censoring as traditional measures of public opinion that rely on face-to-face or over-the-phone interviews.
 Overt expressions of racism are no longer socially palatable in the U.S.,
-Social desirability bias is a pressing concern when it comes to measuring racial animus; research has repeatedly demonstrated that \parencite[][]{Kuklinski_1997}
+Social desirability bias is a pressing concern when it comes to measuring racial animus; research has repeatedly demonstrated that respondents often understate their opposition to racial equality or the extent of their racial hostility when asked by interviewers \parencite[][]{Kuklinski_1997}.
 
-This measurement approach has an advantage over traditional survey-based measures of racial animus in that it is less subject to a social desirability bias;
+This measurement approach has an advantage over traditional survey-based measures of racial animus in that it is less subject to a social desirability bias:
 ``Google searchers are online and likely alone, both of which make it easier to express socially taboo thoughts (Kreuter et al., 2009)" \parencite[][26]{Stephens_Davidowitz_2014}.
+\footnote{\cite{Stephens_Davidowitz_2014} provides more evidence that Google searches are not subject to social censoring by providing search statistics for pornography and sensitive medical questions. Over the past 16 years, the number of searches for ``porn" and ``news" are commensurate, yet only 14\% of GSS respondents tell the GSS they have visited a pornographic website in the past 30 days \parencite[][]{gss}. By contrast, 73\% of GSS respondents in 2004 told interviewers that they had visited a site for news in the past 30 days \parencite[][]{gss}.}
+
 Further, it provides a high-resolution set of data that would be prohibitively expensive to collect from a traditional survey, especially given that the difference-in-differences approach requires a repeated survey comparable across multiple time periods.
-\footnote{\cite{Stephens_Davidowitz_2014} evidences this claim by reporting statistics for pornography searches. Over the past 16 years, the number of searches for ``porn" and ``news" are commensurate, yet only 14\% of GSS respondents tell the GSS they have visited a pornographic website in the past 30 days.}
 
-%As such, I give several reasons to suggest that Google trends data can be used to measure racial animus.
-
-%Originally developed by \citet{Stephens_Davidowitz_2014} to understand the link between racial animus and the under-performance of Black candidates in national elections.
-%This measure has significant advantages over traditional survey-based methods as it is not subject to the same social desirability biases that confound traditional measures; and provides a rich, regularly-sampled repeated measure of racial animus.
+Originally developed by \citet{Stephens_Davidowitz_2014} to understand the link between racial animus and the under-performance of Black candidates in national elections.
+This measure has significant advantages over traditional survey-based methods as it is not subject to the same social desirability biases that confound traditional measures; and provides a rich, regularly-sampled repeated measure of racial animus.
 
 A pressing concern is that searches for  the word ``\wone'' might not actually measure racial animus but, in fact, reflect users learning about the term.
 Indeed, ``Definition of \wone'' and ``what does \wone mean" are both among the top 5 search queries related to term.
@@ -271,7 +296,6 @@ These queries suggest that many who search for the term are searching out of cur
 This is not to suggest that searches for the term do not capture any variation in racial animus: the top 10 most searched related queries to the term \wones are ``I don't like \wones,"  ``fuck the \wones," and ``ship those \wones back."
 \citet{Stephens_Davidowitz_2014} evidences this claim by reporting strong correlations between opposition to interracial marriage and Google searches for \wone at the state level.
 I provide further support for this claim by reporting correlations between searches for \wone and the scores of White respondents in a state on the IAT.
-Following practices of other research using IAT data \parencite[][206]{Connor_2019} I use the scores of only White respondents.
 
 <<include=T, warn=FALSE>>=
 library(ggrepel)
@@ -283,7 +307,6 @@ state_iat_searches <- full_join(state_iat_data,word1_state_data) %>%
     mutate(sbp5 = 5 - sbp5) %>%
     drop_na()
 @
-
 \begin{figure}
 \ref{correlations}
     \makebox[\linewidth][c]{%
@@ -308,9 +331,48 @@ ggplot(state_iat_searches, aes(word1, sbp5, label=state)) +
 @
     \end{subfigure}}\\
 \end{figure}
+\subsubsection{IAT Scores}
 
-\subsubsection{Scaling Google Trends Data:}
+\begin{figure}
+\includegraphics[width=.95\textwidth]{raceiat.png}
+\caption{Slides From an IAT test \parencite[][]{iat_2021}}
+\label{slides}
+\end{figure}
+
+To provide a second measure of racial animus, I use data from the Harvard race IAT \parencite[][]{iat_2021}.
+The Harvard IAT is an internet-based quiz founded in 1998 that seeks to measure implicit associations between ``concepts (e.g., Black people, gay people) and evaluations (e.g., good, bad)''  \parencite[][]{iat_web}.
+
+The race IAT asks participants are sort good and bad words, and African-American and European-American into two categories.
+Examples of these faces and words can be seen in figure \ref{slides}.
+The IAT records the difference in the speed with which respondents can sort European-American faces with good words / African-American faces with bad words, and European-American faces with bad words / African-American faces with good words.
+
+The IAT records the differences in the speed with which respondents can sort European-American + Good / African-American + Bad together and European-American + Bad / African-American + Good together.
+The IAT would record a positive score (an implicit preference for European-Americans) if a respondent was quicker to code European-American + Good / African-American + Bad together than they were to code European-American + Bad / African-American + Good together.
+The underlying logic behind using the differences in speeds is that ``making a response is easier when closely related items share the same response key [category]" \parencite[][]{iat_2021}, so respondents who have a strong implicit association between African-American and Bad will find it more difficult to code European-American and Good together.
+
+The IAT responses are not subject to social-desirability biases as they are determined by implict associations that respondents cannot control.
+In fact, methodological studies have shown that even when asked to create a certain results, participants are unable to devise or enact a strategy to get their desired results unless given specific instructions on how to do so by a researcher \parencite[][88-91]{Kim_2003}.
+
+\section{Measurement Strategy}
+
+Having provided a rationale for the measures I use, I now describe the process of constructing these measures, and the data sources used.
+I briefly describe how I track Sinclair's Expansion before discussing my two measures of racial animus, Google searches for ''\wone" and race IAT scores.
+
+\subsection{Measuring Sinclair Expansion}
+
+Traditionally, researchers track a network's expansion using datasets maintained by the Nielsen Corporation, the U.S. company responsible for tracking the boundaries of media markets.
+I create a record of Sinclair's station ownership over time from the company's yearly 10-K filings with the Securities and Exchange Commission.
+This dataset has an advantage over this dataset as it is open-access, and can be published freely alongside the research.
+
+In each of their yearly SEC filings, Sinclair enumerates all the stations owned by the company at the end of the financial year, and the name of the media market they are in.
+I extract the unique media market names in each yearly filing to understand which markets Sinclair is present in.
+Because the media market names are inconsistent between years, I translate the media market names into their DMA codes manually, and use DMA codes for the rest of the analysis.
+
+\subsection{Measuring Google Trends Data}
 \label{scalingdesc}
+
+I use the frequency of searches for the word ``\wone" as a proxy for racial animus in an area.
+In this section I describe a new strategy for translating the search frequency data given by the Google Trends interface into a measurement that can be used with the difference-in-differences approach I use.
 
 Google trends data measures the popularity of a search on an idiosyncratic scale: a term's ``Google search score" in a given time is given as the volume of searches over that time divided by the volume of searches when the term was most popular.
 However, the difference-in-difference analysis I perform requires that the search volume is measured on the same scale.
@@ -335,50 +397,31 @@ When combined together, these measures can be used to compare the volume of sear
 As an example, we might want to compare searches for the word apple in Washington D.C. in 2017 to searches in Pensacola in 2018.
 Washington D.C. had twice the number of searches for the word apple as Pensacola in 2017. As Pensacola had three times the amount of searches for the word apple in 2017 as 2018, we know that Pensacola had just $1/6th$ the searches for the word apple in 2018 as Washington D.C. in the year 2017.
 
-By comparing the volume of searches in each region at each time to each other region, I back out a measure of search volume, $v$ that is comparable both between regions and between times.
+By comparing the volume of searches in each region at each time to each other region, I back out the a measure a measure, $v$ that is comparable both between regions and between times.
+This measurement is on an arbitrary scale, so I standardize such that a value of 1 corresponds to the mean search popularity.
+Put formally, I derive  search volume in region $r$ at time $t$ $v_{jt}$ with the following formula:
 
 \[
-    v_{rt} \propto
+    v_{rt} =
+    \frac{1}{J \times I}
     \mathlarger{\mathlarger{\mathlarger{\sum}}}_{i=1}^{I}
     \mathlarger{\mathlarger{\mathlarger{\sum}}}_{j=1}^{J}
-    \frac{v_{rt}}{v_{ij}}
 \]
 
-For every $v_{rt} \neq v_{i'j'}$, where:
 \begin{itemize}
-    \item $v_{ij}$ Represents the search volume in region i at time j
+    \item $v_{rt}$ is proportional to the search volume in region $r$ at time $t$ (recall, the measure is on an arbitrary scale)
     \item Regions $j \in (1\dots J)$
     \item Time periods $i \in  (1\dots I)$
 \end{itemize}
 
-\begin{figure}
-\caption{Illustration of Scaling Algorithm}
-\include{media/scaling.tex}
-\end{figure}
+Because we know the ratio of the search volume at each region / time to the search volume at each other / region time, by averaging the ratios of one region to every other, we can find the average ratio of the volume with respect to other volumes.
 
-\subsection{Implicit Association Test data}
+% \begin{figure}
+% \caption{Illustration of Scaling Algorithm}
+% \include{media/scaling.tex}
+% \end{figure}
 
-\begin{figure}
-\includegraphics[width=.95\textwidth]{raceiat.png}
-\caption{Slides From an IAT test \parencite[][]{iat_2021}}
-\label{slides}
-\end{figure}
-
-To provide a second measure of racial animus, I use data from the Harvard race IAT \parencite[][]{iat_2021}.
-The Harvard IAT is an internet-based quiz founded in 1998 that seeks to measure implicit associations between ``concepts (e.g., Black people, gay people) and evaluations (e.g., good, bad)''  \parencite[][]{iat_web}.
-
-The race IAT asks participants are sort good and bad words, and African-American and European-American into two categories.
-Examples of these faces and words can be seen in figure \ref{slides}.
-The IAT records the difference in the speed with which respondents can sort European-American faces with good words / African-American faces with bad words, and European-American faces with bad words / African-American faces with good words.
-
-The IAT records the differences in the speed with which respondents can sort European-American + Good / African-American + Bad together and European-American + Bad / African-American + Good together.
-The IAT would record a positive score (an implicit preference for European-Americans) if a respondent was quicker to code European-American + Good / African-American + Bad together than they were to code European-American + Bad / African-American + Good together.
-The underlying logic behind using the differences in speeds is that ``making a response is easier when closely related items share the same response key [category]" \parencite[][]{iat_2021}, so respondents who have a strong implicit association between African-American and Bad will find it more difficult to code European-American and Good together.
-
-The IAT responses are not subject to social-desirability biases as they are determined by implict associations that respondents cannot control.
-In fact, methodological studies have shown that even when asked to create a certain results, participants are unable to devise or enact a strategy to get their desired results unless given specific instructions on how to do so by a researcher \parencite[][88-91]{Kim_2003}.
-
-IAT scores also
+\subsection{Implicit Association Test Scores}
 
 Data from the IAT is recorded at the county level, I measure racial animus at the larger DMA level.
 To solve this issue, I aggregate IAT scores to the DMA level using a crosswalk of US counties to DMA ID's from 2016 \parencite[][]{Guarv_2016}.
@@ -397,6 +440,7 @@ The result is ``one-click reproducibility" \parencite[][]{N_st_2020}; readers ca
 
 To avoid the possibility of fitting hypotheses to the data after results are known, I preregistered my analysis using the Google trends data.
 Readers can find the preregistration plan in \autoref{prereg}.
+I wrote the original webscraping and scaling code using placebo data (searches for the words `socks,' `shoes,' and `fish') before running the code on actual data.
 
 I have made one deviation from the preregistration.
 In my preregistration, I describe a different strategy to scale the Google trends data than the one I actually employ.
@@ -419,56 +463,30 @@ In the analysis I perform, I correct this mistake. I describe the correct scalin
 
 \section{Results}
 
+\subsection{Sinclair Entry on Google Trends Measurement}
 
+\autocite{googlereg} shows the results of the difference-in-difference analyses estimating the effect of Sinclair entry into a market on levels of racial hostility in the area, as measured by Google searches including the word \wone.
+Model 1 presents a ``vanilla" difference-in-differences model including region and year fixed effects.
+In Model 2, I include region-specific linear time trends, a way to slightly relax the parallel trends assumption.
 
-<<>>=
+The coefficient for Sinclair's presence recovers the average effect of SBG moving into / out of an area among the treated units.
+Across all models, this coefficient is not distinguishable from zero.
+However, the confidence intervals associated with these estimates do not rule out plausible effect sizes.
 
-load("../data/models.Rdata")
+Recall that the original measure of search frequency I constructed was on an arbitrary scale, so I standardize the measurement.
+The confidence associated with the second model is (-.348, .008) which does suggest that Sinclair moving into a county is not meaningfully associated with the number of Google searches for the word \wone in the region, but the confidence interval associated with the first model is (-..161, .062), which does not rule out as much 6\% of the mean search volume.
+I suggest there is no reason to prefer the results from model 1 over model 2, so the link between SBG moving into a market and racial hostility as measured by Google searches should be considered ambiguous.
 
-@
-<<include=TRUE, results="asis">>=
-stargazer(model_1, model_2, model_4, model_5,
-          omit=c('^as\\.factor\\(year\\)[0-9]{4}$',
-                 "^code[0-9]{3}$",
-                 "^code[0-9]{3}\\:year$",
-                 "code"
-                 ),
-	title = "Fixed Effects Models For Sinclair Aqusisition on Google Searches",
-	dep.var.labels = c("Frequency of Searches for \\wone", "Frequency of Searches for Words 1-5"),
-	covariate.labels = c("Sinclair Present", "Constant"),
-	add.lines =
-        list(
-             c("Year Fixed Effects", "Yes", "Yes", "Yes", "Yes"),
-             c("Region Fixed Effects", "Yes", "Yes","Yes", "Yes"),
-             c("Region Time Trends", "No", "Yes", "No", "Yes")),
-        omit.stat=c("LL","ser","f"),
-           table.placement="H")
-@
+Further, the width of these confidence intervals suggest that the analysis is severely underpowered - the fact that a -17\% of the mean decrease in the volume of searches is only significant at the $\alpha=.1$ level suggests that the models would not be able to detect any small effects.
+The fact that a 17\% is only significant at the $\alpha = .1$ level might cause some to question whether the models can detect any plausible effects at all.
+I argue that effect sizes these large \textit{are} plausible as searches containing the word ``\wone'' are likely driven by a small number of searchers.
+Thus, a media effect that moves a small number of users to start completing searches with the word could plausibly result in a large percentage increase in the volume of searches including the word ``\wone."
 
-<<>>=
-library(biglm)
-library(texreg)
-load("../data/models.Rdata")
-@
-
-<<include=TRUE, results="asis">>=
-texreg(list(model_7, model_8, model_10, model_11),
-       custom.gof.rows =
-           list(
-                "Year Fixed Effects" = c("Yes", "Yes", "Yes", "Yes"),
-                "Region Fixed Effects" = c("Yes", "Yes", "Yes", "Yes"),
-                "Region Time Trends" = c("No", "Yes", "No", "Yes"),
-                "White Respondents Only" = c("No", "No", "Yes", "Yes")
-                ),
-       float.pos = "H",
-       omit.coef="code|year")
-@
-
+Undeniably however, the width of the confidence intervals mean that the results from the Google Trends analysis are unilluminating.
+Sinclair moving into a county could either have a negative effect, or no effect, or a small effect on searches for including the word ``\wone."
+For this reason, I turn to evidence from the Project Implicit Implicit Association Tests.
 
 \subsection{Identification Assumption}
-
-In this section, I test the indication assumption, the assumption that the treated and control units would have the outcomes if the treatment were absent.
-
 
 \[
     \text{Racially Charged Search Rate} = \beta_{1}(\text{ Sinclair Present }) + \beta_{2}(\text{ DMA fixed effects }) + \beta_{3}(\text{ year fixed effects }) +
@@ -476,7 +494,9 @@ In this section, I test the indication assumption, the assumption that the treat
 \]
 
 \begin{centerfig}
-\caption{Fixed-Effects Estimates of the effect of Sinclair Acquisition on Searches for ``\wone"}
+<<>>=
+load("../data/models.Rdata")
+@
 <<include =T, warn = FALSE >>=
 model_3 %>%
   tidy() %>%
@@ -489,10 +509,107 @@ model_3 %>%
   geom_hline(aes(yintercept=0), linetype=2) +
   geom_vline(aes(xintercept=0)) +
   xlab("Years Relative to Sinclair Acquisition") +
-  ylab("Estimated Effect of Acquisition on Number of Searches for \"[Word 1]\"")
+  ylab("Estimated Effect of Acquisition on Number of Searches for \"[Word 1]\"")+
+  ggtitle("Sinclair Acquisition on searches for \"[Word 1]\"")
 @
+\caption{Fixed-Effects Estimates of the effect of Sinclair Acquisition on Searches for ``\wone"}
 \end{centerfig}
 
+<<include=TRUE, results="asis">>=
+stargazer(model_1, model_2,
+          omit=c('^as\\.factor\\(year\\)[0-9]{4}$',
+                 "^code[0-9]{3}$",
+                 "^code[0-9]{3}\\:year$",
+                 "code"
+                 ),
+        ci = TRUE,
+	title = "Fixed Effects Models For Sinclair Aqusisition on Google Searches",
+	dep.var.labels = c("Standardized Frequency of Searches for \\wone"),
+	covariate.labels = c("Sinclair Present", "Constant"),
+	add.lines =
+        list(
+             c("Year Fixed Effects", "Yes", "Yes", "Yes", "Yes"),
+             c("Region Fixed Effects", "Yes", "Yes","Yes", "Yes"),
+             c("Region Time Trends", "No", "Yes", "No", "Yes")),
+        omit.stat=c("LL","ser","f"),
+			label = "googlereg",
+           table.placement="H")
+@
+
+\subsection{Sinclair Data on IAT Scores}
+
+As the analysis I perform using google trends data is underpowered, I incorporate a second internet-based source of data on racial animus, data from the Harvard IAT.
+To investigate the possibility of Sinclair Broadcasting having a small effect on levels of racial animus in an area, I repeat the same difference-in-differences approach using another measurement, scores on the Harvard Race IAT.
+The IAT has a significant advantage over the Google trends data - a massive sample size.
+3,936,939 Americans including 2,014,672 White Americans have taken the IAT between 2004 and 2021.
+I highlight the number of White respondents as the concept of racial animus is discussed in this paper is primarily relevant to the dominant racial group in the U.S. \parencite[206]{Connor_2019}.
+As such, I estimate the effect of Sinclair moving into a region among all respondents and, separately, among only White respondents.
+This approach is consistent with other works that use IAT data \parencites{Connor_2019}{Leitner_2016b}
+
+I estimate the effect of Sinclair entering or leaving a media market on IAT scores in the area among all respondents, and among only white respondents in Models 1 and 3.
+I relax the parallel trends assumption by allowing for linear time trends in Models 2 and 4.
+The model estimates can be seen below:
+
+<<>>=
+library(biglm)
+library(texreg)
+load("../data/models.Rdata")
+@
+<<include=TRUE, results="asis">>=
+texreg(list(model_7, model_8, model_10, model_11),
+    custom.coef.names = c("Intercept", "Sinclair Present"),
+        digits = 3,
+       custom.gof.rows =
+           list(
+                "Year Fixed Effects" = c("Yes", "Yes", "Yes", "Yes"),
+                "Region Fixed Effects" = c("Yes", "Yes", "Yes", "Yes"),
+                "Region Time Trends" = c("No", "Yes", "No", "Yes"),
+                "White Respondents Only" = c("No", "No", "Yes", "Yes")
+                ),
+       ci.force=T,
+       ci.force.level = 0.95,
+       float.pos = "H",
+       omit.coef="code|year")
+@
+<<include=TRUE, results="asis">>=
+texreg(list(model_13, model_14, model_16, model_17),
+    custom.coef.names = c("Intercept", "Sinclair Present"),
+        digits = 3,
+       custom.gof.rows =
+           list(
+                "Year Fixed Effects" = c("Yes", "Yes", "Yes", "Yes"),
+                "Region Fixed Effects" = c("Yes", "Yes", "Yes", "Yes"),
+                "Region Time Trends" = c("No", "Yes", "No", "Yes"),
+                "White Respondents Only" = c("No", "No", "Yes", "Yes")
+                ),
+       ci.force=T,
+       ci.force.level = 0.95,
+       float.pos = "H",
+       omit.coef="code|year")
+@
+
+Across all four models, the coefficient estimates are always insignificant.
+Every confidence interval excludes effects larger than .006.
+This suggests that Sinclair Broadcasting moving into a media market does not have a meaningfully large effect on the levels of implicit bias among IAT takers in the region.
+
+\begin{centerfig}
+<<include =T, warn = FALSE >>=
+model_15 %>%
+  tidy() %>%
+  na.omit() %>%
+  filter(grepl("years_before", term)) %>%
+  mutate(term = as.numeric(gsub("[^0-9\\-]+", "", term))) %>%
+  ggplot(aes(x = term, y = estimate))  +
+  geom_point() +
+  geom_errorbar(aes(ymin = estimate - 1.96 * std.error, ymax = estimate + 1.96 * std.error)) +
+  geom_hline(aes(yintercept=0), linetype=2) +
+  geom_vline(aes(xintercept=0)) +
+  xlab("Years Relative to Sinclair Acquisition") +
+  ylab("Estimated Effects of Acquisition on IAT scores") +
+  ggtitle("Sinclair Acquisition on IAT scores")
+@
+\caption{Fixed-Effects Estimates of the effect of Sinclair Acquisition on IAT scores}
+\end{centerfig}
 
 \newpage
 \appendix{}
@@ -514,52 +631,51 @@ model_3 %>%
         \end{tabular}
 \end{table}
 
-\printbibliography[heading=bibnumbered]
+% \printbibliography[heading=bibnumbered]
 
-\section{Preregistration Document}
-\label{prereg}
-\includepdf[scale=0.8,pages=-,pagecommand=\subsection{Pregistration}]{../preregistration/preregistration}
+% \section{Preregistration Document}
+% \label{prereg}
+% \includepdf[scale=0.8,pages=-,pagecommand=\subsection{Pregistration}]{../preregistration/preregistration}
 
 
-\section{Code}
-To fulfill requirements that the code for this work is scanned by turnitin, I append the code used to make this report below.
-For human readers interested in the code, I strongly recommend the \href{https://github.com/beniaminogreen/undergrad_dissertation}{replication materials}.
+% \section{Code}
+% To fulfill requirements that the code for this work is scanned by turnitin, I append the code used to make this report below.
+% For human readers interested in the code, I strongly recommend the \href{https://github.com/beniaminogreen/undergrad_dissertation}{replication materials}.
 
-\singlespacing
-\subsection{Master Replication Script}
-\lstinputlisting[language=sh]{../code/00_replicate.sh}
-\subsection{Cleaning Sinclair Data}
-\lstinputlisting[language=R]{../code/01_clean_sinclair_data.R}
-\subsection{Web Scraping}
-\lstinputlisting[language=python]{../code/02_webscrape.py}
-\subsection{Cleaning Google Search Data}
-\lstinputlisting[language=R]{../code/03_clean_search_data.R}
-\subsection{Cleaning IAT Data}
-\lstinputlisting[language=R]{../code/04_clean_iat_data.R}
-\subsection{Running Models}
-\lstinputlisting[language=R]{../code/05_models.R}
-\subsection{Code in This Document}
-<<echo=FALSE, include=T>>=
-# Pull R code out of this document to put into the appendix
-code <- knitr::purl("diss.Rnw", quiet=T)
-@
-\lstinputlisting[language=R]{diss.R}
-\subsection{Utility Functions - R}
-\lstinputlisting[language=R]{../code/utils.R}
-\subsection{Utility Functions - Python}
-\subsubsection{Get Between-Region Google Search Data}
-\lstinputlisting[language=python]{../code/between_regions.py}
-\subsubsection{Get Between-Times Google Search Data}
-\lstinputlisting[language=python]{../code/in_region.py}
-\subsubsection{Scaling Google Search Data}
-\lstinputlisting[language=python]{../code/scaling.py}
-\subsection{Unit Tests}
-\subsubsection{For Python Code}
-\lstinputlisting[language=python]{../code/test_between_regions.py}
-\lstinputlisting[language=python]{../code/test_in_region.py}
-\lstinputlisting[language=python]{../code/test_scaling.py}
-\lstinputlisting[language=python]{../code/test_utils.py}
-\subsubsection{For R Code}
-\lstinputlisting[language=R]{../code/tests/testthat/test_utils.R}
-
+% \singlespacing
+% \subsection{Master Replication Script}
+% \lstinputlisting[language=sh]{../code/00_replicate.sh}
+% \subsection{Cleaning Sinclair Data}
+% \lstinputlisting[language=R]{../code/01_clean_sinclair_data.R}
+% \subsection{Web Scraping}
+% \lstinputlisting[language=python]{../code/02_webscrape.py}
+% \subsection{Cleaning Google Search Data}
+% \lstinputlisting[language=R]{../code/03_clean_search_data.R}
+% \subsection{Cleaning IAT Data}
+% \lstinputlisting[language=R]{../code/04_clean_iat_data.R}
+% \subsection{Running Models}
+% \lstinputlisting[language=R]{../code/05_models.R}
+% \subsection{Code in This Document}
+% <<echo=FALSE, include=T>>=
+% # Pull R code out of this document to put into the appendix
+% code <- knitr::purl("diss.Rnw", quiet=T)
+% @
+% \lstinputlisting[language=R]{diss.R}
+% \subsection{Utility Functions - R}
+% \lstinputlisting[language=R]{../code/utils.R}
+% \subsection{Utility Functions - Python}
+% \subsubsection{Get Between-Region Google Search Data}
+% \lstinputlisting[language=python]{../code/between_regions.py}
+% \subsubsection{Get Between-Times Google Search Data}
+% \lstinputlisting[language=python]{../code/in_region.py}
+% \subsubsection{Scaling Google Search Data}
+% \lstinputlisting[language=python]{../code/scaling.py}
+% \subsection{Unit Tests}
+% \subsubsection{For Python Code}
+% \lstinputlisting[language=python]{../code/test_between_regions.py}
+% \lstinputlisting[language=python]{../code/test_in_region.py}
+% \lstinputlisting[language=python]{../code/test_scaling.py}
+% \lstinputlisting[language=python]{../code/test_utils.py}
+% \subsubsection{For R Code}
+% \lstinputlisting[language=R]{../code/tests/testthat/test_utils.R}
 \end{document}

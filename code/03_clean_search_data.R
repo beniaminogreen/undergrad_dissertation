@@ -13,15 +13,12 @@ stopifnot(nrow(scores) == 3570)
 
 # Put different search terms on the same scale
 scales <- read_csv("data/between_region_comparisons.csv")
+
 scaled_data <- full_join(scores, scales) %>%
   mutate(
-    sword_1 = word_1 * word1_weight/100,
-    sword_2 = word_2 * word2_weight/100,
-    sword_3 = word_3 * word3_weight/100,
-    sword_4 = word_4 * word4_weight/100,
-    sword_5 = word_5 * word5_weight/100,
-    score = sword_1 + sword_2 + sword_3 + sword_4 + sword_5
+         sword_1 = word_1/mean(word_1)
   )
+
 stopifnot(nrow(scaled_data) == 3570)
 
 sinclair_data <- read_csv("../data/clean_sinclair_data.csv")

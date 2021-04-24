@@ -47,16 +47,3 @@ def create_v_df(term, year):
     df = between_region(term, False, timeframe=timeframe, geo="US")
     df = df.rename(columns={"term": str(year)})
     return df
-
-
-result_1 = between_region(["socks"],
-                          censor=False,
-                          timeframe="2016-12-14 2017-01-25",
-                          geo="US",
-                          gprop="")
-
-expected_1 = pd.read_parquet(
-    "tests/test_data/between_region_1_c.parquet")
-
-print(result_1)
-print(expected_1)
