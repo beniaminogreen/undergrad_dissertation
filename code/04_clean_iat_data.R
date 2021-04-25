@@ -16,8 +16,7 @@ sd(full_iat_data$d_biep.white_good_all, na.rm=T)
 #Get estimates of bias by state
 full_iat_data %>%
     filter(race == 6, ethnicityomb == 2) %>%
-  summarize(iat = mean(d_biep.white_good_all, na.rm = T), sbp5 = mean(sbp5, na.rm = T)) %>%
-  select(state, iat, sbp5) %>%
+  summarize(iat = mean(d_biep.white_good_all, na.rm = T), tblack_0to10 = mean(tblack_0to10, na.rm = T)) %>%
   write_csv("../data/iat_state_data.csv")
 
 #Read in mapping of DMA codes to state codes

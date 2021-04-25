@@ -9,7 +9,7 @@ import pandas as pd
 with open("data/dma_abbreviations.pkl", "rb") as f:
     dmas = pkl.load(f)
 
-terms = ["nigger", "coon", "kike", "spic", "spook"]
+terms = ["nigger"]
 
 for i, term in tqdm.tqdm(enumerate(terms)):
     in_region_dfs = tuple(
@@ -48,10 +48,6 @@ for year in range(2004, 2021):
 
 old_df.rename(columns={
     old_df.columns[0]: "word1_weight",
-    old_df.columns[1]: "word2_weight",
-    old_df.columns[2]: "word3_weight",
-    old_df.columns[3]: "word4_weight",
-    old_df.columns[4]: "word5_weight"
 },
               inplace=True)
 
