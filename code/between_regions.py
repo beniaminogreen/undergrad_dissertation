@@ -4,6 +4,7 @@ from utils import censor_string
 import pandas as pd
 
 
+# get a set of comparisons between regions at a given time
 def between_region(query, censor, **kwargs):
     pytrends = TrendReq(hl='en-US', tz=360)
     pytrends.build_payload(query, cat=0, **kwargs)
@@ -16,6 +17,9 @@ def between_region(query, censor, **kwargs):
         df = df.rename(censor_string, axis="columns")
     return (df)
 
+
+# a version of between_many that works with multiple words,
+# takes an iterable
 def between_reigion_many(iterable, censor, **kwargs):
     iterable = iter(iterable)
     chunk1 = next(iterable)
@@ -42,6 +46,7 @@ def between_reigion_many(iterable, censor, **kwargs):
     return (df1)
 
 
+# A helper function to create between_regions comparisons for all regions at a given time
 def create_v_df(term, year):
     timeframe = f"{year}-01-01 {year}-12-31"
     df = between_region(term, False, timeframe=timeframe, geo="US")

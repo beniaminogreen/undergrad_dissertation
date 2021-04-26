@@ -23,8 +23,10 @@ stopifnot(nrow(scaled_data) == 3570)
 
 sinclair_data <- read_csv("../data/clean_sinclair_data.csv")
 
+# Join sinclair to google trends data
 full_data <- full_join(sinclair_data, scaled_data)
 
 stopifnot(nrow(full_data) == 3570)
 
+#Save dataset to be used in paper
 full_data %>% write_csv("../data/clean_search_data.csv")

@@ -1,0 +1,67 @@
+\boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {1}Introduction}{6}{section.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {2}Theoretical Framework}{7}{section.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {2.1}What Characterizes Racially biased Coverage, and What Does It Mean for Racial Attitudes?}{7}{subsection.2.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {2.2}The Sinclair Group and Its Advantages for Causal Inference}{8}{subsection.2.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {2.2.1}Variation in Messaging}{8}{subsubsection.2.2.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {2.2.2}Primitive Measures of Media Exposure}{10}{subsubsection.2.2.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {2.2.3}Alternate Explanations}{11}{subsubsection.2.2.3}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {2.2.4}Audience Selection / Motivated Reasoning}{11}{subsubsection.2.2.4}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {2.2.5}Audience Pandering}{12}{subsubsection.2.2.5}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {2.3}Measuring Racial Animus}{12}{subsection.2.3}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {2.3.1}Google Trends Data}{13}{subsubsection.2.3.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {2.3.2}IAT Scores}{15}{subsubsection.2.3.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {3}Measurement Strategy}{16}{section.3}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {3.1}Measuring Sinclair Expansion}{16}{subsection.3.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {3.2}Measuring Google Trends Data}{17}{subsection.3.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {3.3}Implicit Association Test Scores}{18}{subsection.3.3}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {4}Methodology}{19}{section.4}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {4.1}Tools Used}{19}{subsection.4.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {4.2}Preregistration}{19}{subsection.4.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {4.3}Difference-In-Differences Analysis}{20}{subsection.4.3}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {5}Results}{21}{section.5}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {5.1}Sinclair Entry on Google Trends Measurement}{21}{subsection.5.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {5.2}Sinclair Entry on IAT Responses}{23}{subsection.5.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {6}Discussion}{25}{section.6}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {7}Conclusion}{26}{section.7}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {A}Codings for Offensive Words}{28}{appendix.A}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {B}References}{28}{appendix.B}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {C}Code}{32}{appendix.C}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {D}Preregistration Document}{32}{appendix.D}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {D.1}Pregistration}{33}{subsection.D.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {D.2}Pregistration}{34}{subsection.D.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {D.3}Pregistration}{35}{subsection.D.3}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {D.4}Pregistration}{36}{subsection.D.4}%

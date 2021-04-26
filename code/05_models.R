@@ -5,6 +5,7 @@ library(biglm)
 search_data <- read_csv("../data/clean_search_data.csv")
 stopifnot(nrow(search_data) == 3570)
 
+#estimates google trends models
 print("Estimating Model 1 / 18")
 google_plain <- lm(sword_1 ~ as.factor(year) + as.factor(code) + sinclair_present, data = search_data)
 
@@ -17,6 +18,7 @@ google_lead <- lm(sword_1 ~ as.factor(year) + as.factor(code) + as.factor(years_
 # loads clean_iat_data
 load("../data/clean_iat_data.Rdata")
 
+# cleans and loads IAT data
 clean_iat_data <- clean_iat_data %>%
   mutate(
     code = as.factor(code),
@@ -25,6 +27,7 @@ clean_iat_data <- clean_iat_data %>%
   ) %>%
   as.data.frame()
 
+# A handy function I have made to estiamate a model too large to fit in memory in chunks
 big_model <- function (form, dfr) {
     chunks <- split(dfr, (as.numeric(rownames(dfr)) - 1) %/% 500000)
     chunks[[1]] <- biglm(form, data = chunks[[1]])
@@ -32,6 +35,7 @@ big_model <- function (form, dfr) {
     return(model)
 }
 
+# estimates IAT / racial thermometer  models  for all respondents
 print("Estimating Model 5 / 18")
 iat_all_plain <- big_model(d_biep.white_good_all ~ factor_year + code + sinclair_present, clean_iat_data)
 
@@ -54,6 +58,7 @@ iat_white_nonhisp <- clean_iat_data %>%
     filter(race == 6, ethnicityomb == 2) %>%
       as.data.frame()
 
+# estimates IAT / racial thermometer models for only white respondents
 print("Estimating Model 13 / 18")
 iat_white_plain <- big_model(d_biep.white_good_all ~ factor_year + code + sinclair_present, iat_white_nonhisp)
 
@@ -72,6 +77,7 @@ therm_white_linear <- big_model(tblack_0to10 ~ factor_year + code + code:year + 
 print("Estimating Model 20 / 18")
 therm_white_lead <- big_model(tblack_0to10 ~ factor_year + code + years_before, iat_white_nonhisp)
 
+# Save models out
 save(
     google_plain,
     google_linear,

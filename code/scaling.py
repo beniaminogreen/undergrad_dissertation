@@ -125,6 +125,7 @@ def repair_matrix(h_matrix, v_matrix, current):
     return current
 
 
+# main text for making ``repair dataset graphics" (not used)
 if __name__ == "__main__":
     arr = np.array([[x + 10 * y for x in range(10)] for y in range(10)])
 

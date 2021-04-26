@@ -1,5 +1,6 @@
-[#](#) Undergrad Dissertation Repo
-Welcome to the repo of replication materials for my undergraduate dissertation!
+# Undergrad Dissertation Repo
+
+Welcome to the repository of replication materials for my undergraduate dissertation!
 Please follow the steps below if you are interested in re-running the code used to generate the paper.
 
 ## Replication With Docker
