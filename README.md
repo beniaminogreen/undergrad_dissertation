@@ -1,6 +1,6 @@
-# Undergrad Dissertation Repo
+# Undergrad Thesis Repo
 
-This is a repository which contains replication materials for my undegraduate dissertation. 
+This is a repository which contains replication materials for my undegraduate thesis. 
 Since writing the paper, I have come to read more about the implicit association test (IAT) and 
 the google search indexes used in the paper and am no longer confident in their ability to measure racial animus in a given area, 
 so I would not take the (null) results in this paper as evidence for (the lack of) any trends in racial animus. The repository will remain public in line with the UCL regulations on undergraduate dissertations until 2022. 
